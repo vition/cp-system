@@ -113,9 +113,13 @@ body{
 .inbox-ico{
 	width:20px;
 	height:13px;
-	background:url("../images/inbox.gif")no-repeat center left;
+	background:url("../images/inbox.png")no-repeat center left;
 	margin-left:20px;
 	padding-left:25px;
+}
+.inbox-ico a{
+	margin:auto 3px;
+	cursor:pointer;
 }
 .logout-ico{
 	background:url("../images/logout.png")no-repeat center left;
@@ -152,4 +156,17 @@ body{
 }
 #psw-box ul li  input{
 	width:130px;
+}
+/*消息框样式*/
+#inbox-box{
+	width:500px;
+	height:300px;
+	border:1px solid #dddddd;
+	box-shadow:0 0 6px 2px #999999;
+	position:fixed;
+	top:30%;
+	left:50%;
+	margin-left:-250px;
+	margin-top:-150px;
+	background:#FFFFFF;
 }

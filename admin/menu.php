@@ -5,7 +5,9 @@
 	}
 	if($global->verify("")=="success"){
 		load_class("user");
+		load_class("message");
 		$user=new _user($serverinfo);
+		$message=new _message($serverinfo);
 		$userinfo=$user->getuser($_SESSION["username"]);
 		if($userinfo["grouplevel"]<2){
 			$global->gotopage($global->getoption("weburl"),"亲！你进了不该进的地方了！");
@@ -26,7 +28,7 @@
 <body class="menu-body">
 	<div id="body-panel">
 		<div class="head-nav"><div class="nav-frame menu-logo"></div><div class="item-frame menu-nav">
-			<div class="nav-title"><span class="span-tit user-ico">操作员：<span class="edit-psw"><?php echo $_SESSION["username"];?></span></span><span class="span-tit group-ico">权限组：<?php echo $userinfo["group"];?></span><span class="inbox-ico">信息(0)</span><a href="?logout" class="span-tit logout-ico">退出</a></div>
+			<div class="nav-title"><span class="span-tit user-ico">操作员：<span class="edit-psw"><?php echo $_SESSION["username"];?></span></span><span class="span-tit group-ico">权限组：<?php echo $userinfo["group"];?></span><span class="inbox-ico">信息 (<a><?php echo $message->unread($_SESSION["username"]);?></a>) </span><a href="?logout" class="span-tit logout-ico">退出</a></div>
 		</div></div>
 		<div id="psw-box">
 			<ul>
@@ -36,6 +38,7 @@
 			</ul>
 		</div>
 		<div><iframe class="framebase nav-frame" src="nav.php"></iframe><iframe id="page-iframe" class="framebase item-frame" src="base.php"></iframe></div>
+		<div id="inbox-box">1</div>
 		<div class="foot"><p>COPYRIGHT © 2016 TWOWAY IT RIGHTS RESERVED</p></div>
 	</div>
 </body>

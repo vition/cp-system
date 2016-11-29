@@ -19,7 +19,7 @@
 			$userArr=$projects->getRelevantUser($_POST["pid"]);
 			foreach($userArr as $val){
 				if($val!=$_SESSION["username"]){
-					$mes=array("tid"=>$_POST["pid"],"from"=>$_SESSION["username"],"to"=>"{$val}","content"=>"您好！员工{$_SESSION["username"]}对与您相关的IP【<a target='_blank' href='".$global->getoption("weburl")."page.php?id={$_POST["pid"]}'>".$projects->getProjectKey($_POST["pid"])."</a>】做出了评论，内容如下：{$_POST["content"]}");
+					$mes=array("type"=>"comment","tid"=>$_POST["pid"],"from"=>$_SESSION["username"],"to"=>"{$val}","content"=>$global->en_quotes("您好！员工{$_SESSION["username"]}对与您相关的IP<a target='_blank' href='".$global->getoption("weburl")."page.php?id={$_POST["pid"]}'>【".$projects->getProjectKey($_POST["pid"])."】</a>做出了评论，内容如下：{$_POST["content"]}"));
 					//print_r($mes);
 					$message->sendMes($mes);
 				}

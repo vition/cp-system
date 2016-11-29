@@ -2,7 +2,11 @@
 	require_once('../config.php');
 	if($global->verify("")=="success"){
 		load_class("user");
+		load_class("message");
+		load_class("projects");
 		$user=new _user($serverinfo);
+		$projects=new _projects($serverinfo);
+		$message=new _message($serverinfo);
 		$gorup=$user->getuser($_SESSION["username"]);
 	}else{
 		$global->gotopage($global->getoption("weburl"));
@@ -15,6 +19,15 @@
 			$query="SELECT `id` FROM `feedback` WHERE `pid`='{$_POST["pid"]}' AND `username`='{$_SESSION["username"]}'";
 			$result=$global->query($query);
 			$array=$result->fetch_array(1);
+			$userArr=$projects->getRelevantUser($_POST["pid"]);
+			foreach($userArr as $val){
+				if($val!=$_SESSION["username"]){
+					$mes=array("type"=>"feedback","tid"=>$_POST["pid"],"from"=>$_SESSION["username"],"to"=>"{$val}","content"=>$global->en_quotes("您好！员工{$_SESSION["username"]}对与您相关的IP<a target='_blank' href='".$global->getoption("weburl")."page.php?id={$_POST["pid"]}'>【".$projects->getProjectKey($_POST["pid"])."】</a>做出了反馈，内容如下：{$_POST["contents"]}"));
+					//print_r($mes);
+					$message->sendMes($mes);
+				}
+				
+			}
 			?>
 			<ul data-fid="<?php echo $array["id"];?>">
 				<li class="feed-list-user"><span><?php echo $_SESSION["username"];?></span><span>发布时间：<?php echo $time;?></span><span>最后编辑：<?php echo $time;?></span></li>
@@ -28,7 +41,19 @@
 		$time=date("Y-m-d H:i:s");
 		$query="UPDATE `feedback` SET `pid`='{$_POST["pid"]}',`username`='{$_SESSION["username"]}',`feedback`='{$_POST["content"]}',`prevdate`=`lastdate`,`lastdate`='{$time}',`times`=`times`+1 WHERE `id`='{$_POST["fid"]}'";
 		$result=$global->query($query);
-		echo json_encode(array("state"=>$result,"time"=>$time));
+		if($result==1){
+			$userArr=$projects->getRelevantUser($_POST["pid"]);
+			foreach($userArr as $val){
+				if($val!=$_SESSION["username"]){
+					$mes=array("type"=>"feedback","tid"=>$_POST["pid"],"from"=>$_SESSION["username"],"to"=>"{$val}","content"=>$global->en_quotes("您好！员工{$_SESSION["username"]}对与您相关的IP<a target='_blank' href='".$global->getoption("weburl")."page.php?id={$_POST["pid"]}'>【".$projects->getProjectKey($_POST["pid"])."】</a>做出了反馈，内容如下：{$_POST["content"]}"));
+					//print_r($mes);
+					$message->sendMes($mes);
+				}
+				
+			}
+			echo json_encode(array("state"=>$result,"time"=>$time));
+		}
+		
 		break;
 	}
 ?>

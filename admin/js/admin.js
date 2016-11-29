@@ -6,6 +6,7 @@ $(function (){
 	$("#psw-box").mouseleave(function(){$(this).css("display","none")});
 	$("#change-psw").click(changePsw);
 	$("#edit-base").click(chagneBase)
+	message()
 })
 function login(){
 	if($("#username").val()!="" && $("#password").val()!=""){
@@ -62,4 +63,12 @@ function chagneBase(){
 			alert(data)
 		}
 	})
+}
+//消息样式
+function message(){
+	var num=$(".inbox-ico a").text()
+	if(num>0){
+		$(".inbox-ico").css("background-image","url(images/inbox.gif)");
+		$(".inbox-ico a").css("color","#FFB200");
+	}
 }
