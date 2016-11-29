@@ -1,0 +1,45 @@
+.content{
+	margin:0 auto;
+	text-align:center;
+	width:800px;
+}
+a{
+	color:#0F1922;
+}
+#datalist table{
+	border-collapse:collapse;
+	border:1px solid #B2B5B7;
+	font-size:0.75em;
+	text-align:center;
+	margin:20px;
+}
+#datalist table tr td{
+	border:1px solid #B2B5B7;
+}
+#datalist table tr{
+	height:35px;
+	cursor:default;
+}
+#datalist table tr td a{
+	display:inline-block;
+}
+#datalist table tr:hover,#datalist table tr td a:hover{
+	background:#5FAFE4;
+	color:#FFFFFF;
+}
+
+#datalist table tr th{
+	background:#0F1922;
+	color:#ffffff;
+	border-right:1px solid #B2B5B7;
+}
+#datalist table tr th:last-child{
+	border-right:1px solid #B2B5B7;
+}
+.p-search{
+	margin-top:20px;
+}
+.user-con{
+	text-align:left;
+}
+

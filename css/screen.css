@@ -1,0 +1,94 @@
+﻿@charset "utf-8";
+#screen-box{
+	height:60px;
+	line-height:60px;
+	background:#FF8000;
+	margin-bottom:10px;
+	border-radius:4px;
+}
+.wrap{
+	padding-top:10px;
+}
+.screen-item{
+	margin:19px 30px;
+	border:1px solid #ffffff;
+	color:#345ABF;
+	display: inline-block;
+}
+.screen-item input{
+	width:60px;
+	text-align:center;
+	border:none;
+	color:#345ABF;
+	float:left;
+	cursor:default;
+	height:19px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.search-ico{
+	width:20px;
+	height:19px;
+	display:inline-block;
+	background:#ffffff url("../images/search.ele.png") 3px 7px;
+	float:right;
+	cursor:pointer;
+}
+.condition-box{
+	width:918px;
+	padding:10px 20px;
+	background:#FFFFFF;
+	border:1px solid #FF8000;
+	position:absolute;
+	top:0;
+	left:50%;
+	margin-left:-480px;
+	display:none;
+}
+.show-condition{
+	position:relative;
+	z-index:2;
+}
+.condition-item{
+	display:inline-block;
+	margin:8px 5px;
+	font-size:0.9em;
+	cursor:pointer;
+}
+.condition-item:hover{
+	color:#FF8000;
+}
+.condition-search-div{
+	margin:20px;
+	margin-bottom:60px;
+}
+.condition-search-price{
+	margin:20px;
+}
+.condition-search-div input{
+	width:95%;
+	height:25px;
+	border:1px solid #FF8000;
+	border-radius:3px 0 0 3px;
+	float:left;
+	padding:3px;
+}
+.condition-search-div span{
+	text-align:center;
+	background:#FF8000;
+	border-radius:0 3px 3px 0;
+	color:#ffffff;
+	display:inline-block;
+	height:25px;
+	line-height:25px;
+	float:right;
+	width:5%;
+	cursor:default;
+}
+.item-active{
+	color:#FF8000;
+}

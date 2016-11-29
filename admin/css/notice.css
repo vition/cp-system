@@ -1,0 +1,31 @@
+.notice-new-box{
+	margin:10px;
+}
+.v-search-group{
+	width:760px;
+}
+.v-search-title{
+	width:80px;
+}
+
+#title{
+	width: 88%;
+	padding:2px 5px;
+}
+.notice-con{
+	margin-left:10px;
+}
+
+.notice-edit{
+	cursor:pointer;
+}
+.v-textarea-group{
+	width:760px!important;
+}
+.v-textarea-title{
+	width:90px!important;
+}
+#content,.v-textarea-content{
+	float:none!important;
+	width: 88%;
+}

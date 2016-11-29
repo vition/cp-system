@@ -1,0 +1,155 @@
+*{
+	margin:0;
+	padding:0;
+}
+a{
+	text-decoration:none;
+	color:#FFFFFF;
+}
+body{
+	text-align:center;
+}
+.login-panel{
+	width:400px;
+	height:200px;
+	border:2px solid #FF6600;
+	border-radius:5px;
+	margin:0 auto;
+	margin-top:300px;
+	text-align:center;
+	background:#009999;
+}
+.login-panel div{
+	height:66px;
+	line-height:66px;
+}
+.login-panel div span{
+
+}
+.title{
+	width:100px;
+	text-align:right;
+	margin-right:20px;
+	font-size:1.1em;
+	color:#FFFFFF;
+}
+.inputs{
+	height:25px;
+	border-radius:5px;
+}
+.span-button{
+	display:inline-block;
+	height:30px;
+	line-height:30px;
+	background:#FF6600;
+	color:FFFFFF;
+	margin:0 10px;
+	padding:0 20px;
+	border-radius:5px;
+	cursor:pointer;
+	margin-top:20px;
+}
+.head-nav{
+	height:80px;
+}
+#body-panel{
+	width:1086px;
+	margin:0 auto;
+	border-left:1px solid #B2B5B7;
+	border-right:1px solid #B2B5B7;
+}
+.framebase{
+	height:860px;
+	float:left;
+	border:none;
+}
+.nav-frame{
+	width:260px;
+	background:#EFEFEF;
+	border-right:1px solid #B2B5B7;
+}
+.item-frame{
+	width:823px;
+	background:#FFFFFF;
+}
+.menu-body{
+	background:#F0F3FA;
+}
+.menu-logo{
+	height:80px;
+	background:url("../../images/logo.png") no-repeat center center;
+	display:inline-block;
+	float: left;
+}
+.menu-nav{
+	height:80px;
+	background:#1E8FC7;
+	display:inline-block;
+}
+.menu-nav div{
+	height: 80px;
+	line-height: 120px;
+	margin-left:20px;
+	color:#FFFFFF;
+}
+.foot{
+	background:#B6B6B6;
+	color:#1C272D;
+	clear:both;
+	text-align:center;
+	height:60px;
+	line-height:60px;
+}
+.nav-title .span-tit{
+	margin-left:20px;
+	padding-left:20px;
+}
+.user-ico{
+	background:url("../images/U01.png")no-repeat center left;
+}
+.group-ico{
+	background:url("../images/group.png")no-repeat center left;
+}
+.inbox-ico{
+	width:20px;
+	height:13px;
+	background:url("../images/inbox.gif")no-repeat center left;
+	margin-left:20px;
+	padding-left:25px;
+}
+.logout-ico{
+	background:url("../images/logout.png")no-repeat center left;
+	cursor:pointer;
+}
+.logout-ico:hover{
+	color:#FF0000;
+}
+.edit-psw{
+	cursor:pointer;
+}
+#psw-box{
+	width:250px;
+	height:150px;
+	background:#ffffff;
+	border:1px solid #dddddd;
+	box-shadow:0 0 6px 2px #999999;
+	position:absolute;
+	top:20%;
+	left:50%;
+	margin-left:-125px;
+	display:none;
+	font-size:0.9em;
+}
+#psw-box ul{
+	margin:20px;
+}
+#psw-box ul li {
+	margin:20px auto;
+}
+#psw-box ul li  .psw-title{
+	text-align:right;
+	margin-right:10px;
+}
+#psw-box ul li  input{
+	width:130px;
+}

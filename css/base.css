@@ -1,0 +1,318 @@
+﻿*{
+	margin:0;
+	padding:0;
+	font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑!important;
+	}
+a{
+	text-decoration:none;
+}
+li{
+	list-style:none;
+}
+.v-button{
+	padding:5px 10px;
+	display:inline-block;
+	border-radius:5px;
+	margin:5px;
+	cursor:pointer;
+}
+
+.button-green{
+	background:#00B266;
+	color:#FFFFFF;
+}
+.button-blue{
+	background:#0099FF;
+	color:#FFFFFF;
+}
+.select-input{
+	cursor:pointer;
+}
+.msg-button{
+	color:#8080C0;
+	cursor:pointer;
+}
+.msg-button:hover{
+	font-size:1.0em;
+	color:#000000;
+}
+.font-08{
+	font-size:0.8em;
+}
+.font-09{
+	font-size:0.8em;
+}
+.but-no-select{
+	border:1px solid #7A7A7A;
+	padding:5px;
+	border-radius:3px;
+	color:#7A7A7A;
+	font-size:0.8em;
+	cursor:pointer;
+}
+.but-no-select:hover{
+	border:1px solid #00CC00;
+	background:#00CC00;
+	color:#FFFFFF;
+}
+.but-select{
+	border:1px solid #00CC00;
+	padding:5px;
+	border-radius:3px;
+	font-size:0.8em;
+	cursor:pointer;
+	border:1px solid #00CC00;
+	background:#00CC00;
+	color:#FFFFFF;
+}
+.but-select:hover{
+	border:1px solid #7A7A7A;
+	padding:5px;
+	border-radius:3px;
+	color:#7A7A7A;
+	font-size:0.8em;
+	cursor:pointer;
+	background:#ffffff;
+}
+.nav-ative{
+	background:#FF8000;
+	color:#ffffff!important;
+}
+/*项目名称搜索框*/
+#title-screen-box{
+	margin-top:5px;
+	display:inline-block;
+	height:30px;
+	width:300px;
+	border:0.2em solid #FF8000;
+	float: right;
+}
+.navs{
+	width:700px;
+}
+.navs ul{
+	float:left;
+}
+#title-screen-box input{
+	border: none;
+	height: 30px;
+	padding: 5px;
+	width: 80%;	
+}
+#title-screen-box span{
+	display: inline-block;
+	height: 30px;
+	background: #FF8000;
+	color: #ffffff;
+	float: right;
+	line-height: 30px;
+	width: 20%;
+	text-align: center;
+	cursor:pointer;
+}
+/*用户工具栏*/
+.user-info-box{
+	border:1px solid #DDDDDD;
+	position:fixed;
+	top:0;
+	width:1200px;
+	left:50%;
+	margin-left:-600px;
+	height:25px;
+	line-height:25px;
+	background:#ffffff;
+	z-index:3;
+	box-shadow: 0px 0px 6px 2px #44A6E5;
+	text-align:center;
+	font-size:0.9em;
+}
+.user-info-box span{
+	margin-left:30px;
+}
+/*搜索框的样式*/
+.v-search-group{
+	border:1px solid #0F1922;
+	border-radius:5px;
+	height:25px;
+	display:inline-block;
+	padding-right:3px;
+	margin:5px 10px;
+}
+.v-search-title{
+	display:inline-block;
+	padding:2px 5px;
+	font-size:0.9em;
+	height:21px;
+	float:left;
+	border-right:1px solid #0F1922;
+}
+.v-search-group input{
+	height:25px;
+	line-height:25px;
+	border:none;
+	padding:2px;
+}
+/*输入框基本样式*/
+.v-input-group{
+	height:30px;
+	display:inline-block;
+	margin:5px 10px;
+}
+.v-input-title{
+	height:30px;
+	line-height:30px;
+	display:inline-block;
+	padding:0 8px;
+	float:left;
+}
+.v-input-group input{
+	height:30px;
+	border:none;
+	padding:5px;
+}
+
+.close-but{
+	background:#FF0000;
+	border:1px solid #FF0000;
+	color:#FFFFFF;
+	font-size:0.7em;
+	display:inline-block;
+	padding:4px;
+	width:10px;
+	height:10px;
+	line-height:10px;
+	float:right;
+	cursor:default;
+}
+.close-but:hover{
+	border:1px solid #FF0000;
+	background:#ffffff;
+	
+	color:#FF0000;
+}
+/*边框颜色开始*/
+.bbw{border:1px solid #FFFFFF;}.bbb{border:1px solid #000000;}.bb0{border:1px solid #FF0000;}.bb1{border:1px solid #F6941D;}.bb2{border:1px solid #FFFF00;}.bb3{border:1px solid #99CC33;}.bb4{border:1px solid #219167;}.bb5{border:1px solid #24998D;}.bb6{border:1px solid #0080FF;}.bb7{border:1px solid #333399;}.bb8{border:1px solid #800080;}.bb9{border:1px solid #C71585;}/*边框颜色结束*/
+/*背景颜色开始*/
+.bgw{background:#FFFFFF;}.bgb{background:#000000;}.bg0{background:#FF0000;}.bg1{background:#F6941D;}.bg2{background:#FFFF00;}.bg3{background:#99CC33;}.bg4{background:#219167;}.bg5{background:#24998D;}.bg6{background:#0080FF;}.bg7{background:#333399;}.bg8{background:#800080;}.bg9{background:#C71585;}/*背景颜色结束*/
+/*字体颜色开始*/
+.clw{color:#FFFFFF;}.clb{color:#000000;}.cl0{color:#FF0000;}.cl1{color:#F6941D;}.cl2{color:#FFFF00;}.cl3{color:#99CC33;}.cl4{color:#219167;}.cl5{color:#24998D;}.cl6{color:#0080FF;}.cl7{color:#333399;}.cl8{color:#800080;}.cl9{color:#C71585;}/*字体颜色结束*/
+/*字体大小开始*/
+.fs0{font-size:0.5em;}.fs1{font-size:0.6em;}.fs2{font-size:0.7em;}.fs3{font-size:0.8em;}.fs4{font-size:0.9em;}.fs5{font-size:1em;}.fs6{font-size:1.5em;}.fs7{font-size:2em;}.fs8{font-size:3em;}.fs9{font-size:5em;}/*字体大小结束*/
+/*按钮格式开始*/
+.but0{
+	padding:1px 2px;
+	display:inline-block;
+	margin:5px 10px;
+	cursor:pointer;
+}
+.but1{
+	padding:2px 4px;
+	display:inline-block;
+	margin:5px 10px;
+	cursor:pointer;
+}
+.but2{
+	padding:3px 6px;
+	display:inline-block;
+	margin:5px 10px;
+	cursor:pointer;
+}
+.but3{
+	padding:4px 8px;
+	display:inline-block;
+	margin:5px 10px;
+	cursor:pointer;
+}
+.but4{
+	padding:5px 10px;
+	display:inline-block;
+	margin:5px 10px;
+	cursor:pointer;
+}
+/*按钮格式结束*/
+/*圆边角度*/
+.br0{border-radius:0px;}
+.br1{border-radius:1px;}
+.br2{border-radius:2px;}
+.br3{border-radius:3px;}
+.br4{border-radius:4px;}
+.br5{border-radius:5px;}
+.br6{border-radius:6px;}
+.br7{border-radius:7px;}
+.br8{border-radius:8px;}
+.br9{border-radius:9px;}
+
+/*span的宽度*/
+.ws-50{
+	width:50px;
+}
+/*黑色边框阴影*/
+.boxblack{
+	border:1px solid #000000;
+	box-shadow:0 0 5px 4px #999999;
+	border-radius:5px;
+}
+.v-textarea-group{
+	border:1px solid #0F1922;
+	height:90px;
+	width:300px;
+	border-radius:5px;
+	display:inline-block;
+	padding-right:3px;
+	margin:5px 10px;
+}
+.v-textarea-title{
+	height:90px;
+	line-height:90px;
+	display:inline-block;
+	float:left;
+	font-size:0.9em;
+	width:30%;
+	text-align:center;
+	border-right:1px solid #000000;
+}
+.v-textarea-content{
+	float:right;
+	width:69%;
+}
+.v-textarea-content textarea{
+	width:100%;
+	height:100%;
+	padding:5px;
+	border:0;
+	resize:none;
+	font-size:0.9em;
+}
+/*表格*/
+.v-table{
+	border-collapse: collapse;
+	border: 1px solid #B2B5B7;
+	font-size: 0.75em;
+	text-align: center;
+	margin: 20px;
+}
+.v-table tr{
+	height: 35px;
+	cursor: default;	
+}
+.v-table tr:hover{
+	color:#ffffff;
+	background:#5FAFE4;
+}
+.v-table tr th {
+    background: #0F1922;
+    color: #ffffff;
+    border-right: 1px solid #B2B5B7;
+}
+.v-table tr td {
+    border: 1px solid #B2B5B7;
+}
+.v-table tr td a{
+	color:#000000;
+}
+.page-div{
+	text-align:center;
+}
+.prev-page ,.next-page{
+	font-size:0.9em;
+}
