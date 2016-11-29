@@ -1,3 +1,5 @@
+pdata={};
+pdata["type"]="search";
 $(function (){
 	$("#login").click(login);
 	$("#password").keydown(function(e){if(e.keyCode==13){login();}});
@@ -7,6 +9,8 @@ $(function (){
 	$("#change-psw").click(changePsw);
 	$("#edit-base").click(chagneBase)
 	message()
+	$(".inbox-ico a").click(function(){showLIst(0,0)})
+	$("#message-box").bind({mouseenter:function(){$(this).css("display","block")},mouseleave:function(){$(this).css("display","none")}})
 })
 function login(){
 	if($("#username").val()!="" && $("#password").val()!=""){
@@ -71,4 +75,50 @@ function message(){
 		$(".inbox-ico").css("background-image","url(images/inbox.gif)");
 		$(".inbox-ico a").css("color","#FFB200");
 	}
+}
+//获取消息列表
+function showLIst(row){
+	pdata["row"]=row;
+	var state=$("#read-state").val();
+	pdata["state"]=state;
+
+	$.ajax({
+		type:"POST",
+		url:"control/message.php",
+		data:pdata,
+		dataType:"html",
+		success:function(data){
+			$("#inbox-box").html(data)
+			//$("#datalist table tr").bind({mouseenter:function(){$(this).find("a").css("color","#FFFFFF")},mouseleave:function(){$(this).find("a").css("color","#000000")}})
+			$(".go-page").click(function(){showLIst($(this).data("page"))})
+			$(".search-ico").click(search)
+			$(".mes-list").click(showMes)
+			
+		}
+	})
+}
+//查找读未读
+function search(){
+	if($(this).data("state")=="read"){
+		$("#read-state").val(1);
+	}else{
+		$("#read-state").val(0);
+	}
+	showLIst(0)
+}
+//读取mes
+function showMes(){
+	pdata["type"]="showmes";
+	pdata["id"]=$(this).data("id");
+	$.ajax({
+		url:"control/message.php",
+		type:"POST",
+		data:pdata,
+		dataType:"html",
+		success:function(data){
+
+			$("#message-box").html(data)
+		}
+	})
+	$("#message-box").css("display","block");
 }

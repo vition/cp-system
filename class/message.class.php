@@ -16,6 +16,12 @@
 			$result=$this->mydb->query("SELECT `id` FROM `message` WHERE `to`='{$user}' AND `state`='0'");
 			return $result->num_rows;
 		}
+		//获指定id的消息
+		function getMes($id){
+			$result=$this->mydb->query("SELECT * FROM `message` WHERE `id`='{$id}'");
+			$array=$result->fetch_array(1);
+			return $array;
+		}
 
 	}
 	

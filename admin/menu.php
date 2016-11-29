@@ -38,7 +38,9 @@
 			</ul>
 		</div>
 		<div><iframe class="framebase nav-frame" src="nav.php"></iframe><iframe id="page-iframe" class="framebase item-frame" src="base.php"></iframe></div>
-		<div id="inbox-box">1</div>
+		<div id="inbox-box"></div>
+		<div id="message-box">
+		</div>
 		<div class="foot"><p>COPYRIGHT © 2016 TWOWAY IT RIGHTS RESERVED</p></div>
 	</div>
 </body>

@@ -20,4 +20,5 @@
 	$global=new _global($serverinfo);
 	//定义成员组别
 	$groupArr=array("超级管理员"=>4,"管理员"=>3,"营业员"=>2,"平民"=>1);
+	$mesType=array("comment"=>"评论","feedback"=>"反馈","system"=>"系统");
 ?>
