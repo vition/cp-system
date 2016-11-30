@@ -65,30 +65,6 @@
 		<a href="" hidefocus="true" class="title" target="_blank">重磅推荐</a>
 		<div class="vocation-mark">
 			<span class="vocation-a"><a href="">全部 &gt;</a></span>
-			<a class="mark c66dfff-bg" href="">
-				<span></span>高端艺术<span></span>
-			</a>			
-			<a class="mark cf09-bg" href="">
-				<span></span>行为艺术<span></span>
-			</a>
-			<a class="mark cfc0-bg" href="">
-				<span></span>独家冠名<span></span>
-			</a>
-			<a class="mark c9c0-bg" href="">
-				<span></span>特约赞助<span></span>
-			</a>
-			<a class="mark a97ce7-bg" href="">
-				<span></span>综艺节目<span></span>
-			</a>
-			<a class="mark cf60-bg" href="">
-				<span></span>演唱会<span></span><!-- 合并艺术频道 -->
-			</a>
-			<a class="mark cc00-bg" href="">
-				<span></span>专题栏目<span></span><!-- 从更多中分离 -->
-			</a>
-			<a class="mark cc7c7c7-bg" href="">
-				 <span></span>更多标签<span></span>
-			</a>
 		</div>
 	</h3>
 	
@@ -117,30 +93,6 @@
 		<a href="" hidefocus="true" class="title" target="_blank">最新项目</a>
 		<div class="vocation-mark">
 			<span class="vocation-a"><a href="">全部 &gt;</a></span>
-			<a class="mark c66dfff-bg" href="">
-				<span></span>高端艺术<span></span>
-			</a>			
-			<a class="mark cf09-bg" href="">
-				<span></span>行为艺术<span></span>
-			</a>
-			<a class="mark cfc0-bg" href="">
-				<span></span>独家冠名<span></span>
-			</a>
-			<a class="mark c9c0-bg" href="">
-				<span></span>特约赞助<span></span>
-			</a>
-			<a class="mark a97ce7-bg" href="">
-				<span></span>综艺节目<span></span>
-			</a>
-			<a class="mark cf60-bg" href="">
-				<span></span>演唱会<span></span><!-- 合并艺术频道 -->
-			</a>
-			<a class="mark cc00-bg" href="">
-				<span></span>专题栏目<span></span><!-- 从更多中分离 -->
-			</a>
-			<a class="mark cc7c7c7-bg" href="">
-				 <span></span>更多标签<span></span>
-			</a>
 		</div>
 	</h3>
 		<div class="w970">

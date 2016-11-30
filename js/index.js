@@ -7,6 +7,8 @@ $(function(){
 	$(".condition-box").mouseenter(function(){$(this).css("display","block")});
 	$(".condition-box").mouseleave(function(){$(this).css("display","none");$(".screen-item").children(".search-ico").css("background-position-y","7px");});
 	$(".condition-search-div input").bind("input propertychange",function(){searchCondition()})
+	$("#sprice").bind("input propertychange",setPrice)
+	$("#eprice").bind("input propertychange",setPrice)
 })
 
 function showNews(){
@@ -128,35 +130,56 @@ function selectItem(){
 		var condClass=$("#cond-class").val();
 		var condPlatform=$("#cond-platform").val();
 		var condPrice=$("#cond-price").val();
-		var searchVal={}
-		var multiple=$(".multiple");
-		for(i=0;i<multiple.length;i++){
-			if(multiple.eq(i).val()!=""){
-				searchVal[multiple.eq(i).attr("id")]=multiple.eq(i).val()
-			}
+		showList();
+
+	}
+}
+function showList(){
+	var searchVal={}
+	var multiple=$(".multiple");
+	for(i=0;i<multiple.length;i++){
+		if(multiple.eq(i).val()!=""){
+			searchVal[multiple.eq(i).attr("id")]=multiple.eq(i).val()
 		}
-		// if(condClass!=""){
-			// searchVal["class"]=condClass;
-		// }
-		// if(condClass!=""){
-			// searchVal["platform"]=condPlatform;
-		// }
-		// if(condClass!=""){
-			// searchVal["price"]=condPrice;
-		// }
-		searchVal["type"]="multiple";
-		$.ajax({
-			url:"control/getprojects.php",
-			type:"post",
-			dataType:"html",
-			data:searchVal,
-			success:function(data){
-				alert(data)
-			}
-		})
-		
+	}
+	searchVal["type"]="multiple";
+	$.ajax({
+		url:"control/getprojects.php",
+		type:"post",
+		dataType:"html",
+		data:searchVal,
+		success:function(data){
+			alert(data)
+		}
+	})
+}
+function setPrice(){
+	var sp=Number($("#sprice").val());
+	var ep=Number($("#eprice").val());
+	if(sp<0 || ep<0){
+		$("#sprice").val(0)
+		$("#eprice").val(0)
+	}
+
+	if($(this).attr("id")=="sprice"){
+		if(ep>=0 && sp>ep){
+			$("#eprice").val(sp+1)
+		}else{
+			
+		}	
+	}else{
+		if(ep>0 && sp>ep){
+			$("#sprice").val(ep-1)
+		}
 	}
 	
-	
-	
+}
+function ePrice(){
+	var ep=$(this).val();
+	// var sp=$("#sprice").val();
+	// if(ep<0){
+		// $(this).val(0);
+	// }else if(sp>ep){
+		// $(this).val(ep-1);
+	// }
 }

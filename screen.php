@@ -11,9 +11,7 @@
 		$global->gotopage($global->getoption("weburl")."admin");
 	}
 	
-	$result=$global->query("SELECT * FROM `projects` WHERE `pushed`=1 ORDER BY `date` DESC LIMIT 0,8");
-	$newResult=$global->query("SELECT * FROM `projects` ORDER BY `date` DESC LIMIT 0,8");
-	$newsResult=$global->query("SELECT * FROM `news` ORDER BY `time` DESC LIMIT 0,5  ");
+	$newResult=$global->query("SELECT * FROM `projects` ORDER BY `date` DESC LIMIT 0,20");
 	
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
@@ -57,7 +55,7 @@
 	</div>
 	<div class="condition-box">
 		<div class="condition-search-div" data-value=""><input class="con-sea-input" value="" type="text" /><span id="condition-search-title">搜索</span></div>
-		<div class="condition-search-price" data-value=""><span class="v-input-group bb6 br3"><span class="v-input-title fs4 bg6 clw ">起始价格</span><input class="br3" value="" type="text" /></span>-<span class="v-input-group bb6 br3"><span class="v-input-title fs4 bg6 clw ">结束价格</span><input class="br3" value="" type="text" /></span><span class="but4 bg6 br3 clw " >所有价格</span></div>
+		<div class="condition-search-price" data-value=""><span class="v-input-group bb6 br3"><span class="v-input-title fs4 bg6 clw ">起始价格</span><input id="sprice" class="br3" value="1" type="text" /></span>-<span class="v-input-group bb6 br3"><span class="v-input-title fs4 bg6 clw ">结束价格</span><input id="eprice" class="br3" value="10000" type="text" /></span><span id="allprice" data-value="1" class="but4 bg6 br3 clw " >所有价格</span></div>
 		<div class="condition-list"></div>
 		<input class="multiple" id="cond-class" type="hidden" />
 		<input class="multiple" id="cond-platform" type="hidden" />
