@@ -41,12 +41,13 @@ function uploadImg(){
 		data:data,
 		dataType:"html",
 		success:function(data){
-			//alert(data)
-			a=data.split(",")
-			for(i=0;i<a.length;i++){
-				d=a[i].split(":");
-				$("#imgurl-"+d[0]).val(d[1]);
-			}
+			alert(data)
+			window.location.reload();
+			// a=data.split(",")
+			// for(i=0;i<a.length;i++){
+				// d=a[i].split(":");
+				// $("#imgurl-"+d[0]).val(d[1]);
+			// }
 		}
 	})
 }

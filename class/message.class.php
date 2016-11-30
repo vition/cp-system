@@ -22,6 +22,10 @@
 			$array=$result->fetch_array(1);
 			return $array;
 		}
+		//修改消息状态
+		function setState($id,$read=1){
+			$result=$this->mydb->query("UPDATE `message` SET `state`='{$read}' WHERE `id`='{$id}'");
+		}
 
 	}
 	

@@ -9,8 +9,8 @@ $(function (){
 	$("#change-psw").click(changePsw);
 	$("#edit-base").click(chagneBase)
 	message()
-	$(".inbox-ico a").click(function(){showLIst(0,0)})
-	$("#message-box").bind({mouseenter:function(){$(this).css("display","block")},mouseleave:function(){$(this).css("display","none")}})
+	$(".inbox-ico a").click(function(){$("#inbox-box").css("display","block");showLIst(0,0)})
+	$("#message-box").bind({mouseenter:function(){$(this).css("display","block")},mouseleave:function(){$(this).css("display","none");}})
 })
 function login(){
 	if($("#username").val()!="" && $("#password").val()!=""){
@@ -74,6 +74,9 @@ function message(){
 	if(num>0){
 		$(".inbox-ico").css("background-image","url(images/inbox.gif)");
 		$(".inbox-ico a").css("color","#FFB200");
+	}else{
+		$(".inbox-ico").css("background-image","url(images/inbox.png)");
+		$(".inbox-ico a").css("color","#FFFFFF");
 	}
 }
 //获取消息列表
@@ -81,7 +84,6 @@ function showLIst(row){
 	pdata["row"]=row;
 	var state=$("#read-state").val();
 	pdata["state"]=state;
-
 	$.ajax({
 		type:"POST",
 		url:"control/message.php",
@@ -93,6 +95,7 @@ function showLIst(row){
 			$(".go-page").click(function(){showLIst($(this).data("page"))})
 			$(".search-ico").click(search)
 			$(".mes-list").click(showMes)
+			$(".close_box").click(closeBox)
 			
 		}
 	})
@@ -116,9 +119,21 @@ function showMes(){
 		data:pdata,
 		dataType:"html",
 		success:function(data){
-
 			$("#message-box").html(data)
+			pdata["type"]="search";
+			showLIst(0)
+			setUnread();
+			//
 		}
 	})
 	$("#message-box").css("display","block");
+}
+function closeBox(){
+	$("#inbox-box").css("display","none");
+}
+//处理消息显示
+function setUnread(){
+	var unread=$("#unread-num").val()
+	$(".inbox-ico a").text(unread)
+	message();
 }

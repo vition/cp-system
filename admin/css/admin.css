@@ -164,11 +164,12 @@ body{
 	border:1px solid #dddddd;
 	box-shadow:0 0 6px 2px #999999;
 	position:fixed;
-	top:30%;
+	top:40%;
 	left:50%;
 	margin-left:-250px;
 	margin-top:-150px;
 	background:#FFFFFF;
+	display:none;
 }
 #message-box{
 	display:none;
@@ -176,10 +177,13 @@ body{
 	font-size:0.9em;
 	text-align:left;
 }
-
+.mes-info{
+	margin-top:30px;
+}
 .mes-info span{
+	padding-bottom:10px;
 	margin-right:10px;
-	border-bottom:1px solid #999999;
+	border-bottom:1px solid #009999;
 	margin-left:20px;
 }
 .mes-ip {
@@ -190,10 +194,12 @@ body{
 }
 .mes-content p{
 	text-indent:2em;
-	color:#999999;
+	color:#444444;
+	border:1px solid #dddddd;
+	padding:30px 10px;
 }
 .mes-content p a{
-	color:#999999;
+	color:#000000;
 }
 .read{
 	font-weight:none;
@@ -214,6 +220,7 @@ body{
 	background: url("../images/ico.png") -48px 0 no-repeat;
 }
 .v-table{
+	margin-top:0;
 	margin-bottom:5px;
 }
 .mes-search-div{

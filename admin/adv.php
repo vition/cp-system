@@ -25,7 +25,7 @@
 			?>
 		</ul>
 		<div id="photo-preview"></div>
-		<div><span id="updata-imgs-button">确认修改</span></div>
+		<div style="margin-bottom:20px;"><span id="updata-imgs-button">确认修改</span></div>
 	</div>
 </body>
 </html>

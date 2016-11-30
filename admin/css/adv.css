@@ -12,7 +12,8 @@ li{
 .content ul{
 	width:700px;
 	margin:0 auto;
-	margin-top:50px;
+	margin-top:20px;
+	font-size:0.9em;
 }
 .content ul li{
 	border-bottom:1px solid #CCC;
@@ -37,7 +38,7 @@ li{
 	margin-right:10px;
 }
 .ban-img-input{
-	margin-left:82px;
+	margin-left:77px;
 }
 .ban-img-input input{
 	height:30px;
@@ -59,9 +60,10 @@ li{
 	border:1px solid #F5F5F5;
 	color:#FFFFFF;
 	background:#4DDE93;
-	padding:10px;
+	padding:5px 10px;
 	border-radius:5px;
 	cursor:pointer;
+	margin-bottom:10px;
 }
 #updata-imgs-button:hover{
 	border:1px solid #4DDE93;
