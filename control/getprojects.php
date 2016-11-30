@@ -51,12 +51,64 @@
 				echo "<span class='condition-item'>{$classArr["platform"]}</span>";
 			}
 			break;
-			case "price":
+			case "pushed":
+			echo "<span class='condition-item'>仅推荐</span>";
+			echo "<span class='condition-item'>所有</span>";
 			break;
 		}
 		break;
 		case "multiple":
-		print_r($_POST);
+		//print_r($_POST);
+		$condition="";
+		if(isset($_POST["title"])){
+			$condition.="`title` LIKE '%{$_POST["title"]}%' AND";
+		}
+		if(isset($_POST["cond-class"])){
+			$condition.="(`firstclass` = '{$_POST["cond-class"]}' OR `secondclass` = '{$_POST["cond-class"]}' OR `threeclass` = '{$_POST["cond-class"]}') AND";
+		}
+		if(isset($_POST["cond-platform"])){
+			$condition.="`platform` = '{$_POST["cond-platform"]}' AND";
+		}
+		if(isset($_POST["sprice"])){
+			$condition.="((`price1` >= '{$_POST["sprice"]}' AND `price1` <= '{$_POST["eprice"]}') OR (`price2` >= '{$_POST["sprice"]}' AND `price2` <= '{$_POST["eprice"]}') OR (`price3` >= '{$_POST["sprice"]}' AND `price3` <= '{$_POST["eprice"]}')) AND";
+		}
+		if(isset($_POST["cond-pushed"])){
+			if($_POST["cond-pushed"]=="仅推荐"){
+				$condition.="`pushed` = '1' AND";
+			}else{
+				$condition.="`pushed` = '0' AND";
+			}
+
+		}
+		
+		$condition=rtrim($condition,"AND");
+		//if(count($_POST)<3){
+		//	$query="SELECT * FROM `projects` ORDER BY `date` DESC";
+		//}else{
+			$query="SELECT * FROM `projects` WHERE {$condition} ORDER BY `date` DESC";
+		//}
+		
+		//echo $query;
+		$everyPage=12;
+		$countResult=$global->query($query);
+		//echo $query;
+		$count=$countResult->num_rows;
+		$result=$global->query($query." LIMIT {$_POST["row"]},{$everyPage}");
+		while($projects=$result->fetch_array(1)){
+		?>
+		<ul class="post big-post">
+			<div class="cover" cover-text="" cover-girl-text="">
+				<a href="page.php?id=<?php echo $projects["id"];?>" hidefocus="true" target="_blank"><img src2="<?php echo $global->getoption("weburl").$projects["cover"];?>" alt="" style="display: block;" src="<?php echo $global->getoption("weburl").$projects["cover"];?>"><div class="overlay" style="display: none;"><span style="color: rgb(255, 0, 153);"></span></div></a>
+			</div>
+			<li><label>项目名称 / </label><a href="page.php?id=<?php echo $projects["id"];?>" title="<?php echo $projects["title"];?>" hidefocus="true" class="nickname" target="_blank"><?php echo $projects["title"];?></a></li>
+			<li><label>平台 / </label><span><?php echo $projects["platform"];?></span></li>
+			<li><label>更新日期 / </label><span><?php echo $projects["date"];?></span></li>
+		</ul>
+		<?php
+		}
+		?>
+		<div class="page-div"><?php if($count>0){?><span class="prev-page go-page but2 bgw br3 cl9" data-page="0">首页</span><?php } if($_POST["row"]>=$everyPage){?><span class="prev-page go-page but2 bgw br3 cl9" data-page="<?php echo $_POST["row"]-$everyPage;?>">上一页</span><?php } if(($count-$everyPage)>0 && ($count>($_POST["row"]+$everyPage))){?><span class="prev-page but2 bgw br3 cl9 go-page" data-page="<?php echo ($_POST["row"]+$everyPage);?>">下一页</span><?php } if(($count-$everyPage)>$everyPage-2){?><span class="next-page but2 bgw br3 cl9 go-page" data-page="<?php echo (ceil($count/$everyPage)*$everyPage-$everyPage);?>">尾页</span><?php }?></div>
+		<?php
 		break;
 	}
 	

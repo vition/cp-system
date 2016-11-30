@@ -28,7 +28,7 @@
 	<script type="text/javascript" src="js/page.js?<?php random();?>"></script>
 	<script type="text/javascript" src="js/index.js?<?php random();?>"></script>
 	<style>
-		.logo{background:url("<?php echo $global->getoption("logo");?>") no-repeat;}
+		.logo{background:url("<?php echo $global->getoption("logo");?>") no-repeat;background-size: 221px 60px;}
 	</style>
 </head>
 <body>

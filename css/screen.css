@@ -92,3 +92,10 @@
 .item-active{
 	color:#FF8000;
 }
+.page-div{
+	background:#FF8000;
+	position:fixed;
+	bottom:0;
+	width:960px;
+	text-align:center;
+}

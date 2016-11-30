@@ -35,7 +35,7 @@
 	<link href="css/commons.css?<?php random();?>" rel="stylesheet" type="text/css">
 	<link href="css/slider.css?<?php random();?>" rel="stylesheet" type="text/css">
 	<style>
-		.logo{background:url("<?php echo $global->getoption("logo");?>") no-repeat;}
+		.logo{background:url("<?php echo $global->getoption("logo");?>") no-repeat;background-size: 221px 60px;}
 	</style>
 </head>
 <body>
@@ -64,7 +64,7 @@
 	<h3>
 		<a href="" hidefocus="true" class="title" target="_blank">重磅推荐</a>
 		<div class="vocation-mark">
-			<span class="vocation-a"><a href="">全部 &gt;</a></span>
+			<span class="vocation-a"><a href="screen.php?pushed=仅推荐">全部 &gt;</a></span>
 		</div>
 	</h3>
 	
@@ -92,7 +92,7 @@
 		<h3>
 		<a href="" hidefocus="true" class="title" target="_blank">最新项目</a>
 		<div class="vocation-mark">
-			<span class="vocation-a"><a href="">全部 &gt;</a></span>
+			<span class="vocation-a"><a href="screen.php">全部 &gt;</a></span>
 		</div>
 	</h3>
 		<div class="w970">

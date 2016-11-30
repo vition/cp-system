@@ -2,13 +2,12 @@
 
 html{-webkit-text-size-adjust:none;}
 body,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,p,dl,dd,hr,button{margin:0; padding:0;}
-body,h1,h2,h3,h4,h5,h6,pre{ font: 14px/1.231 Arial,"Microsoft YaHei","微软雅黑","宋体",sans-serif normal;}
+body,h1,h2,h3,h4,h5,h6,pre{ font: "Microsoft YaHei","微软雅黑","宋体",sans-serif normal;}
 pre{word-wrap: break-word; word-break:break-all; white-space:pre-wrap;}
 ul{ list-style:none;}
 table { border-collapse:collapse; border-spacing:0;}
 body{ background:#fff; height:100%; color: #666;}
 a{ display:inline-block; text-decoration:none; color:#666;}
-a:hover{ color:#f09;}
 img{ display: block; border:0 none; vertical-align:top;width:960px;height:236px;}
 input[type="text"],input[type="password"],textarea,select,.text{ outline:0 none; resize:none;}
 input[type="button"], input[type="submit"] ,button,.btn{ background-color: white; outline: 0 none; font-family: "Microsoft YaHei","微软雅黑","宋体",sans-serif; cursor: pointer; color:#666;}

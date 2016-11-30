@@ -78,12 +78,13 @@ body{
 .menu-logo{
 	height:80px;
 	background:url("../../images/logo.png") no-repeat center center;
+	background-size: 221px 60px;
 	display:inline-block;
 	float: left;
 }
 .menu-nav{
 	height:80px;
-	background:#1E8FC7;
+	background:#0F1922;
 	display:inline-block;
 }
 .menu-nav div{

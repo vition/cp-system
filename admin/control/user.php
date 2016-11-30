@@ -20,7 +20,7 @@
 		}
 		break;
 		case "search":
-		$everyPage=5;
+		$everyPage=20;
 		$cquery="SELECT * FROM `user` ORDER BY `id` DESC";
 		$countResult=$global->query($cquery);
 		$count=$countResult->num_rows;
