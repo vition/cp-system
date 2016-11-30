@@ -11,12 +11,12 @@
 		case "showgroup":
 		$result=$global->query("SELECT distinct `group` FROM `user` ");
 		if(isset($_POST["mode"])){
-			echo "<li class='group-item'></li>";
-			echo "<li class='group-item'>超级管理员</li>";
+			echo "<li class='group-item'>所有</li>";
+			echo "<li class='group-item'>宙斯</li>";
 			
 		}
 		foreach($groupArr as $key=>$val){
-			if($key!="超级管理员"){echo "<li class='group-item'>{$key}</li>";}
+			if($key!="宙斯"){echo "<li class='group-item'>{$key}</li>";}
 		}
 		break;
 		case "search":
@@ -39,12 +39,21 @@
 		}else{
 			$result=$global->query("SELECT * FROM `user` ORDER BY `id` DESC LIMIT {$_POST["row"]},{$everyPage}");
 		}
-		echo '<li><span class="check-span">选择</span><span class="username-span">用户名</span><span class="group-span">组别</span><span class="psw-span-head">密码</span></li>';
-		while($userArr=$result->fetch_array(1)){
+		//echo '<li><span class="check-span">选择</span><span class="username-span">用户名</span><span class="group-span">组别</span><span class="psw-span-head">密码</span></li>';
+		//while($userArr=$result->fetch_array(1)){
 			?>
-			<li><span class="check-span"><input type="checkbox" class="user-control"></span><span class="username-span"><?php echo $userArr["username"];?></span><span  class="group-span" data-level="<?php echo $userArr["grouplevel"];?>"><?php echo $userArr["group"];?></span><span class="psw-span">********</span></li>
+			<!--<li><span class="check-span"><input type="checkbox" class="user-control"></span><span class="username-span"><?php //echo $userArr["username"];?></span><span  class="group-span" data-level="<?php //echo $userArr["grouplevel"];?>"><?php //echo $userArr["group"];?></span><span class="psw-span">********</span></li>-->
 			<?php
-		}?>
+		//}
+		?>
+		<table class="v-table">
+			<tr class="list-header" ><th style="width:50px;">选择</th><th style="width:200px;">用户名</th><th style="width:100px;">组别</th><th style="width:200px;">密码</th><th style="width:130px;">备注</th></tr>
+			<?php 
+				while($userArr=$result->fetch_array(1)){
+			?>
+			<tr><td><input class="user-control" type="checkbox" data-id="<?php echo $userArr["id"];?>"/></td><td><a class="comment-edit" data-id="<?php echo $userArr["id"];?>"><?php echo $userArr["username"];?></a></td><td><?php echo $userArr["group"];?></td><td><span class="psw-span">********</span></td><td></td></tr>
+			<?php }?>
+		</table>
 		<div class="page-div"><?php if($count>0){?><span class="prev-page go-page but2 bg6 br3 clw" data-page="0">首页</span><?php } if($_POST["row"]>=$everyPage){?><span class="prev-page go-page but2 bg6 br3 clw" data-page="<?php echo $_POST["row"]-$everyPage;?>">上一页</span><?php } if(($count-$everyPage)>0 && ($count>($_POST["row"]+$everyPage))){?><span class="prev-page but2 bg6 br3 clw go-page" data-page="<?php echo ($_POST["row"]+$everyPage);?>">下一页</span><?php } if(($count-$everyPage)>$everyPage-2){?><span class="next-page but2 bg6 br3 clw go-page" data-page="<?php echo (ceil($count/$everyPage)*$everyPage-$everyPage);?>">尾页</span><?php }?></div>
 		<?php
 		break;

@@ -29,7 +29,7 @@ function showGroup(){
 		data:pdata,
 		dataType:"html",
 		success:function(data){
-			$("#user-group-box ul").html(data);
+			$("#user-group-box").html(data);
 			$(".group-item").click(setGroup)
 		}
 	})
@@ -66,7 +66,7 @@ function search(row){
 		data:pdata,
 		dataType:"html",
 		success:function(data){
-			$("#user-list-box ul").html(data)
+			$("#user-list-box").html(data)
 			$(".psw-span").click(editBox)
 			$(".go-page").click(function(){search($(this).data("page"))})
 		}

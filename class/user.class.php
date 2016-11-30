@@ -67,7 +67,7 @@
 		//修改用户密码
 		function changePsw($username,$newpsw){
 			$result=$this->mydb->query("UPDATE `user` SET `password`='".sha1($newpsw)."' WHERE `username`='{$username}'");
-			echo "UPDATE `user` SET `password`='".sha1($newpsw)."' WHERE `username`='{$username}'";
+			//echo "UPDATE `user` SET `password`='".sha1($newpsw)."' WHERE `username`='{$username}'";
 			if($result>=1){
 				return "success";
 			}else{

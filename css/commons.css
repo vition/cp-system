@@ -2,7 +2,6 @@
 
 html{-webkit-text-size-adjust:none;}
 body,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,p,dl,dd,hr,button{margin:0; padding:0;}
-body,h1,h2,h3,h4,h5,h6,pre{ font: "Microsoft YaHei","微软雅黑","宋体",sans-serif normal;}
 pre{word-wrap: break-word; word-break:break-all; white-space:pre-wrap;}
 ul{ list-style:none;}
 table { border-collapse:collapse; border-spacing:0;}

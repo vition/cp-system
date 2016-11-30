@@ -9,33 +9,7 @@ a{
 #user-search,.user-con{
 	margin:20px;
 }
-#user-list-box span{
-	display:inline-table;
-	height:30px;
-	line-height:30px;
-	float:left;
-}
-#user-list-box  ul{
-	border:1px solid #B2B5B7;
-	margin:20px;
-}
-#user-list-box  ul li{
-	border-bottom:1px solid #B2B5B7;
-	height:30px;
-	line-height:30px;
-	cursor:default;
-}
-#user-list-box  ul li:first-child{
-	background:#0F1922;
-	color:#ffffff;
-}
-#user-list-box  ul li:not(:first-child):hover{
-	background:#5FAFE4;
-	color:#ffffff;
-}
-#user-list-box  ul li:last-child{
-	border-bottom:none;
-}
+
 .check-span{
 	width:50px;
 	text-align:center;
@@ -57,11 +31,11 @@ a{
 }
 
 .psw-span,.psw-span-head{
-	width:200px;
+	width:100%;
 	text-align:center;
-	border-right:1px solid #B2B5B7;
 }
 .psw-span{
+	display:inline-table;
 	cursor:pointer;
 	background:url("../images/psw.png") no-repeat 38px center;
 	background-size:25px 25px;
@@ -79,18 +53,14 @@ a{
 	text-align:center;
 	display:none;
 }
-#user-new-box ul li{
-	text-align:center;
-}
+
 #user-group-box{
 	background:#ffffff;
 	border:1px solid #999999;
 	position:absolute;
 	text-align: center;
 }
-#user-group-box ul li{
-	height:25px;
-}
+
 .group-item:hover{
 	background:#5FAFE4;
 	color:#ffffff;
@@ -124,4 +94,9 @@ a{
 }
 #psw-box ul li input {
     width: 100px;
+}
+.page-div{
+	clear:right;
+	text-align:center;
+	height:30px;
 }

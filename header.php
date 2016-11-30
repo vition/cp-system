@@ -21,7 +21,7 @@
 			<ul>
 				<li><a id="home-url" href="<?php echo $global->getoption("weburl");?>" <?php if($global->thisPhp()=="index.php"){ echo "class='nav-ative'";}?>>首页</a></li>
 				<li><a href="screen.php" <?php if($global->thisPhp()=="screen.php"){ echo "class='nav-ative'";}?>>查询</a></li>
-				<?php if($userinfo["grouplevel"]>=3){echo '<li><a href="'.$global->getoption("weburl").'admin" target="_blank">后台</a></li><li><a href="?logout">退朝</a></li>';}else{echo '<li><a href="?logout">臣告退</a></li>';} ?>
+				<?php if($userinfo["grouplevel"]>=3){echo '<li><a href="'.$global->getoption("weburl").'admin" target="_blank">后台</a></li><li><a href="?logout">退朝</a></li>';}else{echo '<li><a href="?logout">退朝</a></li>';} ?>
 			</ul>
 			<span id="title-screen-box"><input type="text" value="<?php echo $search;?>"/><span id="search-but">搜索</span></span>
 		</div>

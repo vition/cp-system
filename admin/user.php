@@ -38,7 +38,7 @@
 				<li><span class="but3 bg4 clw fs4 br3" id="user-create">确认创建</span></li>
 			</ul>
 		</div>
-		<div id="user-group-box" data-input=""><ul></ul></div>
+		<div id="user-group-box" data-input=""></div>
 		<div id="psw-box">
 			<ul><input type="hidden" class="reset-info" id="reset-user" value="">
 				<li><span class="psw-title">会员新密码：</span><span><input class="old-psw reset-info" value="" type="password"></span></li>
