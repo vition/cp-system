@@ -16,10 +16,14 @@
 </head>
 <body>
 	<div class="login-panel">
-		<div><span class="title">账 户</span><span class="inputs"><input id="username" type="text" /></span></div>
-		<div><span class="title">密 码</span><span class="inputs"><input id="password" type="password"/></span></div>
-		<div><span class="span-button" id="login">登录</span><span class="span-button">重置</span></div>
+		<div class="login-logo"><span ></span></div>
+		<div class="login-info">
+			<div><span class="title">账 户</span><span class="inputs"><input id="username" type="text" /></span></div>
+			<div><span class="title">密 码</span><span class="inputs"><input id="password" type="password"/></span></div>
+			<div><span class="span-button" id="login">登录</span><span class="span-button">重置</span></div>
+		</div>
+		<div class="remind"><p style="margin-top:10px;">为了更好的使用系统里的功能，请使用火狐、谷歌、Safari等支持HTML5的浏览器谢谢</p></div>
 	</div>
-	<p style="margin-top:10px;">为了能够更好的浏览和使用系统里的功能，请使用火狐、谷歌、Safari等支持HTML5的浏览器，杜绝使用IE，谢谢</p>
+	
 </body>
 </html>

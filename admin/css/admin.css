@@ -10,21 +10,36 @@ body{
 	text-align:center;
 }
 .login-panel{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:-300px;
+	margin-top:-100px;
+	text-align:center;
+}
+.login-info{
+	float:left;
 	width:400px;
 	height:200px;
-	border:2px solid #FF6600;
+	border:2px solid #0372BA;
+	box-shadow:0 0 10px 5px #049BE4;
 	border-radius:5px;
-	margin:0 auto;
-	margin-top:300px;
-	text-align:center;
-	background:#009999;
+	background:#0F1922;
+	margin-bottom:30px;
 }
-.login-panel div{
+.login-info div{
 	height:66px;
 	line-height:66px;
 }
-.login-panel div span{
-
+.login-logo{
+	width:200px;
+	height:200px;
+	float:left;
+	background:url("../images/login-logo.jpg") no-repeat center center;
+}
+.remind{
+	font-size:1em;
+	clear:both;
 }
 .title{
 	width:100px;
