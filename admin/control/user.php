@@ -20,6 +20,10 @@
 		}
 		break;
 		case "search":
+		$everyPage=5;
+		$cquery="SELECT * FROM `user` ORDER BY `id` DESC";
+		$countResult=$global->query($cquery);
+		$count=$countResult->num_rows;
 		if(isset($_POST["data"])){
 			$condition="";
 			foreach($_POST["data"] as $key => $val){
@@ -31,16 +35,18 @@
 				
 			}
 			$condition=rtrim($condition,"AND");
-			$result=$global->query("SELECT * FROM `user` WHERE".$condition." ORDER BY `id` DESC");
+			$result=$global->query("SELECT * FROM `user` WHERE".$condition." ORDER BY `id` DESC LIMIT {$_POST["row"]},{$everyPage}");
 		}else{
-			$result=$global->query("SELECT * FROM `user` ORDER BY `id` DESC");
+			$result=$global->query("SELECT * FROM `user` ORDER BY `id` DESC LIMIT {$_POST["row"]},{$everyPage}");
 		}
 		echo '<li><span class="check-span">选择</span><span class="username-span">用户名</span><span class="group-span">组别</span><span class="psw-span-head">密码</span></li>';
 		while($userArr=$result->fetch_array(1)){
 			?>
 			<li><span class="check-span"><input type="checkbox" class="user-control"></span><span class="username-span"><?php echo $userArr["username"];?></span><span  class="group-span" data-level="<?php echo $userArr["grouplevel"];?>"><?php echo $userArr["group"];?></span><span class="psw-span">********</span></li>
 			<?php
-		}
+		}?>
+		<div class="page-div"><?php if($count>0){?><span class="prev-page go-page but2 bg6 br3 clw" data-page="0">首页</span><?php } if($_POST["row"]>=$everyPage){?><span class="prev-page go-page but2 bg6 br3 clw" data-page="<?php echo $_POST["row"]-$everyPage;?>">上一页</span><?php } if(($count-$everyPage)>0 && ($count>($_POST["row"]+$everyPage))){?><span class="prev-page but2 bg6 br3 clw go-page" data-page="<?php echo ($_POST["row"]+$everyPage);?>">下一页</span><?php } if(($count-$everyPage)>$everyPage-2){?><span class="next-page but2 bg6 br3 clw go-page" data-page="<?php echo (ceil($count/$everyPage)*$everyPage-$everyPage);?>">尾页</span><?php }?></div>
+		<?php
 		break;
 		case "create":
 		if($user->isUser($_POST["data"]["username"])=="success"){

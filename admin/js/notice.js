@@ -1,12 +1,13 @@
 pdata={};
 pdata["type"]="search";
 $(function (){
-	showLIst()
+	showLIst(0)
 	$("#notice-create").click(createNotice)
 	$("#n-del").click(delN);
 })
 //获取列表啦
-function showLIst(){
+function showLIst(row){
+	pdata["row"]=row;
 	$.ajax({
 		type:"POST",
 		url:"control/noticelist.php",
@@ -15,6 +16,7 @@ function showLIst(){
 		success:function(data){
 			$("#notice-list-box").html(data)
 			$(".v-table tr").bind({mouseenter:function(){$(this).find("a").css("color","#FFFFFF")},mouseleave:function(){$(this).find("a").css("color","#000000")}})
+			$(".go-page").click(function(){showLIst($(this).data("page"))})
 			$(".notice-edit").click(editNotice)
 		}
 	})
@@ -52,7 +54,7 @@ function createNotice(){
 				}
 				
 				pdata["type"]="search";
-				showLIst()
+				showLIst(0)
 			}
 		})
 	}else{
@@ -79,7 +81,7 @@ function delN(){
 		dataType:"html",
 		success:function(data){
 			pdata["type"]="search";
-			showLIst()
+			showLIst(0)
 		}
 	})
 	}else{

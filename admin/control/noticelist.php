@@ -6,9 +6,13 @@
 	}else{
 		$global->gotopage($global->getoption("weburl"));
 	}
+	$everyPage=10;
 	switch($_POST["type"]){
 		case "search":
-		$query="SELECT * FROM `news` ORDER BY `time` DESC LIMIT 0,5";
+		$cquery="SELECT * FROM `news` ORDER BY `time` DESC";
+		$countResult=$global->query($cquery);
+		$count=$countResult->num_rows;
+		$query="SELECT * FROM `news` ORDER BY `time` DESC LIMIT {$_POST["row"]},{$everyPage}";
 		$result=$global->query($query);
 		?>
 		<table class="v-table">
@@ -20,6 +24,7 @@
 			<?php }?>
 			
 		</table>
+		<div class="page-div"><?php if($count>0){?><span class="prev-page go-page but2 bg6 br3 clw" data-page="0">首页</span><?php } if($_POST["row"]>=$everyPage){?><span class="prev-page go-page but2 bg6 br3 clw" data-page="<?php echo $_POST["row"]-$everyPage;?>">上一页</span><?php } if(($count-$everyPage)>0 && ($count>($_POST["row"]+$everyPage))){?><span class="prev-page but2 bg6 br3 clw go-page" data-page="<?php echo ($_POST["row"]+$everyPage);?>">下一页</span><?php } if(($count-$everyPage)>$everyPage-2){?><span class="next-page but2 bg6 br3 clw go-page" data-page="<?php echo (ceil($count/$everyPage)*$everyPage-$everyPage);?>">尾页</span><?php }?></div>
 		<?php
 		break;
 		case "create":

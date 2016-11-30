@@ -2,7 +2,7 @@ $(function (){
 	$(".user-group").click(showGroup);
 	$("#user-new-but").click(function(){$("#user-new-box").css("display","block")})
 	$(".close-but").click(function(){$("#"+$(this).data("box")).css("display","none")})
-	$("#username").bind("input propertychange",search)
+	$("#username").bind("input propertychange",function(){search(0);})
 	$("#user-group-box").bind({mouseenter:function(){$(this).css("display","block")},mouseleave:function(){$(this).css("display","none")}})
 	$("#user-create").click(createUser);
 	$("#del-user").click(delUser)
@@ -10,6 +10,7 @@ $(function (){
 	$(".psw-span").click(editBox)
 	$("#psw-box").bind({mouseenter:function(){$(this).css("display","block")},mouseleave:function(){$(this).css("display","none")}})
 	$("#reset-psw").click(resetPsw)
+	search(0);
 })
 //显示组别
 function showGroup(){
@@ -39,14 +40,15 @@ function setGroup(){
 	$("#"+type).val($(this).text())
 	$(this).parent().parent().css("display","none")
 	if(type=="user-search-group"){
-		search();
+		search(0);
 	}
 	
 }
 //查询用户列表
-function search(){
+function search(row){
 	var pdata={}
 	pdata["type"]="search";
+	pdata["row"]=row;
 	var data={}
 	var username=$("#username").val();
 	var group=$("#user-search-group").val();
@@ -66,6 +68,7 @@ function search(){
 		success:function(data){
 			$("#user-list-box ul").html(data)
 			$(".psw-span").click(editBox)
+			$(".go-page").click(function(){search($(this).data("page"))})
 		}
 	})
 }
@@ -99,7 +102,7 @@ function createUser(){
 			success:function(data){
 				alert(data)
 				$(".close-but").click();
-				search();
+				search(0);
 				//$("#user-list-box ul").html(data)
 			}
 		})
@@ -149,7 +152,7 @@ function delUser(){
 			dataType:"html",
 			success:function(data){
 				alert(data)
-				search();
+				search(0);
 			}
 		})
 	}else{
