@@ -8,7 +8,7 @@
 		//验证
 		function verify($url=""){
 			
-			if(isset($_SESSION["login"])){
+			if(isset($_SESSION["cplogin"])){
 				return "success";
 			}else{
 				return "error";

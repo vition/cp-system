@@ -13,14 +13,14 @@
 			//$query="SELECT `id` FROM `user` WHERE `username`='{$username}' AND `password` ='".sha1($password)."'";
 			//$result=$this->mydb->query($query);
 			if($this->checkPsw($username,$password)=="success"){
-				$_SESSION["login"]=1;
+				$_SESSION["cplogin"]=1;
 				$_SESSION["username"]=$username;
 				$this->username=$username;
 				$this->ulog($username,"登录");
 				echo "success";
 			}else{
 				$this->ulog($username,"尝试登录失败");
-				unset($_SESSION["login"]);
+				unset($_SESSION["cplogin"]);
 				$_SESSION=array();
 				echo "error";
 			}
@@ -47,7 +47,7 @@
 		}
 		//获取用户信息
 		function getuser($username){
-			if(isset($_SESSION["login"])){
+			if(isset($_SESSION["cplogin"])){
 				$result=$this->mydb->query("SELECT `group`,`grouplevel` FROM `user` WHERE `username`='{$username}'");
 				$this->username=$username;
 				$array=$result->fetch_array(1);
