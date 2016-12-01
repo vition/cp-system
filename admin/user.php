@@ -35,10 +35,12 @@
 				<li><span class="v-search-group"><span class="v-search-title ws-50">用户名</span><input id="user-new-username" type="text" class="user-new-info"/></span></li>
 				<li><span class="v-search-group"><span class="v-search-title ws-50">密码</span><input id="user-new-psw" type="text" class="user-new-info" /></span></li>
 				<li><span class="v-search-group"><span class="v-search-title ws-50">组别</span><input id="user-new-group" readonly="readonly" class="user-group user-new-info" type="text" /></span></li>
+				<li><span class="v-search-group"><span class="v-search-title ws-50">备注</span><input id="user-new-remark" readonly="readonly" class="user-new-info" type="text" /></span></li>
 				<li><span class="but3 bg4 clw fs4 br3" id="user-create">确认创建</span></li>
 			</ul>
 		</div>
-		<div id="user-group-box" data-input=""></div>
+		<div id="user-group-box" data-input=""><ul></ul></div>
+		<input type="hidden" id="changegid" value=""/>
 		<div id="psw-box">
 			<ul><input type="hidden" class="reset-info" id="reset-user" value="">
 				<li><span class="psw-title">会员新密码：</span><span><input class="old-psw reset-info" value="" type="password"></span></li>

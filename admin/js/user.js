@@ -14,14 +14,25 @@ $(function (){
 })
 //显示组别
 function showGroup(){
+	if($(this).text()=="宙斯"){
+		return;
+	}
 	var pdata={};
 	pdata["type"]="showgroup";
-	$("#user-group-box").data("input",this.id)
+	if($(this).data("id")=="changeg"){
+		var h=35
+		$("#changegid").val(this.id);
+		$("#user-group-box").data("input","changeg")
+	}else{
+		var h=25
+		$("#user-group-box").data("input",this.id)
+	}
+	
 	if(this.id=="user-search-group"){pdata["mode"]=this.id}
 	$("#user-group-box").css("display","block")
 	//alert($(this).offset().top)
 	$("#user-group-box").css("width",$(this).css("width"))
-	$("#user-group-box").css("top",$(this).offset().top+25+"px")
+	$("#user-group-box").css("top",$(this).offset().top+h+"px")
 	$("#user-group-box").css("left",$(this).offset().left+"px")
 	$.ajax({
 		url:"control/user.php",
@@ -29,19 +40,38 @@ function showGroup(){
 		data:pdata,
 		dataType:"html",
 		success:function(data){
-			$("#user-group-box").html(data);
+			$("#user-group-box ul").html(data);
 			$(".group-item").click(setGroup)
 		}
 	})
 }
 //设置组别
 function setGroup(){
+	
 	var type=$(this).parent().parent().data("input")
-	$("#"+type).val($(this).text())
-	$(this).parent().parent().css("display","none")
-	if(type=="user-search-group"){
-		search(0);
+	if(type=="changeg"){
+		var temp=$("#changegid").val().split("-");
+		var uid=temp[1]
+		$.ajax({
+			url:"control/user.php",
+			type:"POST",
+			data:{type:"changegroup",uid:uid,group:$(this).text()},
+			dataType:"html",
+			success:function(data){
+				alert(data)
+				search(0);
+				//$("#user-group-box ul").html(data);
+				//$(".group-item").click(setGroup)
+			}
+		})
+	}else{
+		$("#"+type).val($(this).text())
+		$(this).parent().parent().css("display","none")
+		if(type=="user-search-group"){
+			search(0);
+		}
 	}
+	
 	
 }
 //查询用户列表
@@ -68,7 +98,9 @@ function search(row){
 		success:function(data){
 			$("#user-list-box").html(data)
 			$(".psw-span").click(editBox)
+			$(".change-group").click(showGroup)
 			$(".go-page").click(function(){search($(this).data("page"))})
+			$(".remark-change").click(editRemark)
 		}
 	})
 }
@@ -134,8 +166,8 @@ function delUser(){
 	for(i=0;i<selCon.length;i++){
 		if(selCon.eq(i).is(":checked")){
 			var group=selCon.eq(i).parent().next().next().text()
-			if(group=="超级管理员"){
-				alert("您选择的用户中包含超级管理员，无法执行"+msg);
+			if(group=="宙斯"){
+				alert("您选择的用户中包含宙斯，无法执行"+msg);
 				return;
 			}else{
 				data[i]=selCon.eq(i).parent().next().text();
@@ -161,11 +193,17 @@ function delUser(){
 }
 //弹出修改密码窗
 function editBox(){
-	if($(this).prev().text()!="超级管理员"){
+	if($(this).parent().prev().text()!="宙斯"){
 		$("#reset-user").val($(this).prev().prev().text())
 		$("#psw-box").css("display","block")
 	}else{
-		alert("您不能修改超级管理员的密码。")
+		alert("您不能修改宙斯的密码。")
+	}
+}
+//弹出组别
+function changeGroup(){
+	if($(this).text()!="宙斯"){
+		showGroup
 	}
 }
 //执行修改密码
@@ -195,4 +233,25 @@ function resetPsw(){
 		alert("请完善信息！")
 	}
 	
+}
+//编辑备注
+function editRemark(){
+	$(this).attr("contenteditable","true");
+	$(".remark-change").mouseleave(function(){changeRemark(this)})
+}
+//
+function changeRemark(myself){
+	$.ajax({
+		url:"control/user.php",
+		type:"POST",
+		data:{type:"changeremark",uid:$(myself).data("id"),remark:$(myself).text()},
+		dataType:"html",
+		success:function(data){
+			$(myself).attr("contenteditable","false");
+			//alert(data)
+			//search(0);
+			//$("#user-group-box ul").html(data);
+			//$(".group-item").click(setGroup)
+		}
+	})
 }

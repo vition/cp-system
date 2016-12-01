@@ -7,6 +7,7 @@
 	}else{
 		$global->gotopage($global->getoption("weburl"));
 	}
+	//print_r($_POST);
 	switch($_POST["type"]){
 		case "showgroup":
 		$result=$global->query("SELECT distinct `group` FROM `user` ");
@@ -28,17 +29,24 @@
 			$condition="";
 			foreach($_POST["data"] as $key => $val){
 				if($key=="group"){
-					$condition.=" `{$key}` = '{$val}' AND";
+					if($val!="所有"){
+						$condition.=" `{$key}` = '{$val}' AND";
+					}else{
+						$condition.=" `{$key}` LIKE '%%' AND";
+					}
+					
 				}else{
 					$condition.=" `{$key}` LIKE '%{$val}%' AND";
 				}
 				
 			}
 			$condition=rtrim($condition,"AND");
-			$result=$global->query("SELECT * FROM `user` WHERE".$condition." ORDER BY `id` DESC LIMIT {$_POST["row"]},{$everyPage}");
+			$query="SELECT * FROM `user` WHERE".$condition." ORDER BY `id` DESC LIMIT {$_POST["row"]},{$everyPage}";
 		}else{
-			$result=$global->query("SELECT * FROM `user` ORDER BY `id` DESC LIMIT {$_POST["row"]},{$everyPage}");
+			$query="SELECT * FROM `user` ORDER BY `id` DESC LIMIT {$_POST["row"]},{$everyPage}";
 		}
+		//echo $query;
+		$result=$global->query($query);
 		//echo '<li><span class="check-span">选择</span><span class="username-span">用户名</span><span class="group-span">组别</span><span class="psw-span-head">密码</span></li>';
 		//while($userArr=$result->fetch_array(1)){
 			?>
@@ -51,7 +59,7 @@
 			<?php 
 				while($userArr=$result->fetch_array(1)){
 			?>
-			<tr><td><input class="user-control" type="checkbox" data-id="<?php echo $userArr["id"];?>"/></td><td><a class="comment-edit" data-id="<?php echo $userArr["id"];?>"><?php echo $userArr["username"];?></a></td><td><?php echo $userArr["group"];?></td><td><span class="psw-span">********</span></td><td></td></tr>
+			<tr><td><input class="user-control" type="checkbox" data-id="<?php echo $userArr["id"];?>"/></td><td><a class="comment-edit" data-id="<?php echo $userArr["id"];?>"><?php echo $userArr["username"];?></a></td><td id="changeg-<?php echo $userArr["id"];?>" data-id="changeg" class="change-group"><?php echo $userArr["group"];?></td><td><span class="psw-span">********</span></td><td class="remark-change" data-id="<?php echo $userArr["id"];?>"><?php echo $userArr["remark"];?></td></tr>
 			<?php }?>
 		</table>
 		<div class="page-div"><?php if($count>0){?><span class="prev-page go-page but2 bg6 br3 clw" data-page="0">首页</span><?php } if($_POST["row"]>=$everyPage){?><span class="prev-page go-page but2 bg6 br3 clw" data-page="<?php echo $_POST["row"]-$everyPage;?>">上一页</span><?php } if(($count-$everyPage)>0 && ($count>($_POST["row"]+$everyPage))){?><span class="prev-page but2 bg6 br3 clw go-page" data-page="<?php echo ($_POST["row"]+$everyPage);?>">下一页</span><?php } if(($count-$everyPage)>$everyPage-2){?><span class="next-page but2 bg6 br3 clw go-page" data-page="<?php echo (ceil($count/$everyPage)*$everyPage-$everyPage);?>">尾页</span><?php }?></div>
@@ -93,6 +101,19 @@
 		case "freeze":
 		foreach($_POST["data"] as $val){
 			$user->activUser($val,false);
+		}
+		break;
+		case "changegroup":
+		//print_r($_POST);
+		$change=$user->changeGroup($_POST["uid"],$_POST["group"],$groupArr[$_POST["group"]]);
+		if($change=="success"){
+			echo "级别修改成功！";
+		}
+		break;
+		case "changeremark":
+		$change=$user->changeRemark($_POST["uid"],$_POST["remark"]);
+		if($change=="success"){
+			echo "备注修改成功！";
 		}
 		break;
 	}
