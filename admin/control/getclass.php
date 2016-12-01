@@ -66,11 +66,13 @@
 		case "add":
 		//print_r($_POST);
 		$query="INSERT INTO `classif`(`superiors`, `subordinate`) VALUES ('{$_POST["supclass"]}','{$_POST["newclass"]}')";
+		$user->ulog($_SESSION["username"],"新增了分类",$_POST);
 		$global->query($query);
 		break;
 		case "del":
 		$query="DELETE FROM `classif` WHERE `id`='{$_POST["id"]}'";
 		$global->query($query);
+		$user->ulog($_SESSION["username"],"删除了分类",$_POST);
 		break;
 		
 	}

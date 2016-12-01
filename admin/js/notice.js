@@ -3,6 +3,7 @@ pdata["type"]="search";
 $(function (){
 	showLIst(0)
 	$("#notice-create").click(createNotice)
+	$("#notice-updata").click(updataNotice)
 	$("#n-del").click(delN);
 })
 //获取列表啦
@@ -25,6 +26,43 @@ function showLIst(row){
 function createNotice(){
 	var noticeInfo=$(".notice-info");
 	var data={}
+	//获取到数据
+	for(i=0;i<noticeInfo.length;i++){
+		var tempInfo=noticeInfo.eq(i).val();
+		if(tempInfo!=""){
+			data[noticeInfo.eq(i).data("key")]=tempInfo;
+		}
+	}
+	
+	if(objLength(data)>1){
+		pdata["type"]="create";
+		pdata["data"]=data;
+		$.ajax({
+			type:"POST",
+			url:"control/noticelist.php",
+			data:pdata,
+			dataType:"html",
+			success:function(data){
+				alert(data)
+				if(data==1){
+					$("#notice-create").data("updata","")
+					$("#title").val("");
+					$("#content").val("");
+				}
+				
+				pdata["type"]="search";
+				$(".notice-info").val("");
+				showLIst(0)
+			}
+		})
+	}else{
+		alert("请填写好信息")
+	}
+}
+//更新
+function updataNotice(){
+	var noticeInfo=$(".notice-info");
+	var data={}
 	for(i=0;i<noticeInfo.length;i++){
 		var tempInfo=noticeInfo.eq(i).val();
 		if(tempInfo!=""){
@@ -33,13 +71,8 @@ function createNotice(){
 	}
 	if(objLength(data)>1){
 		var upId=$(this).data("updata");
-		if(upId!=""){
-			pdata["type"]="updata";
-			pdata["id"]=upId;
-		}else{
-			pdata["type"]="create";
-		}
-		
+		pdata["type"]="updata";
+		pdata["id"]=upId;
 		pdata["data"]=data;
 		$.ajax({
 			type:"POST",
@@ -49,8 +82,7 @@ function createNotice(){
 			success:function(data){
 				if(data==1){
 					$("#notice-create").data("updata","")
-					$("#title").val("");
-					$("#content").val("");
+					$(".notice-info").val("");
 				}
 				
 				pdata["type"]="search";
@@ -60,8 +92,6 @@ function createNotice(){
 	}else{
 		alert("请填写好信息")
 	}
-	
-	
 }
 function delN(){
 	pdata["type"]="del";
@@ -91,7 +121,7 @@ function delN(){
 //编辑公告
 function editNotice(){
 	var noticeId=$(this).data("id");
-	$("#notice-create").data("updata",noticeId)
+	$("#notice-updata").data("updata",noticeId)
 	$("#title").val($(this).attr("title"));
 	$("#content").val($(this).parent().next().attr("title"));
 	

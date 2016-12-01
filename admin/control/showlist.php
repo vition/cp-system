@@ -3,6 +3,8 @@
 	if($global->verify("")=="success"){
 		load_class("projects");
 		$project=new _projects($serverinfo);
+		load_class("user");
+		$user=new _user($serverinfo);
 	}else{
 		$global->gotopage($global->getoption("weburl"));
 	}
@@ -43,6 +45,7 @@
 		break;
 		case "del":
 		$project->delProject($_POST["data"]);
+		$user->ulog($_SESSION["username"],"删除了项目",$_POST);
 		break;
 	}
 ?>

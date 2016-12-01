@@ -16,8 +16,10 @@
 				$_SESSION["login"]=1;
 				$_SESSION["username"]=$username;
 				$this->username=$username;
+				$this->ulog($username,"登录");
 				echo "success";
 			}else{
+				$this->ulog($username,"尝试登录失败");
 				unset($_SESSION["login"]);
 				$_SESSION=array();
 				echo "error";
@@ -35,7 +37,7 @@
 		}
 		//新建用户
 		function createUser($userInfo){
-			$query="INSERT INTO `user`(`username`, `password`, `group`, `grouplevel`,`state`) VALUES ('{$userInfo["username"]}','".sha1($userInfo["psw"])."','{$userInfo["group"]}','{$userInfo["grouplevel"]}','1')";
+			$query="INSERT INTO `user`(`username`, `password`, `group`, `grouplevel`,`state`,`remark`) VALUES ('{$userInfo["username"]}','".sha1($userInfo["psw"])."','{$userInfo["group"]}','{$userInfo["grouplevel"]}','1','{$userInfo["remark"]}')";
 			$result=$this->mydb->query($query);
 			if($result>=1){
 				return "success";
@@ -128,6 +130,25 @@
 			}else{
 				return "error";
 			}
+		}
+		//用户操作日志
+		function ulog($username,$con,$pdata=""){
+			$data="";
+			if($pdata!=""){
+				foreach($pdata as $key=>$val){
+					if(is_array($val)){
+						foreach($val as $key1=>$val1){
+							$data.=$key1."=>".$val1.";";
+						}
+					}else{
+						$data.=$key."=>".$val.";";
+					}
+					
+				}	
+			}
+			
+			$data=rtrim($data,";");
+			$result=$this->mydb->query("INSERT INTO `log`(`username`, `con`,`data`,`date`) VALUES ('{$username}','{$con}','{$data}','".date("Y-m-d H:i:s")."')");
 		}
 	}
 ?>

@@ -3,6 +3,8 @@
 	if($global->verify("")=="success"){
 		load_class("projects");
 		$project=new _projects($serverinfo);
+		load_class("user");
+		$user=new _user($serverinfo);
 	}else{
 		$global->gotopage($global->getoption("weburl"));
 	}
@@ -37,6 +39,7 @@
 		$result=$global->query("INSERT INTO `news`({$keyStr}`author`, `time`) VALUES ({$valStr}'{$_SESSION["username"]}','".date("Y-m-d H:h:s")."')");
 		if($result>0){
 			echo "成功新增公告";
+			$user->ulog($_SESSION["username"],"添加了公告",$_POST);
 		}else{
 			echo "新增公告失败";
 		}
@@ -48,6 +51,7 @@
 		}
 		$idStr=rtrim($idStr,",");
 		$global->query("DELETE FROM `news` WHERE `id` in ({$idStr})");
+		$user->ulog($_SESSION["username"],"删除了公告",$_POST);
 		break;
 		case "updata":
 		$keyStr="";
@@ -57,6 +61,7 @@
 		$result=$global->query("UPDATE `news` SET {$keyStr}`time`='".date("Y-m-d H:h:s")."',`author`='{$_SESSION["username"]}' WHERE `id`='{$_POST["id"]}'");
 		if($result>0){
 			echo true;
+			$user->ulog($_SESSION["username"],"修改了公告",$_POST);
 		}else{
 			echo "新增公告失败";
 		}

@@ -3,6 +3,8 @@
 	if($global->verify("")=="success"){
 		load_class("projects");
 		$project=new _projects($serverinfo);
+		load_class("user");
+		$user=new _user($serverinfo);
 	}else{
 		$global->gotopage($global->getoption("weburl"));
 	}
@@ -34,6 +36,7 @@
 		}
 		$idStr=rtrim($idStr,",");
 		$global->query("DELETE FROM `comment` WHERE `id` in ({$idStr})");
+		$user->ulog($_SESSION["username"],"删除了评论",$_POST);
 		break;
 	}
 ?>

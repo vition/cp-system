@@ -54,6 +54,7 @@
 		}
 		$query="INSERT INTO `projects`(".rtrim($dataKey,",").",`publisher`) VALUES (".rtrim($dataVal,",").",'{$_SESSION["username"]}')";
 		//echo $query;
+		$control="新增项目";
 		break;
 		case "update":
 		$dataKey="`date`,";
@@ -94,10 +95,12 @@
 			}
 		}
 		$query="UPDATE `projects` SET ".rtrim($datakv,",")." WHERE `id`='{$_POST["id"]}'";
+		$control="更新项目";
 		//$query="INSERT INTO `projects`(".rtrim($dataKey,",").") VALUES (".rtrim($dataVal,",").")";
 		break;
 	}
 	$global->query($query);
+	$user->ulog($_SESSION["username"],$control,$_POST);
 	echo "操作成功了，真棒！";
 	//echo $query;
 ?>

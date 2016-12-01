@@ -76,6 +76,7 @@ function setGroup(){
 }
 //查询用户列表
 function search(row){
+
 	var pdata={}
 	pdata["type"]="search";
 	pdata["row"]=row;
@@ -241,17 +242,16 @@ function editRemark(){
 }
 //
 function changeRemark(myself){
-	$.ajax({
-		url:"control/user.php",
-		type:"POST",
-		data:{type:"changeremark",uid:$(myself).data("id"),remark:$(myself).text()},
-		dataType:"html",
-		success:function(data){
-			$(myself).attr("contenteditable","false");
-			//alert(data)
-			//search(0);
-			//$("#user-group-box ul").html(data);
-			//$(".group-item").click(setGroup)
-		}
-	})
+	if($(myself).attr("contenteditable")=="true"){
+		$.ajax({
+			url:"control/user.php",
+			type:"POST",
+			data:{type:"changeremark",uid:$(myself).data("id"),remark:$(myself).text()},
+			dataType:"html",
+			success:function(data){
+				 $(myself).attr("contenteditable","false");
+			}
+		})
+	}
+	
 }

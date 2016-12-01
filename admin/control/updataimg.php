@@ -26,6 +26,7 @@
 		//echo $query;
 		//$return.=$index[1].":".$global->blob2Img($val).",";
 	}
+	$user->ulog($_SESSION["username"],"更新了广告图片内容");
 	echo "修改成功";
 	//echo rtrim($return,",");
 ?>

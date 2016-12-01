@@ -21,7 +21,7 @@
 		}
 		break;
 		case "search":
-		$everyPage=20;
+		$everyPage=10;
 		$cquery="SELECT * FROM `user` ORDER BY `id` DESC";
 		$countResult=$global->query($cquery);
 		$count=$countResult->num_rows;
@@ -72,6 +72,7 @@
 			$_POST["data"]["grouplevel"]=$groupArr[$_POST["data"]["group"]];
 			if($user->createUser($_POST["data"])=="success"){
 				echo " 用户【{$_POST["data"]["username"]}】 创建成功";
+				$user->ulog($_SESSION["username"],"新建用户{$_POST["data"]["username"]}");
 			}else{
 				echo " 用户【{$_POST["data"]["username"]}】 创建失败";
 			}
@@ -88,12 +89,14 @@
 		$condition=rtrim($condition,",");
 		//echo "DELETE FROM `user` WHERE `username` in ({$condition})";
 		$result=$global->query("DELETE FROM `user` WHERE `username` in ({$condition})");
+		$user->ulog($_SESSION["username"],"删除用户",$_POST);
 		echo "用户 {$condition} 删除成功";
 		break;
 		case "resetpsw":
 		if($user->checkPsw($_SESSION["username"],$_POST["data"][2])=="success"){
 			$user->changePsw($_POST["data"][0],$_POST["data"][1]);
 			echo "用户 【{$_POST["data"][0]}】 成功修改密码";
+			$user->ulog($_SESSION["username"],"修改用户{$_POST["data"][0]}的密码");
 		}else{
 			echo "管理密码不正确！";
 		}
@@ -107,12 +110,14 @@
 		//print_r($_POST);
 		$change=$user->changeGroup($_POST["uid"],$_POST["group"],$groupArr[$_POST["group"]]);
 		if($change=="success"){
+			$user->ulog($_SESSION["username"],"修改id{$_POST["uid"]}用户的级别");
 			echo "级别修改成功！";
 		}
 		break;
 		case "changeremark":
 		$change=$user->changeRemark($_POST["uid"],$_POST["remark"]);
 		if($change=="success"){
+			$user->ulog($_SESSION["username"],"修改id{$_POST["uid"]}用户的备注");
 			echo "备注修改成功！";
 		}
 		break;

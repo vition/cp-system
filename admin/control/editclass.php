@@ -31,4 +31,5 @@
 		$oldArr=array($_POST["thisclass"]=>$oldClass["subordinate"],$_POST["prevclass"]=>$oldClass["superiors"]);
 	}
 	$global->scouredClass($oldArr,$classArr);
+	$user->ulog($_SESSION["username"],"修改了分类",$_POST);
 ?>
