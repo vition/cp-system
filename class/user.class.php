@@ -136,14 +136,15 @@
 			$data="";
 			if($pdata!=""){
 				foreach($pdata as $key=>$val){
-					if(is_array($val)){
-						foreach($val as $key1=>$val1){
-							$data.=$key1."=>".$val1.";";
+					if($key!="pdf"){
+						if(is_array($val)){
+							foreach($val as $key1=>$val1){
+								$data.=$key1."=>".$val1.";";
+							}
+						}else{
+							$data.=$key."=>".$val.";";
 						}
-					}else{
-						$data.=$key."=>".$val.";";
 					}
-					
 				}	
 			}
 			
