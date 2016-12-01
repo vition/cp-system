@@ -107,11 +107,11 @@ a.iBd:hover{ border-color:#f09;}
 .post .cover img{ display:block;}
 .post .cover .vPic{ position: absolute; top: 5px; right: 5px; background:url(../images/video.png) no-repeat; width:26px; height:26px; display:inline-block;}
 .post .cover .overlay{ height:60px; padding:20px 0 0 15px; color:#666; background:#fff; font-size:16px; font-weight:bold; position:absolute; bottom:0; width:100%; overflow:hidden; cursor:pointer; display:none;}
-.post li{ padding-left:3px; line-height:18px; height:18px; overflow:hidden; white-space:nowrap;}
-.post .nickname{ color:#666; font-weight:bold;}
-.post .nickname:hover{ color:#f09; text-decoration:underline;}
-.post label{ color:#cbcbcb; }
-.post span{ color:#999; }
+.post li{ padding-left:3px; line-height:18px; height:18px; overflow:hidden; white-space:nowrap;margin-top:5px}
+.post .nickname{ color:#666; font-weight:bold;font-size:1em;}
+.post .nickname:hover{ color:#308ED9;}
+.post label{ color:#0F1922;font-size:1.1em;}
+.post span{ color:#999;font-size:1.1em;cursor:default;}
 
 .big-post{ width:236px; margin:0 5px 10px 0px;} 
 .big-post .cover img{ width: 234px; height: 250px;}

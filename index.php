@@ -79,11 +79,11 @@
 				</span>
 				<?php while($projects=$result->fetch_array(1)){?>
 				<ul class="post big-post">
-					<div class="cover" cover-text="爱慕先生" cover-girl-text="">
-						<a href="page.php?id=<?php echo $projects["id"];?>" hidefocus="true" target="_blank"><img src2="<?php echo $global->getoption("weburl").$projects["cover"];?>" alt="赵泽峰作品《爱慕先生》" style="display: block;" src="<?php echo $global->getoption("weburl").$projects["cover"];?>"><div class="overlay" style="display: none;">爱慕先生<span style="color: rgb(255, 0, 153);"></span></div></a>
+					<div class="cover" cover-text="<?php echo $projects["title"];?>" >
+						<a href="page.php?id=<?php echo $projects["id"];?>" hidefocus="true" target="_blank"><img src2="<?php echo $global->getoption("weburl").$projects["cover"];?>" alt="<?php echo $projects["title"];?>" style="display: block;" src="<?php echo $global->getoption("weburl").$projects["cover"];?>"><div class="overlay" style="display: none;"><?php echo $projects["title"];?><span style="color: rgb(255, 0, 153);"></span></div></a>
 					</div>
-					<li><label>项目名称 / </label><a href="page.php?id=<?php echo $projects["id"];?>" title="赵泽峰" hidefocus="true" class="nickname" target="_blank"><?php echo $global->seizeStr($projects["title"],40);?></a></li>
-					<li><label>平台 / </label><span><?php echo $projects["platform"];?></span></li>
+					<li><label>项目名称 / </label><a href="page.php?id=<?php echo $projects["id"];?>" title="<?php echo $projects["title"];?>" hidefocus="true" class="nickname" target="_blank"><?php echo $global->seizeStr($projects["title"],36);?></a></li>
+					<li><label>平台 / </label><span title="<?php echo $projects["platform"];?>"><?php echo $global->seizeStr($projects["platform"],40);?></span></li>
 					<li><label>更新日期 / </label><span><?php echo $projects["date"];?></span></li>
 				</ul>
 				<?php }?>
@@ -98,11 +98,11 @@
 		<div class="w970">
 		<?php while($projects=$newResult->fetch_array(1)){?>
 		<ul class="post big-post">
-			<div class="cover" cover-text="" cover-girl-text="">
-				<a href="page.php?id=<?php echo $projects["id"];?>" hidefocus="true" target="_blank"><img src2="<?php echo $global->getoption("weburl").$projects["cover"];?>" alt="" style="display: block;" src="<?php echo $global->getoption("weburl").$projects["cover"];?>"><div class="overlay" style="display: none;"><span style="color: rgb(255, 0, 153);"></span></div></a>
+			<div class="cover" cover-text="<?php echo $projects["title"];?>" >
+				<a href="page.php?id=<?php echo $projects["id"];?>" hidefocus="true" target="_blank"><img src2="<?php echo $global->getoption("weburl").$projects["cover"];?>" alt="<?php echo $projects["title"];?>" style="display: block;" src="<?php echo $global->getoption("weburl").$projects["cover"];?>"><div class="overlay" style="display: none;"><?php echo $projects["title"];?><span style="color: rgb(255, 0, 153);"></span></div></a>
 			</div>
-			<li><label>项目名称 / </label><a href="page.php?id=<?php echo $projects["id"];?>" title="赵泽峰" hidefocus="true" class="nickname" target="_blank"><?php echo $global->seizeStr($projects["title"],40);?></a></li>
-			<li><label>平台 / </label><span><?php echo $projects["platform"];?></span></li>
+			<li><label>项目名称 / </label><a href="page.php?id=<?php echo $projects["id"];?>" title="<?php echo $projects["title"];?>" hidefocus="true" class="nickname" target="_blank"><?php echo $global->seizeStr($projects["title"],36);?></a></li>
+			<li><label>平台 / </label><span title="<?php echo $projects["platform"];?>"><?php echo $global->seizeStr($projects["platform"],40);?></span></li>
 			<li><label>更新日期 / </label><span><?php echo $projects["date"];?></span></li>
 		</ul>
 		<?php }?>
