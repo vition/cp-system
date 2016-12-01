@@ -39,7 +39,7 @@
 				<li><span class="but3 bg4 clw fs4 br3" id="user-create">确认创建</span></li>
 			</ul>
 		</div>
-		<div id="user-group-box" data-input=""><ul></ul></div>
+		<div id="user-group-box" data-input="" data-name=""><ul></ul></div>
 		<input type="hidden" id="changegid" value=""/>
 		<div id="psw-box">
 			<ul><input type="hidden" class="reset-info" id="reset-user" value="">

@@ -100,3 +100,19 @@ a{
 	text-align:center;
 	height:30px;
 }
+.remark-title{
+	display: inline-block;
+	height: 20px;
+	float:left;
+	margin-left:10px;
+	width:70%;
+}
+.save-remark{
+	display: inline-block;
+	margin-right:10px;
+	cursor:pointer;
+	width: 19px;
+	height: 20px;
+	float:right;
+	background: url("../images/proj_index.png") -57px 0 no-repeat;
+}

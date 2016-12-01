@@ -59,7 +59,7 @@
 			<?php 
 				while($userArr=$result->fetch_array(1)){
 			?>
-			<tr><td><input class="user-control" type="checkbox" data-id="<?php echo $userArr["id"];?>"/></td><td><a class="comment-edit" data-id="<?php echo $userArr["id"];?>"><?php echo $userArr["username"];?></a></td><td id="changeg-<?php echo $userArr["id"];?>" data-id="changeg" class="change-group"><?php echo $userArr["group"];?></td><td><span class="psw-span">********</span></td><td class="remark-change" data-id="<?php echo $userArr["id"];?>"><?php echo $userArr["remark"];?></td></tr>
+			<tr><td><input class="user-control" type="checkbox" data-id="<?php echo $userArr["id"];?>"/></td><td><a class="comment-edit" data-id="<?php echo $userArr["id"];?>"><?php echo $userArr["username"];?></a></td><td id="changeg-<?php echo $userArr["id"];?>" data-id="changeg" class="change-group"><?php echo $userArr["group"];?></td><td><span class="psw-span">********</span></td><td class="remark-change" data-id="<?php echo $userArr["id"];?>"><span class="remark-title"><?php echo $userArr["remark"];?><span></td></tr>
 			<?php }?>
 		</table>
 		<div class="page-div"><?php if($count>0){?><span class="prev-page go-page but2 bg6 br3 clw" data-page="0">首页</span><?php } if($_POST["row"]>=$everyPage){?><span class="prev-page go-page but2 bg6 br3 clw" data-page="<?php echo $_POST["row"]-$everyPage;?>">上一页</span><?php } if(($count-$everyPage)>0 && ($count>($_POST["row"]+$everyPage))){?><span class="prev-page but2 bg6 br3 clw go-page" data-page="<?php echo ($_POST["row"]+$everyPage);?>">下一页</span><?php } if(($count-$everyPage)>$everyPage-2){?><span class="next-page but2 bg6 br3 clw go-page" data-page="<?php echo (ceil($count/$everyPage)*$everyPage-$everyPage);?>">尾页</span><?php }?></div>
@@ -108,16 +108,16 @@
 		break;
 		case "changegroup":
 		//print_r($_POST);
-		$change=$user->changeGroup($_POST["uid"],$_POST["group"],$groupArr[$_POST["group"]]);
+		$change=$user->changeGroup($_POST["name"],$_POST["group"],$groupArr[$_POST["group"]]);
 		if($change=="success"){
-			$user->ulog($_SESSION["username"],"修改id{$_POST["uid"]}用户的级别");
+			$user->ulog($_SESSION["username"],"修改用户{$_POST["name"]}用户的级别",$_POST);
 			echo "级别修改成功！";
 		}
 		break;
 		case "changeremark":
-		$change=$user->changeRemark($_POST["uid"],$_POST["remark"]);
+		$change=$user->changeRemark($_POST["username"],$_POST["remark"]);
 		if($change=="success"){
-			$user->ulog($_SESSION["username"],"修改id{$_POST["uid"]}用户的备注");
+			$user->ulog($_SESSION["username"],"修改用户{$_POST["username"]}的备注",$_POST);
 			echo "备注修改成功！";
 		}
 		break;

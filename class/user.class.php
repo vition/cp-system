@@ -114,17 +114,17 @@
 			}
 		}
 		//根据id修改组别
-		function changeGroup($id,$group,$grouplevel){
-			$result=$this->mydb->query("UPDATE `user` SET `group`='{$group}',`grouplevel`={$grouplevel} WHERE `id`='{$id}'");
+		function changeGroup($username,$group,$grouplevel){
+			$result=$this->mydb->query("UPDATE `user` SET `group`='{$group}',`grouplevel`={$grouplevel} WHERE `username`='{$username}'");
 			if($result>=1){
 				return "success";
 			}else{
 				return "error";
 			}
 		}
-		//根据id修改备注
-		function changeRemark($id,$remark){
-			$result=$this->mydb->query("UPDATE `user` SET `remark`='{$remark}' WHERE `id`='{$id}'");
+		//根据用户名修改备注
+		function changeRemark($username,$remark){
+			$result=$this->mydb->query("UPDATE `user` SET `remark`='{$remark}' WHERE `username`='{$username}'");
 			if($result>=1){
 				return "success";
 			}else{

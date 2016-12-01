@@ -17,6 +17,8 @@ function showGroup(){
 	if($(this).text()=="宙斯"){
 		return;
 	}
+	$("#user-group-box").data("name",$(this).prev().text())
+	//alert($(this).prev().text());
 	var pdata={};
 	pdata["type"]="showgroup";
 	if($(this).data("id")=="changeg"){
@@ -47,15 +49,15 @@ function showGroup(){
 }
 //设置组别
 function setGroup(){
-	
 	var type=$(this).parent().parent().data("input")
 	if(type=="changeg"){
 		var temp=$("#changegid").val().split("-");
-		var uid=temp[1]
+		var uid=temp[1];
+		var name=$("#user-group-box").data("name");
 		$.ajax({
 			url:"control/user.php",
 			type:"POST",
-			data:{type:"changegroup",uid:uid,group:$(this).text()},
+			data:{type:"changegroup",name:name,group:$(this).text()},
 			dataType:"html",
 			success:function(data){
 				alert(data)
@@ -195,7 +197,7 @@ function delUser(){
 //弹出修改密码窗
 function editBox(){
 	if($(this).parent().prev().text()!="宙斯"){
-		$("#reset-user").val($(this).prev().prev().text())
+		$("#reset-user").val($(this).parent().prev().prev().text())
 		$("#psw-box").css("display","block")
 	}else{
 		alert("您不能修改宙斯的密码。")
@@ -237,21 +239,27 @@ function resetPsw(){
 }
 //编辑备注
 function editRemark(){
-	$(this).attr("contenteditable","true");
-	$(".remark-change").mouseleave(function(){changeRemark(this)})
-}
-//
-function changeRemark(myself){
-	if($(myself).attr("contenteditable")=="true"){
-		$.ajax({
-			url:"control/user.php",
-			type:"POST",
-			data:{type:"changeremark",uid:$(myself).data("id"),remark:$(myself).text()},
-			dataType:"html",
-			success:function(data){
-				 $(myself).attr("contenteditable","false");
-			}
-		})
+	$(this).find(".remark-title").attr("contenteditable","true");
+//	alert($(this).find(".save-remark").val())
+	if($(this).find(".save-remark").val()==undefined){
+		$(this).append("<span class='save-remark'></span>")
+		$(".save-remark").click(changeRemark)
 	}
 	
+	//$(".remark-change").mouseleave(function(){changeRemark(this)})
+}
+//修改备注
+function changeRemark(){
+	var myself=this;
+	//alert($(this).parent().prev().prev().prev().text())
+	$.ajax({
+		url:"control/user.php",
+		type:"POST",
+		data:{type:"changeremark",username:$(this).parent().prev().prev().prev().text(),remark:$(this).prev().text()},
+		dataType:"html",
+		success:function(data){
+			$(myself).prev().attr("contenteditable","false");
+			$(myself).remove();
+		}
+	})
 }
