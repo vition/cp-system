@@ -136,7 +136,7 @@
 			$data="";
 			if($pdata!=""){
 				foreach($pdata as $key=>$val){
-					if($key!="pdf"){
+					if($key!="pdf" || $key!="cover"){
 						if(is_array($val)){
 							foreach($val as $key1=>$val1){
 								$data.=$key1."=>".$val1.";";
