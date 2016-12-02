@@ -50,7 +50,7 @@
 			<li><span class="data-input-tit">二级分类</span><span><input type="text" id="secondclass" data-parentid="firstclass" readonly="readonly" class="data-input select-input" value="<?php echo $array["secondclass"]; ?>" /></span></li>
 			<li><span class="data-input-tit">三级分类</span><span><input type="text" id="threeclass" data-parentid="secondclass" readonly="readonly" class="data-input select-input" value="<?php echo $array["threeclass"]; ?>" /></span></li>
 			<li><span class="data-input-tit">IP名称</span><span><input type="text" id="title" class="data-input" value="<?php echo $array["title"]; ?>" /></span></li>
-			<li><span class="data-input-tit">平台</span><span><input type="text"id="platform" class="data-input" value="<?php echo $array["platform"]; ?>" /></span></li>
+			<li><span class="data-input-tit">平台/地点</span><span><input type="text"id="platform" class="data-input" value="<?php echo $array["platform"]; ?>" /></span></li>
 			<li><span class="data-input-tit">时间</span><span><input type="text" id="datetime" class="data-input" value="<?php echo $array["datetime"]; ?>" /></span></li>
 			<li><span class="data-input-tit">核心</span><span><input type="text" id="core" class="data-input" value="<?php echo $array["core"]; ?>" /></span></li>
 			<li><span class="data-input-tit">合作形式1</span><span><input type="text" id="mode1" class="input-30 data-input" value="<?php echo $array["mode1"]; ?>" /></span><span class="title-08">刊例价1</span><span><input type="text" id="price1" class="input-30 data-input" value="<?php echo $array["price1"]; ?>" /></span></li>

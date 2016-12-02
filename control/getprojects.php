@@ -19,7 +19,7 @@
 						<a href="page.php?id=<?php echo $projects["id"];?>" hidefocus="true" target="_blank"><img src2="<?php echo $global->getoption("weburl").$projects["cover"];?>" alt="<?php echo $projects["title"];?>" style="display: block;" src="<?php echo $global->getoption("weburl").$projects["cover"];?>"><div class="overlay" style="display: none;"><?php echo $projects["title"];?><span style="color: rgb(255, 0, 153);"></span></div></a>
 					</div>
 					<li><label>项目名称 / </label><a href="page.php?id=<?php echo $projects["id"];?>" title="<?php echo $projects["title"];?>" hidefocus="true" class="nickname" target="_blank"><?php echo $global->seizeStr($projects["title"],36);?></a></li>
-					<li><label>平台 / </label><span title="<?php echo $projects["platform"];?>"><?php echo $global->seizeStr($projects["platform"],40);?></span></li>
+					<li><label>平台/地点 / </label><span title="<?php echo $projects["platform"];?>"><?php echo $global->seizeStr($projects["platform"],40);?></span></li>
 					<li><label>更新日期 / </label><span><?php echo $projects["date"];?></span></li>
 				</ul>
 <?php		}
@@ -101,7 +101,7 @@
 				<a href="page.php?id=<?php echo $projects["id"];?>" hidefocus="true" target="_blank"><img src2="<?php echo $global->getoption("weburl").$projects["cover"];?>" alt="" style="display: block;" src="<?php echo $global->getoption("weburl").$projects["cover"];?>"><div class="overlay" style="display: none;"><span style="color: rgb(255, 0, 153);"></span></div></a>
 			</div>
 			<li><label>项目名称 / </label><a href="page.php?id=<?php echo $projects["id"];?>" title="<?php echo $projects["title"];?>" hidefocus="true" class="nickname" target="_blank"><?php echo $projects["title"];?></a></li>
-			<li><label>平台 / </label><span><?php echo $projects["platform"];?></span></li>
+			<li><label>平台/地点 / </label><span><?php echo $projects["platform"];?></span></li>
 			<li><label>更新日期 / </label><span><?php echo $projects["date"];?></span></li>
 		</ul>
 		<?php

@@ -43,7 +43,7 @@
 				<ul>
 					<input id="pid" type="hidden" value="<?php echo $array["id"];?>" />
 					<li><span class="base-title">IP名称：</span><span><?php echo $array["title"];?></span></li>
-					<li><span class="base-title">平台：</span><span><?php echo $array["platform"];?></span></li>
+					<li><span class="base-title">平台/地点：</span><span><?php echo $array["platform"];?></span></li>
 					<li><span class="base-title">类别：</span><span><?php echo "{$array["firstclass"]}>>{$array["secondclass"]}>>{$array["threeclass"]}";?></span></li>
 					<li><span class="base-title">核心：</span><span><?php echo $array["core"];?></span></li>
 					<li><span class="base-title">时间：</span><span><?php echo $array["datetime"];?></span></li>

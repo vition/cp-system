@@ -131,6 +131,24 @@
 				return "error";
 			}
 		}
+		//获取用户微信id
+		function getUserId($nameArr=""){
+			if($nameArr==""){
+				$ids="";
+				$result=$this->mydb->query("SELECT `wxid` FROM `user`");
+				while($array=$result->fetch_array(1)){
+					$ids.=$array["wxid"]."|";
+				}
+			}else{
+				$ids="";
+				foreach($nameArr as $name){
+					$result=$this->mydb->query("SELECT `wxid` FROM `user` WHERE `username`='{$name}'");
+					$array=$result->fetch_array(1);
+					$ids.=$array["wxid"]."|";
+				}
+			}
+			return rtrim($ids,"|");
+		}
 		//用户操作日志
 		function ulog($username,$con,$pdata=""){
 			$data="";
