@@ -48,7 +48,7 @@
 		//获取用户信息
 		function getuser($username){
 			if(isset($_SESSION["cplogin"])){
-				$result=$this->mydb->query("SELECT `group`,`grouplevel` FROM `user` WHERE `username`='{$username}'");
+				$result=$this->mydb->query("SELECT `group`,`grouplevel`,`wxid` FROM `user` WHERE `username`='{$username}'");
 				$this->username=$username;
 				$array=$result->fetch_array(1);
 				return $array;
@@ -136,7 +136,7 @@
 			$data="";
 			if($pdata!=""){
 				foreach($pdata as $key=>$val){
-					if($key!="pdf" || $key!="cover"){
+					if($key!="pdf"){
 						if(is_array($val)){
 							foreach($val as $key1=>$val1){
 								$data.=$key1."=>".$val1.";";

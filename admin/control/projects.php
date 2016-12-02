@@ -3,13 +3,16 @@
 	if($global->verify("")=="success"){
 		load_class("user");
 		$user=new _user($serverinfo);
-		$gorup=$user->getuser($_SESSION["username"]);
+		$userInfo=$user->getuser($_SESSION["username"]);
+		load_class("weixin");
+		$weixin=new weixin($serverinfo);
 	}else{
 		$global->gotopage($global->getoption("weburl"));
 	}
 	//$global
 	switch($_POST["ptype"]){
 		case "insert":
+		$picurl="";
 		$dataKey="`date`,";
 		$dataVal="'".date("Y-m-d H:i:s",time())."',";
 		foreach($_POST as $key=>$val){
@@ -24,7 +27,8 @@
 					 if($val!=""){
 						preg_match("/http/",$val,$array);
 						if(empty($array)){
-							 $dataVal.="'".$global->blob2Img($val)."',";
+							 $picurl=$global->blob2Img($val);
+							 $dataVal.="'".$picurl."',";
 						}else{
 							 $dataVal.="'{$val}',";
 						}
@@ -55,6 +59,10 @@
 		$query="INSERT INTO `projects`(".rtrim($dataKey,",").",`publisher`) VALUES (".rtrim($dataVal,",").",'{$_SESSION["username"]}')";
 		//echo $query;
 		$control="新增项目";
+		
+		$data=array("touser"=>"{$userInfo["wxid"]}","msgtype"=> "news","agentid"=> 0,"news"=>array("articles"=>array(array("title"=>"{$_POST["title"]}","description"=>"{$_POST["core"]}","picurl"=>$global->getoption("weburl").$picurl))),"safe"=>"0");
+		//print_r($data);
+		$weixin->send($data);
 		break;
 		case "update":
 		$dataKey="`date`,";

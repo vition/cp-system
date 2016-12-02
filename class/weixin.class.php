@@ -12,10 +12,11 @@
 		function __construct($dbinfo){
 			$this->Mydb=new mysqli($dbinfo["dbhost"],$dbinfo["rootname"],$dbinfo["rootpsw"],$dbinfo["dbname"]); 
 			$this->AccessToken=$this->getToken();
+			//echo $this->AccessToken;
 		}
 		//获取AccessToken
 		function getToken(){
-			$data = json_decode($this->get_php_file("config/access_token.php"));
+			$data = json_decode($this->get_php_file(ROOT."/weixin/config/access_token.php"));
 			if ($data->expire_time < time()) {
 				$AccessTokenJ=file_get_contents("https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid={$this->CorpID}&corpsecret={$this->Secret}");
 				$res=json_decode($AccessTokenJ);
@@ -23,7 +24,7 @@
 				if ($accessToken) {
 					$data->expire_time = time() + 7000;
 					$data->access_token = $accessToken;
-					$this->set_php_file("../control/access_token.php", json_encode($data));
+					$this->set_php_file(ROOT."/weixin/config/access_token.php", json_encode($data));
 				}
 			}else {
 				$accessToken = $data->access_token;
