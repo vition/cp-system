@@ -106,7 +106,6 @@
 		//$query="INSERT INTO `projects`(".rtrim($dataKey,",").") VALUES (".rtrim($dataVal,",").")";
 		break;
 	}
-	//print_r($_POST);
 	$global->query($query);
 	$user->ulog($_SESSION["username"],$control,$_POST);
 	$wxids=$user->getUserId();
