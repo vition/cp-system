@@ -59,10 +59,6 @@
 		$query="INSERT INTO `projects`(".rtrim($dataKey,",").",`publisher`) VALUES (".rtrim($dataVal,",").",'{$_SESSION["username"]}')";
 		//echo $query;
 		$control="新增项目";
-		$wxids=$user->getUserId();
-		$data=array("touser"=>"{$wxids}","msgtype"=> "news","agentid"=> 0,"news"=>array("articles"=>array(array("title"=>"WTC娱乐营销最新发布：{$_POST["title"]}","description"=>"{$_POST["core"]}【请使用电脑登录".$global->getoption("weburl")."进行查看】","picurl"=>$global->getoption("weburl").$picurl))),"safe"=>"0");
-		//print_r($data);
-		$weixin->send($data);
 		break;
 		case "update":
 		$dataKey="`date`,";
@@ -110,6 +106,10 @@
 	//print_r($_POST);
 	$global->query($query);
 	$user->ulog($_SESSION["username"],$control,$_POST);
+	$wxids=$user->getUserId();
+	echo $wxids;
+	$data=array("touser"=>"{$wxids}","msgtype"=> "news","agentid"=> 0,"news"=>array("articles"=>array(array("title"=>"WTC娱乐营销{$control}：{$_POST["title"]}","description"=>"{$_POST["core"]}【请使用电脑登录".$global->getoption("weburl")."进行查看】","picurl"=>$global->getoption("weburl").$picurl))),"safe"=>"0");
+	$weixin->send($data);
 	echo "操作成功了，真棒！";
 	//echo $query;
 ?>
