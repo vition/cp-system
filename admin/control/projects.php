@@ -31,6 +31,7 @@
 							 $dataVal.="'".$picurl."',";
 						}else{
 							 $dataVal.="'{$val}',";
+							 $picurl=$val;
 						}
 						
 					 }else{
