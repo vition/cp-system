@@ -137,7 +137,9 @@
 				$ids="";
 				$result=$this->mydb->query("SELECT `wxid` FROM `user`");
 				while($array=$result->fetch_array(1)){
-					$ids.=$array["wxid"]."|";
+					if($array["wxid"]!=""){
+						$ids.=$array["wxid"]."|";
+					}
 				}
 			}else{
 				$ids="";
