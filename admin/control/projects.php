@@ -59,7 +59,7 @@
 		$query="INSERT INTO `projects`(".rtrim($dataKey,",").",`publisher`) VALUES (".rtrim($dataVal,",").",'{$_SESSION["username"]}')";
 		//echo $query;
 		$control="新增项目";
-		$wxids=$user->getUserId()
+		$wxids=$user->getUserId();
 		$data=array("touser"=>"{$wxids}","msgtype"=> "news","agentid"=> 0,"news"=>array("articles"=>array(array("title"=>"{$_POST["title"]}","description"=>"{$_POST["core"]}","picurl"=>$global->getoption("weburl").$picurl))),"safe"=>"0");
 		//print_r($data);
 		$weixin->send($data);
