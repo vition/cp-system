@@ -76,9 +76,11 @@
 					if($val!=""){
 						preg_match("/data/",$val,$array);
 						if(!empty($array)){
-							$datakv.="`{$key}`='".$global->blob2Img($val)."',";
+							$picurl=$global->blob2Img($val);
+							$datakv.="`{$key}`='".$picurl."',";
 						}else{
 							$datakv.="`{$key}`='{$val}',";
+							$picurl=$val;
 						}
 					}
 				}elseif($key=="pdfname"){
