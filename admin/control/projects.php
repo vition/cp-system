@@ -60,7 +60,7 @@
 		//echo $query;
 		$control="新增项目";
 		$wxids=$user->getUserId();
-		$data=array("touser"=>"{$wxids}","msgtype"=> "news","agentid"=> 0,"news"=>array("articles"=>array(array("title"=>"{$_POST["title"]}","description"=>"{$_POST["core"]}","picurl"=>$global->getoption("weburl").$picurl))),"safe"=>"0");
+		$data=array("touser"=>"{$wxids}","msgtype"=> "news","agentid"=> 0,"news"=>array("articles"=>array(array("title"=>"WTC娱乐营销最新发布：{$_POST["title"]}","description"=>"{$_POST["core"]}【请使用电脑登录".$global->getoption("weburl")."进行查看】","picurl"=>$global->getoption("weburl").$picurl))),"safe"=>"0");
 		//print_r($data);
 		$weixin->send($data);
 		break;
