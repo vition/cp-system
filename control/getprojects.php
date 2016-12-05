@@ -74,16 +74,18 @@
 		}
 		if(isset($_POST["cond-tags"])){
 			$condition.="`tags` LIKE '%{$_POST["cond-tags"]}%' AND";
+		}else{
+			if(isset($_POST["cond-pushed"])){
+				if($_POST["cond-pushed"]=="仅推荐"){
+					$condition.="`pushed` = '1' AND";
+				}else{
+					$condition.="`pushed` = '0' AND";
+				}
+
+			}
 		}
 		//print_r($_POST);
-		if(isset($_POST["cond-pushed"])){
-			if($_POST["cond-pushed"]=="仅推荐"){
-				$condition.="`pushed` = '1' AND";
-			}else{
-				$condition.="`pushed` = '0' AND";
-			}
-
-		}
+		
 		
 		$condition=rtrim($condition,"AND");
 		//if(count($_POST)<3){
@@ -92,7 +94,7 @@
 			$query="SELECT * FROM `projects` WHERE {$condition} ORDER BY `date` DESC";
 		//}
 		
-		echo $query;
+		//echo $query;
 		$everyPage=12;
 		$countResult=$global->query($query);
 		//echo $query;
