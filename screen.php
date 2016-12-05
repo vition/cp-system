@@ -8,6 +8,11 @@
 	}else{
 		$pushed="所有";
 	}
+	if(isset($_GET["tags"])){
+		$tags=$_GET["tags"];
+	}else{
+		$tags="";
+	}
 	if($global->verify("")=="success"){
 		load_class("user");
 		$user=new _user($serverinfo);
@@ -55,6 +60,7 @@
 		<input class="multiple" id="cond-platform" type="hidden" />
 		<input class="multiple" id="cond-price" type="hidden" />
 		<input class="multiple" id="cond-pushed" value="<?php echo $pushed;?>" type="hidden" />
+		<input class="multiple" id="cond-tags" value="<?php echo $tags;?>" type="hidden" />
 	</div>
 </div>
 <?php require_once('footer.php');?>

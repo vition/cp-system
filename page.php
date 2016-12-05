@@ -48,7 +48,7 @@
 					<li><span class="base-title">核心：</span><span><?php echo $array["core"];?></span></li>
 					<li><span class="base-title">时间：</span><span><?php echo $array["datetime"];?></span></li>
 					<li><span class="base-title">更新时间：</span><span><?php echo $array["date"];?></span></li>
-					<li><span class="base-title">标签：</span><span><?php echo $array["tags"];?></span></li>
+					<li><span class="base-title">标签：</span><span><?php $tags=explode(",",$array["tags"]);foreach($tags as $val){echo "<a class='tags' href='screen.php?tags={$val}'>{$val}</a>,";} ?></span></li>
 				</ul>
 			</span>
 		</div>

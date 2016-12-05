@@ -149,7 +149,8 @@ function showList(row){
 	var title=$("#title-screen-box input").val();
 	searchVal["title"]=title
 	for(i=0;i<multiple.length;i++){
-		if(multiple.eq(i).val()!=""){
+		if(multiple.eq(i).val()!="" && multiple.eq(i).val()!=undefined){
+			//alert(multiple.eq(i).attr("id"))
 			searchVal[multiple.eq(i).attr("id")]=multiple.eq(i).val()
 		}
 	}

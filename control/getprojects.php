@@ -69,9 +69,13 @@
 		if(isset($_POST["cond-platform"])){
 			$condition.="`platform` = '{$_POST["cond-platform"]}' AND";
 		}
-		if(isset($_POST["sprice"])){
+		if(isset($_POST["cond-sprice"])){
 			$condition.="((`price1` >= '{$_POST["sprice"]}' AND `price1` <= '{$_POST["eprice"]}') OR (`price2` >= '{$_POST["sprice"]}' AND `price2` <= '{$_POST["eprice"]}') OR (`price3` >= '{$_POST["sprice"]}' AND `price3` <= '{$_POST["eprice"]}')) AND";
 		}
+		if(isset($_POST["cond-tags"])){
+			$condition.="`tags` LIKE '%{$_POST["cond-tags"]}%' AND";
+		}
+		//print_r($_POST);
 		if(isset($_POST["cond-pushed"])){
 			if($_POST["cond-pushed"]=="仅推荐"){
 				$condition.="`pushed` = '1' AND";

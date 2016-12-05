@@ -13,6 +13,10 @@ a{
 li{
 	list-style:none;
 }
+.tags:hover{
+	color:#338FDC;
+	text-decoration:underline;
+}
 .v-button{
 	padding:5px 10px;
 	display:inline-block;
