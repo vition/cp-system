@@ -78,6 +78,8 @@
 			if(isset($_POST["cond-pushed"])){
 				if($_POST["cond-pushed"]=="仅推荐"){
 					$condition.="`pushed` = '1' AND";
+				}else if($_POST["cond-pushed"]=="所有"){
+					$condition.="`pushed` = '' AND";
 				}else{
 					$condition.="`pushed` = '0' AND";
 				}
