@@ -67,6 +67,7 @@ li{
 	border:1px solid #262421;
 	border-radius:5px;
 	display:none;
+	overflow: hidden;
 }
 .tags-style{
 	display:inline-block;
@@ -95,6 +96,7 @@ li{
 }
 #popup-tages{
 	margin:auto 10px;
+	overflow:hidden;
 }
 .search-ico{
 	width:30px;
