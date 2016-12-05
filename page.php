@@ -98,7 +98,7 @@
 	</div>
 	<div id="comment">
 		<div class="my-comment">
-			<div class="com-con-div"><textarea class="comment-content" placeholder="这项目有点意思！"></textarea></div>
+			<div class="com-con-div" id="commeta"><textarea class="comment-content" placeholder="这项目有点意思！"></textarea></div>
 			<div class="com-but-div"><span class="comment-but">我要评论</span></div>
 		</div>
 		<div class="comment-list">
@@ -106,7 +106,7 @@
 			<ul>
 				<li class="com-list-user"><span><?php echo $commentArr["username"];?></span></li>
 				<li class="com-list-con"><span><?php echo $commentArr["comment"];?></span></li>
-				<li class="com-list-date"><span id="com-reply" class="br3 bg8 clw">回复</span><span class="list-date"><?php echo $commentArr["date"];?></span></li>
+				<li class="com-list-date"><span class="com-reply br3 bg8 clw" href="#commeta">回复</span><span class="list-date"><?php echo $commentArr["date"];?></span></li>
 			</ul>
 		<?php }?>
 		</div>

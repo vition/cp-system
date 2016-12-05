@@ -94,7 +94,7 @@
 			$query="SELECT * FROM `projects` WHERE {$condition} ORDER BY `date` DESC";
 		//}
 		
-		//echo $query;
+		echo $query;
 		$everyPage=12;
 		$countResult=$global->query($query);
 		//echo $query;
