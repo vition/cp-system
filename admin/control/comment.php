@@ -22,7 +22,7 @@
 			<?php 
 				while($array=$result->fetch_array(1)){
 			?>
-			<tr><td><input class="c-select" type="checkbox" data-id="<?php echo $array["id"];?>"/></td><td><a class="comment-edit" data-id="<?php echo $array["id"];?>" title="<?php echo $project->getProjectKey($array["pid"]);?>"><?php echo $global->seizeStr($project->getProjectKey($array["pid"]),45);?></a></td><td><?php echo $array["username"];?></td><td title="<?php echo $array["comment"];?>"><?php echo $global->seizeStr($array["comment"],60);?></td><td><?php echo $array["date"];?></td></tr>
+			<tr><td><input class="c-select" type="checkbox" data-id="<?php echo $array["id"];?>"/></td><td><a class="comment-edit" data-id="<?php echo $array["id"];?>" title="<?php echo $project->getProjectKey($array["pid"]);?>" target="_blank" href="../page.php?id=<?php echo $array["pid"];?>"><?php echo $global->seizeStr($project->getProjectKey($array["pid"]),45);?></a></td><td><?php echo $array["username"];?></td><td title="<?php echo $array["comment"];?>"><?php echo $global->seizeStr($array["comment"],60);?></td><td><?php echo $array["date"];?></td></tr>
 			<?php }?>
 			
 		</table>
