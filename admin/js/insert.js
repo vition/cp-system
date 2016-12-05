@@ -17,6 +17,8 @@ $(function (){
 	$(".user-ico").click(function(){$("#user-box").css("display","block");showUser("")})
 	$("#clear-user").bind({mouseenter:function(){$(this).text("清空")},mouseleave:function(){$(this).text("搜索")}})
 	$("#clear-user").click(function(){$("#director").val("")})
+	$("#classlist").bind({mouseenter:function(){$(this).css("display","block")},mouseleave:function(){$(this).css("display","none")}})
+	$("#user-box").bind({mouseenter:function(){$(this).css("display","block")},mouseleave:function(){$(this).css("display","none")}})
 })
 //显示标签层
 function showTags(tagname){
