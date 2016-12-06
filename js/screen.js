@@ -227,6 +227,7 @@ function showclass(){
 		success:function(data){
 			$(".sel-"+thisclass+" .class-name").html(data)
 			$(".class-item").click(setClass)
+			showList(0);
 			//$(".go-page").click(function(){showList($(this).data("page"))})
 		}
 	})
