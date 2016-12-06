@@ -65,7 +65,7 @@ function showCondition(){
 	var condition=$(this).data("value");
 	if(condition=="class"){
 		$(".class-sel-box").css("display","block")
-		$(".condition-search-div").css("display","block")
+		$(".condition-search-div").css("display","none")
 		$(".condition-search-price").css("display","none")
 		$(".condition-list").css("display","none")
 	}else if(condition=="price"){
