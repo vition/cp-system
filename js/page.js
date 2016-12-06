@@ -56,7 +56,7 @@ function submitComment(){
 			}else{
 				$(".comment-list ul:first-child").before(data);
 			}
-			
+			$(".comment-content").val("");
 		}
 	})
 }
