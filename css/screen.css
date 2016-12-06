@@ -99,3 +99,37 @@
 	width:960px;
 	text-align:center;
 }
+/*查询了 分类*/
+.class-title{
+	background:#FF8000;
+	color:#ffffff;
+	float:left;
+	padding:3px 10px;
+	font-size:0.9em;
+	cursor:pointer;
+}
+.class-name{
+	width:88%;
+	float:right;
+	margin-right:20px;
+	
+}
+.class-name span {
+	margin:3px 5px;
+	display:inline-block;
+	cursor:pointer;
+}
+.class-name span:hover{
+	color:#FF8000;
+}
+.activ{
+	color:#FF8000;
+}
+.class-div{
+	clear:left;
+	margin-bottom:10px;
+	height:auto;
+	font-size:0.9em;
+	display:inline-block;
+	width: 100%;
+}

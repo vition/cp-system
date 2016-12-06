@@ -54,9 +54,19 @@
 	</div>
 	<div class="condition-box">
 		<div class="condition-search-div" data-value=""><input class="con-sea-input" value="" type="text" /><span id="condition-search-title">搜索</span></div>
+		<div class="class-sel-box">
+			<div class="sel-firstclass class-div"><div class="class-title" data-name="firstclass">一级分类</div><div class="class-name"></div></div>
+			<div class="sel-secondclass class-div"><div class="class-title" data-name="secondclass">二级分类</div><div class="class-name"></div></div>
+			<div class="sel-threeclass class-div"><div class="class-title" data-name="threeclass">三级分类</div><div class="class-name"></div></div>
+		</div>
 		<div class="condition-search-price" data-value=""><span class="v-input-group bb6 br3"><span class="v-input-title fs4 bg6 clw ">起始价格</span><input id="sprice" class="br3" value="0" type="text" /></span>-<span class="v-input-group bb6 br3"><span class="v-input-title fs4 bg6 clw ">结束价格</span><input id="eprice" class="br3" value="0" type="text" /></span><span id="allprice" data-value="1" class="but4 bg6 br3 clw " >所有价格</span></div>
 		<div class="condition-list"></div>
 		<input class="multiple" id="cond-class" type="hidden" />
+		
+		<input class="multiple sel-class" id="cond-firstclass" type="hidden" />
+		<input class="multiple sel-class" id="cond-secondclass" type="hidden" />
+		<input class="multiple sel-class" id="cond-threeclass" type="hidden" />
+		
 		<input class="multiple" id="cond-platform" type="hidden" />
 		<input class="multiple" id="cond-price" type="hidden" />
 		<input class="multiple" id="cond-pushed" value="<?php echo $pushed;?>" type="hidden" />

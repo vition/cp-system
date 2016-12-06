@@ -58,13 +58,18 @@
 		}
 		break;
 		case "multiple":
-		//print_r($_POST);
 		$condition="";
 		if(isset($_POST["title"])){
 			$condition.="`title` LIKE '%{$_POST["title"]}%' AND";
 		}
-		if(isset($_POST["cond-class"])){
-			$condition.="(`firstclass` = '{$_POST["cond-class"]}' OR `secondclass` = '{$_POST["cond-class"]}' OR `threeclass` = '{$_POST["cond-class"]}') AND";
+		if(isset($_POST["cond-firstclass"])){
+			$condition.="`firstclass` = '{$_POST["cond-firstclass"]}' AND";
+		}
+		if(isset($_POST["cond-secondclass"])){
+			$condition.="`secondclass` = '{$_POST["cond-secondclass"]}' AND";
+		}
+		if(isset($_POST["cond-threeclass"])){
+			$condition.="`threeclass` = '{$_POST["cond-threeclass"]}' AND";
 		}
 		if(isset($_POST["cond-platform"])){
 			$condition.="`platform` = '{$_POST["cond-platform"]}' AND";
@@ -79,7 +84,7 @@
 				if($_POST["cond-pushed"]=="仅推荐"){
 					$condition.="`pushed` = '1' AND";
 				}else if($_POST["cond-pushed"]=="所有"){
-					$condition.="`pushed` = '' AND";
+					$condition.="`pushed` LIKE '%%' AND";
 				}else{
 					$condition.="`pushed` = '0' AND";
 				}
@@ -96,7 +101,7 @@
 			$query="SELECT * FROM `projects` WHERE {$condition} ORDER BY `date` DESC";
 		//}
 		
-		echo $query;
+		//echo $query;
 		$everyPage=12;
 		$countResult=$global->query($query);
 		//echo $query;
@@ -117,6 +122,12 @@
 		?>
 		<div class="page-div"><?php if($count>0){?><span class="prev-page go-page but2 bgw br3 cl9" data-page="0">首页</span><?php } if($_POST["row"]>=$everyPage){?><span class="prev-page go-page but2 bgw br3 cl9" data-page="<?php echo $_POST["row"]-$everyPage;?>">上一页</span><?php } if(($count-$everyPage)>0 && ($count>($_POST["row"]+$everyPage))){?><span class="prev-page but2 bgw br3 cl9 go-page" data-page="<?php echo ($_POST["row"]+$everyPage);?>">下一页</span><?php } if(($count-$everyPage)>$everyPage-2){?><span class="next-page but2 bgw br3 cl9 go-page" data-page="<?php echo (ceil($count/$everyPage)*$everyPage-$everyPage);?>">尾页</span><?php }?></div>
 		<?php
+		break;
+		case "showclass":
+		$result=$global->query("SELECT `subordinate` FROM `classif` WHERE `superiors`='{$_POST["classname"]}'");
+		while($classArr=$result->fetch_array(1)){
+			echo "<span class='class-item'>{$classArr["subordinate"]}</span>";
+		}
 		break;
 	}
 	

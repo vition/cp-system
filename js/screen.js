@@ -10,6 +10,7 @@ $(function(){
 	$("#sprice").bind("input propertychange",setPrice)
 	$("#eprice").bind("input propertychange",setPrice)
 	$("#allprice").click(function(){$(this).data("value",1);showList(0);$("#sprice").val(0);$("#eprice").val(0)})
+	$(".class-title").click(showclass)
 })
 
 function showNews(){
@@ -62,16 +63,26 @@ function autoSearch(){
 //查询功能
 function showCondition(){
 	var condition=$(this).data("value");
-
-	if(condition=="price"){
+	if(condition=="class"){
+		$(".class-sel-box").css("display","block")
+		$(".condition-search-div").css("display","block")
+		$(".condition-search-price").css("display","none")
+		$(".condition-list").css("display","none")
+	}else if(condition=="price"){
 		$(".condition-search-div").css("display","none")
 		$(".condition-search-price").css("display","block")
+		$(".condition-list").css("display","block")
+		$(".class-sel-box").css("display","none")
 	}else if(condition=="pushed"){
 		$(".condition-search-div").css("display","none")
 		$(".condition-search-price").css("display","none")
+		$(".condition-list").css("display","block")
+		$(".class-sel-box").css("display","none")
 	}else{
 		$(".condition-search-div").css("display","block")
 		$(".condition-search-price").css("display","none")
+		$(".condition-list").css("display","block")
+		$(".class-sel-box").css("display","none")
 	}
 	$(".con-sea-input").val("");
 	$(".condition-search-div").data("value",condition);
@@ -194,4 +205,37 @@ function setPrice(){
 		}
 	}
 	showList(0)
+}
+//查找分类
+function showclass(){
+	var pdata={}
+	pdata["type"]="showclass";
+	var thisclass=$(this).data("name")
+	$("#cond-"+thisclass).val("");
+	if(thisclass=="firstclass"){
+		pdata["classname"]="root";
+	}else if(thisclass=="secondclass"){
+		pdata["classname"]=$(".sel-firstclass .class-name .class-item").text();
+	}else{
+		pdata["classname"]=$(".sel-secondclass .class-name .class-item").text();
+	}
+	$.ajax({
+		url:"control/getprojects.php",
+		type:"post",
+		dataType:"html",
+		data:pdata,
+		success:function(data){
+			$(".sel-"+thisclass+" .class-name").html(data)
+			$(".class-item").click(setClass)
+			//$(".go-page").click(function(){showList($(this).data("page"))})
+		}
+	})
+}
+//设置class
+function setClass(){
+	var thisClass=$(this).parent().prev().data("name")
+	$(this).parent().html("<span class='class-item activ'>"+$(this).text()+"</span>");
+	$("#cond-"+thisClass).val($(this).text());
+	showList(0)
+	
 }
