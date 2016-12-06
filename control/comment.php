@@ -4,6 +4,8 @@
 		load_class("user");
 		load_class("message");
 		load_class("projects");
+		load_class("weixin");
+		$weixin=new weixin($serverinfo);
 		$user=new _user($serverinfo);
 		$projects=new _projects($serverinfo);
 		$message=new _message($serverinfo);
@@ -30,15 +32,18 @@
 			
 		}
 		if($result==1){
-			
+			$userNameArr=array();
 			foreach($userArr as $val){
 				if($val!=$_SESSION["username"]){
 					$mes=array("type"=>"comment","tid"=>$_POST["pid"],"from"=>$_SESSION["username"],"to"=>"{$val}","content"=>$global->en_quotes("您好！员工{$_SESSION["username"]}对与您相关的IP<a target='_blank' href='".$global->getoption("weburl")."page.php?id={$_POST["pid"]}'>【".$projects->getProjectKey($_POST["pid"])."】</a>做出了评论，内容如下：{$_POST["content"]}"));
 					//print_r($mes);
 					$message->sendMes($mes);
 				}
-				
+				array_push($userNameArr,$val);
 			}
+			$wxids=$user->getUserId($userNameArr);
+			$data=array("touser"=>"{$wxids}","msgtype"=> "text","agentid"=> 0,"text"=>array("content"=>"您好！您参与的IP【".$projects->getProjectKey($_POST["pid"])."】刚刚收到了一条评论，内容如下：".$_POST["content"]."。详情请使用电脑登录系统查看！"),"safe"=>"0");
+			$weixin->send($data);
 			
 			//$message->sendMes();
 			//echo json_encode(array("username"=>$_SESSION["username"],"comment"=>$_POST["content"],"date"=>$date));
@@ -67,6 +72,7 @@
 		</ul>
 		<?php
 		}
+		
 		break;
 	}
 ?>
