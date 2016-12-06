@@ -5,6 +5,7 @@ $(function(){
 	$("#create-feedback").click(createFeedback)
 	$(".feedback-edit").click(editFeedback);
 	$(".down-pdf").click(downPdf)
+	$(".com-reply").click(comReply)
 })
 function conPdfBox(){
 	var state=$(this).data("boxstate");
@@ -30,7 +31,7 @@ function getComment(){
 		url:"control/comment.php",
 		type:"POST",
 		dataType:"html",
-		data:{type:"insert",pid:$("#pid").val(),content:$(".comment-content").val()},
+		data:{type:"insert",pid:$("#pid").val(),rid:$(".comment-content").data("rid"),content:$(".comment-content").val()},
 		success:function(data){
 			//alert(data);
 			$(".comment-list ul:first-child").before(data);
@@ -46,7 +47,7 @@ function submitComment(){
 		url:"control/comment.php",
 		type:"POST",
 		dataType:"html",
-		data:{type:"insert",pid:$("#pid").val(),content:$(".comment-content").val()},
+		data:{type:"insert",pid:$("#pid").val(),rid:$(".comment-content").data("rid"),content:$(".comment-content").val()},
 		success:function(data){
 			//alert(data);
 			var ulList=$(".comment-list ul");
@@ -69,6 +70,7 @@ function upComment(){
 		success:function(data){
 			//alert(data);
 			$(".comment-list ul:last-child").after(data);
+			$(".com-reply").click(comReply)
 		}
 	})
 }
@@ -136,4 +138,11 @@ function changeFeedback(){
 function downPdf(){
 	var pdfname=$(this).data("pdfname")
 	window.location.href="control/down.php?type=pdf&filename="+pdfname;
+}
+function comReply(){
+	// alert($(this).data("id"))
+	//alert($(this).parent().prev().prev().children().text())
+	$(".comment-content").val("@"+$(this).parent().prev().prev().children().text()+":");
+	$(".comment-content").data("rid",$(this).data("id"))
+	
 }

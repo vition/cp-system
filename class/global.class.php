@@ -211,5 +211,28 @@
 				return "error";
 			}
 		}
+		//获取评论内容
+		function getComment($rid,$type="comment"){
+			if($type=="comment"){
+				$query="SELECT `username`,`comment` FROM `comment` WHERE `id`='{$rid}'";
+				$result=$this->mydb->query($query);
+				if($result->num_rows>0){
+					$array=$result->fetch_array(1);
+					return "@".$array["username"]." : ".$array["comment"];
+				}else{
+					return "error";
+				}
+			}else{
+				$query="SELECT `{$type}` FROM `comment` WHERE `id`='{$rid}'";
+				$result=$this->mydb->query($query);
+				if($result->num_rows>0){
+					$array=$result->fetch_array(1);
+					return $array["{$type}"];
+				}else{
+					return "error";
+				}
+			}
+			
+		}
 	}
 ?>

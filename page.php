@@ -52,7 +52,7 @@
 				</ul>
 			</span>
 		</div>
-		<div class="details-info">
+		<div class="details-info" id="top">
 			<ul>
 				<?php if($array["mode1"]!=""){?>
 					<li><span class="base-title">合作形式1：</span><span class="model-value"><?php echo $array["mode1"];?></span><span class="base-title">刊例价1：</span><span class="model-value"><?php echo "¥".$array["price1"];?></span></li>
@@ -98,15 +98,15 @@
 	</div>
 	<div id="comment">
 		<div class="my-comment">
-			<div class="com-con-div" id="commeta"><textarea class="comment-content" placeholder="这项目有点意思！"></textarea></div>
+			<div class="com-con-div" id="commeta"><textarea class="comment-content" placeholder="这项目有点意思！" data-rid=""></textarea></div>
 			<div class="com-but-div"><span class="comment-but">我要评论</span></div>
 		</div>
 		<div class="comment-list">
 		<?php while($commentArr=$result->fetch_array(1)){?>
 			<ul>
 				<li class="com-list-user"><span><?php echo $commentArr["username"];?></span></li>
-				<li class="com-list-con"><span><?php echo $commentArr["comment"];?></span></li>
-				<li class="com-list-date"><span class="com-reply br3 bg8 clw" href="#commeta">回复</span><span class="list-date"><?php echo $commentArr["date"];?></span></li>
+				<li class="com-list-con"><?php if($commentArr["reply"]>0){$content=$global->getComment($commentArr["reply"]);echo "<span class='reply'>{$content}</span>";}?><span><?php echo $commentArr["comment"];?></span></li>
+				<li class="com-list-date"><?php if($commentArr["username"]!=$_SESSION["username"]) {?><a class="com-reply br3 bg8 clw" href="#top" data-id="<?php echo $commentArr["id"];?>">回复</a><?php }?><span class="com-list-date"><?php echo $commentArr["date"];?></span></li>
 			</ul>
 		<?php }?>
 		</div>

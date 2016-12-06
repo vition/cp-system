@@ -275,3 +275,7 @@ cursor: pointer;
 	float:left;
 	margin-left:20px;
 }
+.reply{
+	color:#999999!important;
+	margin-left:-2em;
+}
