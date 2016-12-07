@@ -258,7 +258,6 @@ function changeRemark(){
 		data:{type:"changeremark",username:$(this).parent().prev().prev().prev().prev().text(),remark:$(this).prev().text()},
 		dataType:"html",
 		success:function(data){
-			alert(data)
 			$(myself).prev().attr("contenteditable","false");
 			$(myself).remove();
 		}

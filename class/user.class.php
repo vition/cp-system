@@ -125,7 +125,6 @@
 		}
 		//根据用户名修改备注
 		function changeRemark($username,$remark){
-			echo "UPDATE `user` SET `remark`='{$remark}' WHERE `username`='{$username}'";
 			$result=$this->mydb->query("UPDATE `user` SET `remark`='{$remark}' WHERE `username`='{$username}'");
 			if($result>=1){
 				return "success";

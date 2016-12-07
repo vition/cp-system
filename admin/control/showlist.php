@@ -8,7 +8,7 @@
 	}else{
 		$global->gotopage($global->getoption("weburl"));
 	}
-	$everyPage=15;
+	$everyPage=30;
 	switch($_POST["type"]){
 		case "search":
 		if(isset($_POST["data"])){
