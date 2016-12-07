@@ -153,30 +153,24 @@
 		}
 		//用户操作日志
 		function ulog($username,$con,$pdata=""){
+			//print_r($pdata);
+			unset($pdata["pdf"]);
+			unset($pdata["cover"]);
 			$data="";
 			if($pdata!=""){
 				foreach($pdata as $key=>$val){
-					if($key!="pdf" || $key!="cover"){
-						
 						if(is_array($val)){
 							foreach($val as $key1=>$val1){
-								if($key1!="pdf" || $key1!="cover"){
-									$data.=$key1."=>".$val1.";";
-								}
+								$data.=$key1."=>".$val1.";";
 							}
 						}else{
-							if($key!="pdf" || $key!="cover"){
-								$data.=$key."=>".$val.";";
-							}
-							
-						}
-						
-					}
+							$data.=$key."=>".$val.";";
+						}	
 				}	
 			}
 			
-			$data=rtrim($data,";");
-			$result=$this->mydb->query("INSERT INTO `log`(`username`, `con`,`data`,`date`) VALUES ('{$username}','{$con}','{$data}','".date("Y-m-d H:i:s")."')");
+			// $data=rtrim($data,";");
+			// $result=$this->mydb->query("INSERT INTO `log`(`username`, `con`,`data`,`date`) VALUES ('{$username}','{$con}','{$data}','".date("Y-m-d H:i:s")."')");
 		}
 	}
 ?>
