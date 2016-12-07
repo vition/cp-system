@@ -126,7 +126,7 @@
 		//根据用户名修改备注
 		function changeRemark($username,$remark){
 			$result=$this->mydb->query("UPDATE `user` SET `remark`='{$remark}' WHERE `username`='{$username}'");
-			if($result>=1){
+			if($result>0){
 				return "success";
 			}else{
 				return "error";
@@ -174,8 +174,8 @@
 				}	
 			}
 			
-			// $data=rtrim($data,";");
-			// $result=$this->mydb->query("INSERT INTO `log`(`username`, `con`,`data`,`date`) VALUES ('{$username}','{$con}','{$data}','".date("Y-m-d H:i:s")."')");
+			$data=rtrim($data,";");
+			$result=$this->mydb->query("INSERT INTO `log`(`username`, `con`,`data`,`date`) VALUES ('{$username}','{$con}','{$data}','".date("Y-m-d H:i:s")."')");
 		}
 	}
 ?>
