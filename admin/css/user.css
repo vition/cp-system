@@ -37,7 +37,7 @@ a{
 .psw-span{
 	display:inline-table;
 	cursor:pointer;
-	background:url("../images/psw.png") no-repeat 38px center;
+	background:url("../images/psw.png") no-repeat 16px center;
 	background-size:25px 25px;
 	height:30px;
 	line-height:30px;

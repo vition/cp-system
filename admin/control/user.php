@@ -55,11 +55,11 @@
 		//}
 		?>
 		<table class="v-table">
-			<tr class="list-header" ><th style="width:50px;">选择</th><th style="width:200px;">用户名</th><th style="width:100px;">组别</th><th style="width:200px;">密码</th><th style="width:130px;">备注</th></tr>
+			<tr class="list-header" ><th style="width:50px;">选择</th><th style="width:150px;">用户名</th><th style="width:100px;">组别</th><th style="width:150px;">密码</th><th style="width:150px;">微信企业号ID</th><th style="width:130px;">备注</th></tr>
 			<?php 
 				while($userArr=$result->fetch_array(1)){
 			?>
-			<tr><td><input class="user-control" type="checkbox" data-id="<?php echo $userArr["id"];?>"/></td><td><a class="comment-edit" data-id="<?php echo $userArr["id"];?>"><?php echo $userArr["username"];?></a></td><td id="changeg-<?php echo $userArr["id"];?>" data-id="changeg" class="change-group"><?php echo $userArr["group"];?></td><td><span class="psw-span">********</span></td><td class="remark-change" data-id="<?php echo $userArr["id"];?>"><span class="remark-title"><?php echo $userArr["remark"];?><span></td></tr>
+			<tr><td><input class="user-control" type="checkbox" data-id="<?php echo $userArr["id"];?>"/></td><td><a class="comment-edit" data-id="<?php echo $userArr["id"];?>"><?php echo $userArr["username"];?></a></td><td id="changeg-<?php echo $userArr["id"];?>" data-id="changeg" class="change-group"><?php echo $userArr["group"];?></td><td><span class="psw-span">********</span></td><td><?php echo $userArr["wxid"];?></td><td class="remark-change" data-id="<?php echo $userArr["id"];?>"><span class="remark-title"><?php echo $userArr["remark"];?><span></td></tr>
 			<?php }?>
 		</table>
 		<div class="page-div"><?php if($count>0){?><span class="prev-page go-page but2 bg6 br3 clw" data-page="0">首页</span><?php } if($_POST["row"]>=$everyPage){?><span class="prev-page go-page but2 bg6 br3 clw" data-page="<?php echo $_POST["row"]-$everyPage;?>">上一页</span><?php } if(($count-$everyPage)>0 && ($count>($_POST["row"]+$everyPage))){?><span class="prev-page but2 bg6 br3 clw go-page" data-page="<?php echo ($_POST["row"]+$everyPage);?>">下一页</span><?php } if(($count-$everyPage)>$everyPage-2){?><span class="next-page but2 bg6 br3 clw go-page" data-page="<?php echo (ceil($count/$everyPage)*$everyPage-$everyPage);?>">尾页</span><?php }?></div>
