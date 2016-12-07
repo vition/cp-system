@@ -159,7 +159,9 @@
 					if($key!="pdf" || $key!="cover"){
 						if(is_array($val)){
 							foreach($val as $key1=>$val1){
-								$data.=$key1."=>".$val1.";";
+								if($key1!="pdf" || $key1!="cover"){
+									$data.=$key1."=>".$val1.";";
+								}
 							}
 						}else{
 							$data.=$key."=>".$val.";";
