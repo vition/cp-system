@@ -48,7 +48,11 @@
 			}
 			
 			while($classArr=$result->fetch_array(1)){
-				echo "<span class='condition-item'>{$classArr["platform"]}</span>";
+				$arr = preg_split( "/(\、|\,|\，|\/|\||\;|\；)/", $classArr["platform"] );
+				foreach($arr as $pla){
+					echo "<span class='condition-item'>{$pla}</span>";
+				}
+				
 			}
 			break;
 			case "pushed":
@@ -72,7 +76,7 @@
 			$condition.="`threeclass` = '{$_POST["cond-threeclass"]}' AND";
 		}
 		if(isset($_POST["cond-platform"])){
-			$condition.="`platform` = '{$_POST["cond-platform"]}' AND";
+			$condition.="`platform` LIKE '%{$_POST["cond-platform"]}%' AND";
 		}
 		if(isset($_POST["cond-sprice"])){
 			$condition.="((`price1` >= '{$_POST["sprice"]}' AND `price1` <= '{$_POST["eprice"]}') OR (`price2` >= '{$_POST["sprice"]}' AND `price2` <= '{$_POST["eprice"]}') OR (`price3` >= '{$_POST["sprice"]}' AND `price3` <= '{$_POST["eprice"]}')) AND";
