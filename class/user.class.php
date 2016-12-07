@@ -59,6 +59,7 @@
 		//验证用户密码
 		function checkPsw($username,$psw){
 			$query="SELECT `id` FROM `user` WHERE `username`='{$username}' AND `password` ='".sha1($psw)."'";
+			//echo $query;
 			$result=$this->mydb->query($query);
 			if($result->num_rows>0){
 				return "success";
@@ -154,8 +155,12 @@
 		//用户操作日志
 		function ulog($username,$con,$pdata=""){
 			//print_r($pdata);
-			unset($pdata["pdf"]);
-			unset($pdata["cover"]);
+			if(isset($pdata["pdf"])){
+				unset($pdata["pdf"]);
+			}
+			if(isset($pdata["cover"])){
+				unset($pdata["cover"]);
+			}
 			$data="";
 			if($pdata!=""){
 				foreach($pdata as $key=>$val){

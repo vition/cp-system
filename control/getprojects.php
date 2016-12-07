@@ -112,10 +112,13 @@
 		$count=$countResult->num_rows;
 		$result=$global->query($query." LIMIT {$_POST["row"]},{$everyPage}");
 		while($projects=$result->fetch_array(1)){
+			echo file_exists($global->getoption("weburl").$projects["cover"]);
 		?>
 		<ul class="post big-post">
 			<div class="cover" cover-text="" cover-girl-text="">
-				<a href="page.php?id=<?php echo $projects["id"];?>" hidefocus="true" target="_blank"><img src2="<?php echo $global->getoption("weburl").$projects["cover"];?>" alt="" style="display: block;" src="<?php echo $global->getoption("weburl").$projects["cover"];?>"><div class="overlay" style="display: none;"><span style="color: rgb(255, 0, 153);"></span></div></a>
+				<a href="page.php?id=<?php echo $projects["id"];?>" hidefocus="true" target="_blank"><img alt="" style="display: block;" src="<?php if(file_exists($global->getoption("weburl").$projects["cover"])){ echo $global->getoption("weburl")."images/default.png";}else{ echo $global->getoption("weburl").$projects["cover"];
+				}?>"><div class="overlay" style="display: none;"><span style="color: rgb(255, 0, 153);"></span></div></a>
+				
 			</div>
 			<li><label>项目名称 / </label><a href="page.php?id=<?php echo $projects["id"];?>" title="<?php echo $projects["title"];?>" hidefocus="true" class="nickname" target="_blank"><?php echo $projects["title"];?></a></li>
 			<li><label>平台/地点 / </label><span><?php echo $projects["platform"];?></span></li>
