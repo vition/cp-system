@@ -29,6 +29,7 @@
 			<li><a class="a-nav-list" data-pagename="adv">广告管理</a></li>
 			<?php if($gorup["grouplevel"]>=4){?>
 			<li><a class="a-nav-list" data-pagename="user">员工管理</a></li>
+			<li><a class="a-nav-list" data-pagename="logs">日志管理</a></li>
 			<?php } ?>
 		</ul>
 	</div>
