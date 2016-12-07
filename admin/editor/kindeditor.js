@@ -911,7 +911,7 @@ function _mediaEmbed(attrs) {
 	_each(attrs, function(key, val) {
 		html += key + '="' + val + '" ';
 	});
-	html += '/>';
+	html += '><embed>';
 	return html;
 }
 function _mediaImg(blankPath, attrs) {
