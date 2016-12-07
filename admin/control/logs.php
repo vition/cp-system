@@ -22,7 +22,7 @@
 			<?php 
 				while($array=$result->fetch_array(1)){
 			?>
-			<tr><td><input class="l-select" type="checkbox" data-id="<?php echo $array["id"];?>"/></td><td><?php echo $array["username"];?></td><td><?php echo $array["con"];?></td><td title="<?php echo $array["data"];?>"><?php echo $global->seizeStr($array["data"],60);?></td><td><?php echo $array["date"];?></td></tr>
+			<tr><td><input class="l-select" type="checkbox" data-id="<?php echo $array["id"];?>"/></td><td><?php echo $array["username"];?></td><td><?php echo $array["con"];?></td><td title="<?php echo strip_tags($array["data"]);?>"><?php echo strip_tags($global->seizeStr($array["data"],60));?></td><td><?php echo $array["date"];?></td></tr>
 			<?php }?>
 			
 		</table>
