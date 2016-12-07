@@ -234,5 +234,8 @@
 			}
 			
 		}
+		function getImgLen($url){
+			
+		}
 	}
 ?>
