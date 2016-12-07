@@ -12,6 +12,7 @@
 	//$global
 	$isresult=$global->query("SELECT `id` FROM `projects` WHERE `title`='{$_POST["title"]}'");
 	if($isresult->num_rows>0 && $_POST["ptype"]=="insert"){
+		//这里是判断项目名称是否存在
 		echo "{$_POST["title"]} 该IP已存在，不能再新建";
 	}else{
 		switch($_POST["ptype"]){
