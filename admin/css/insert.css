@@ -28,28 +28,39 @@ li{
 	height:30px;
 	padding-left:5px;
 }
-.user-ico{
+.ip-ico,.user-ico,.tags-ico{
 	display:inline-block;
+	float: right;
+	margin-right: 100px;
+	cursor:pointer;
+}
+.ip-ico{
+	width:30px;
+	height:30px;
+	background:url("../images/a1_white.png") -5px -56px no-repeat;
+}
+.ip-ico a{
+	display:inline-block;
+	width:30px;
+	height:30px;
+}
+.ip-ico:hover{
+	background:url("../images/a1_white.png") -5px -0px no-repeat;
+}
+.user-ico{
 	width:27px;
 	height:30px;
 	background:url("../images/user.png") no-repeat center center;
 	background-size: 27px 30px;
-	float: right;
-	margin-right: 100px;
-	cursor:pointer;
 }
 .user-ico:hover{
 	background:url("../images/user-a.png") no-repeat center center;
 }
 .tags-ico{
-	display:inline-block;
 	width:32px;
 	height:32px;
 	background:url("../images/tags.png") no-repeat center center;
 	background-size: 32px 32px;
-	float: right;
-	margin-right: 100px;
-	cursor:pointer;
 }
 .tags-ico:hover{
 	background:url("../images/tags-a.png") no-repeat center center;

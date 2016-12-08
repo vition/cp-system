@@ -42,4 +42,6 @@ a{
 .user-con{
 	text-align:left;
 }
-
+.view-page:hover{
+	text-decoration:underline;
+}
