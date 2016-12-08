@@ -16,7 +16,7 @@ $(function (){
 	$("#push-home").click(pushHome)
 	indata={};
 	formData = new FormData();
-	$(".user-ico").click(function(){$("#user-box").css("display","block");showUser("")})
+	$(".user-ico").click(function(){$("#user-box").css("display","block");$("#search-user").val("");showUser("")})
 	$("#clear-user").bind({mouseenter:function(){$(this).text("清空")},mouseleave:function(){$(this).text("搜索")}})
 	$("#clear-user").click(function(){$("#director").val("")})
 	$("#classlist").bind({mouseenter:function(){$(this).css("display","block")},mouseleave:function(){$(this).css("display","none")}})
