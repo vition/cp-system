@@ -1,6 +1,8 @@
 $(function (){
 	$(".tags-ico").click(function(){$("#popup").css("display","block");showTags("tags")});
 	$("#search-input").bind("input propertychange",function(){searchTags()})
+	$("#search-user").bind("input propertychange",function(){showUser(this.value)})
+	
 	$(".close-ico").click(close_box);
 	$("#edit-base").click(insert)
 	$(".select-input").click(getClass)
@@ -254,7 +256,6 @@ function showUser(username){
 }
 //填充到用户框
 function inputUser(){
-	
 	var user=$("#director").val();
 	var thisUser=$(this).text()
 	if(user!=""){

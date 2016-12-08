@@ -77,7 +77,7 @@
 	
 	<div id="pdfbox"><div class="loadframe"><input type="file" id="uploadpdf"  accept=".pdf" /><span class="close-ico" name="pdfbox" ></span></div></div>
 	<div id="user-box">
-		<span class="v-search-group"><span class="v-search-title" id="clear-user">搜索</span><input id="title" class="p-info" autocomplete="off" type="text"></span>
+		<span class="v-search-group"><span class="v-search-title" id="clear-user">搜索</span><input id="search-user" class="p-info" autocomplete="off" type="text"></span>
 		<div id="user-list"><ul></ul></div>
 	</div>
 	
