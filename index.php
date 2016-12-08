@@ -62,7 +62,7 @@
 		</div>
 		<div class="index-module">
 	<h3>
-		<a href="" hidefocus="true" class="title" target="_blank">重磅推荐</a>
+		<a class="title">重磅推荐</a>
 		<div class="vocation-mark">
 			<span class="vocation-a"><a href="screen.php?pushed=仅推荐">全部 &gt;</a></span>
 		</div>
@@ -90,7 +90,7 @@
 		</div>
 		<hr>
 		<h3>
-		<a href="" hidefocus="true" class="title" target="_blank">最新项目</a>
+		<a class="title" >最新项目</a>
 		<div class="vocation-mark">
 			<span class="vocation-a"><a href="screen.php">全部 &gt;</a></span>
 		</div>
