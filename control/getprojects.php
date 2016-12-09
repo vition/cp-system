@@ -78,7 +78,7 @@
 		if(isset($_POST["cond-platform"])){
 			$condition.="`platform` LIKE '%{$_POST["cond-platform"]}%' AND";
 		}
-		if(isset($_POST["cond-sprice"])){
+		if(isset($_POST["sprice"])){
 			$condition.="((`price1` >= '{$_POST["sprice"]}' AND `price1` <= '{$_POST["eprice"]}') OR (`price2` >= '{$_POST["sprice"]}' AND `price2` <= '{$_POST["eprice"]}') OR (`price3` >= '{$_POST["sprice"]}' AND `price3` <= '{$_POST["eprice"]}')) AND";
 		}
 		if(isset($_POST["cond-tags"])){
@@ -95,7 +95,7 @@
 
 			}
 		}
-		//print_r($_POST);
+		// print_r($_POST);
 		
 		
 		$condition=rtrim($condition,"AND");
