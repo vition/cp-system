@@ -23,6 +23,7 @@
 	.login-info{
 		width:400px;
 		height:200px;
+		float: left;
 	}
 	.login-logo{
 		margin-top:10px;
@@ -35,7 +36,7 @@
 }
 a{
 	text-decoration:none;
-	color:#FFFFFF;
+	color:#ffffff;
 }
 body{
 	text-align:center;
@@ -69,7 +70,7 @@ body{
 	text-align:right;
 	margin-right:20px;
 	font-size:1.1em;
-	color:#FFFFFF;
+	color:#ffffff;
 }
 .inputs{
 	height:25px;
