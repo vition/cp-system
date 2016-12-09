@@ -3,6 +3,13 @@
 	if(isset($_GET["logout"])){
 		$_SESSION=array();
 	}
+	if(isset($_GET["id"])){
+		$page="insert.php?id={$_GET["id"]}";
+		$active="insert";
+	}else{
+		$page="base.php";
+		$active="base";
+	}
 	if($global->verify("")=="success"){
 		load_class("user");
 		load_class("message");
@@ -37,7 +44,7 @@
 				<li><span class="v-button button-blue" id="change-psw">重置密码</span></li>
 			</ul>
 		</div>
-		<div><iframe class="framebase nav-frame" src="nav.php"></iframe><iframe id="page-iframe" class="framebase item-frame" src="base.php"></iframe></div>
+		<div><iframe class="framebase nav-frame" src="nav.php?<?php echo $active;?>"></iframe><iframe id="page-iframe" class="framebase item-frame" src="<?php echo $page;?>"></iframe></div>
 		<div id="inbox-box"></div>
 		<div id="message-box">
 		</div>

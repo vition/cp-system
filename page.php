@@ -42,7 +42,7 @@
 			<span class="base-info-list">
 				<ul>
 					<input id="pid" type="hidden" value="<?php echo $array["id"];?>" />
-					<li><span class="base-title">IP名称：</span><span><?php echo $array["title"];?></span></li>
+					<li><span class="base-title">IP名称：</span><span><?php echo $array["title"];?></span><?php if($userInfo["grouplevel"]>=3){?><a target="_blank" href="admin/menu.php?id=<?php echo $array["id"];?>" class="edit-ico"></a><?php }?></li>
 					<li><span class="base-title">平台/地点：</span><span><?php echo $array["platform"];?></span></li>
 					<li><span class="base-title">类别：</span><span><?php echo "{$array["firstclass"]}>>{$array["secondclass"]}>>{$array["threeclass"]}";?></span></li>
 					<li><span class="base-title">核心：</span><span><?php echo $array["core"];?></span></li>
