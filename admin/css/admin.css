@@ -8,8 +8,7 @@
 		height:200px;
 	}
 	.login-logo{
-		margin-top:10px;
-		
+		margin:0 auto;
 	}
 }
 @media screen and (min-width: 401px){
@@ -24,6 +23,10 @@
 	.login-info{
 		width:400px;
 		height:200px;
+	}
+	.login-logo{
+		margin-top:10px;
+		float:left;
 	}
 }
 *{
@@ -41,7 +44,6 @@ body{
 	
 }
 .login-info{
-	float:left;
 	border:2px solid #0372BA;
 	box-shadow:0 0 10px 5px #049BE4;
 	border-radius:5px;
