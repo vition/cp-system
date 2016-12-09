@@ -38,7 +38,7 @@
 	<div></div>
 	<div id="project-info">
 		<div class="base-info">
-			<span class="cover-span"><img src="<?php if($projects["cover"]==""){ echo $global->getoption("weburl")."images/default.png";}else{ echo $global->getoption("weburl").$projects["cover"];}?>"></span>
+			<span class="cover-span"><img src="<?php if($array["cover"]==""){ echo $global->getoption("weburl")."images/default.png";}else{ echo $global->getoption("weburl").$array["cover"];}?>"></span>
 			<span class="base-info-list">
 				<ul>
 					<input id="pid" type="hidden" value="<?php echo $array["id"];?>" />
