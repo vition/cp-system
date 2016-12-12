@@ -62,7 +62,6 @@ a.iBd:hover{ border-color:#f09;}
 
 .bd { border: 1px solid #ccc;}
 .oz{ overflow:hidden; zoom:1;}
-.w970{ width:970px; overflow:hidden; zoom:1;}
 .w960{ width:960px; height:100%; overflow:hidden; zoom:1; margin:0 auto;}
 .w950{ width:950px; height:100%; overflow:hidden; zoom:1; margin:0 auto;}
 .outter-width{ width:105%;  overflow:hidden; zoom:1; }
@@ -87,7 +86,6 @@ a.iBd:hover{ border-color:#f09;}
 .personal-label{ background:#ededed; color:#999;}
 /* 网站标签（个人网站、机构网站）end */
 
-.wrap{ width:960px; margin:0 auto; padding:30px 10px 80px 10px; }
 
 
 /* 模块 begin */

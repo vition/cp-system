@@ -1,6 +1,7 @@
 $(function(){
 	$(".news-href").click(showNews)
 	$(".close-ico").click(closeBox)
+	$(".wap-navlist").click(wapList)
 })
 
 function showNews(){
@@ -19,4 +20,14 @@ function showNews(){
 function closeBox(){
 	var theId=$(this).data("box");
 	$("#"+theId).css("display","none");
+}
+function wapList(){
+	
+	if($(".navs ul").css("display")=="none"){
+		var wapList=$(this).parent().offset();
+		$(".navs ul").css({display:"block",top:wapList.top+40+"px"})
+	}else{
+		$(".navs ul").css({display:"none"})
+	}
+	
 }

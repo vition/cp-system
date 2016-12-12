@@ -113,7 +113,7 @@
 	</div>
 </div>
 <div id="newsp-box">
-	<div class="newsp-head"><span class="newsp-title">zheli jiushi</span><span class="close-ico" data-box="newsp-box">x</span></div>
+	<div class="newsp-head"><span class="newsp-title"></span><span class="close-ico" data-box="newsp-box">x</span></div>
 	<div><p class="newsp-content"></p></div>
 </div>
 <?php require_once('footer.php');?>

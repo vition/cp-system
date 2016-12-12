@@ -18,6 +18,7 @@
 		<div class="logo">
 		</div>
 		<div class="navs">
+			<div class="wap-nav"><span class="wap-navlist"></span><span class="user-name wap-user"><?php echo $_SESSION["username"];?>  您好！</span><span class="user-group wap-user">您的级别是：<?php echo $userinfo["group"];?></span></div>
 			<ul>
 				<li><a id="home-url" href="<?php echo $global->getoption("weburl");?>" <?php if($global->thisPhp()=="index.php"){ echo "class='nav-ative'";}?>>首页</a></li>
 				<li><a href="screen.php" <?php if($global->thisPhp()=="screen.php"){ echo "class='nav-ative'";}?>>查询</a></li>

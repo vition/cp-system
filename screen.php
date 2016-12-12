@@ -30,6 +30,7 @@
 	<meta http-equiv="Cache-Control" content="no-transform"> 
 	<script type="text/javascript" src="js/jquery.js?<?php random();?>"></script>
 	<script type="text/javascript" src="js/screen.js?<?php random();?>"></script>
+	<script type="text/javascript" src="js/index.js?<?php random();?>"></script>
 	<link href="css/base.css?<?php random();?>" rel="stylesheet" type="text/css">
 	<link href="css/index.css?<?php random();?>" rel="stylesheet" type="text/css">
 	<link href="css/commons.css?<?php random();?>" rel="stylesheet" type="text/css">
