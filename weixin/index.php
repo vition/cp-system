@@ -13,7 +13,7 @@
 			$username= $_GET["username"];
 			$wxId=$_GET["wxid"];
 			$user->ulog($_GET["username"],"绑定了微信ID",$_GET);
-			$global->gotopage($global->getoption("weburl");
+			$global->gotopage($global->getoption("weburl"));
 		}else{
 			echo "<script>alert('用户名不存在')</script>";
 			$username= false;
