@@ -73,6 +73,15 @@
 			}
 			
 		}
+		//通过id检查用户是否绑定
+		function checkUserId($wxid){
+			$result=$this->Mydb->query("SELECT `id` FROM `user` WHERE `wxid`='{$wxid}'");
+			if($result->num_rows>0){
+				return true;
+			}else{
+				return false;
+			}
+		}
 		//取消绑定
 		function unbing($username){
 			$result=$this->Mydb->query("UPDATE `user` SET `wxid`='' WHERE `username`='{$username}'");

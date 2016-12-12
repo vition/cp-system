@@ -6,6 +6,9 @@
 	$weixin=new weixin($serverinfo);
 	if(isset($_GET["code"])){
 		$wxId=$weixin->getUserId();
+		if($weixin->checkUserId($wxId)){
+			$global->gotopage($global->getoption("weburl"));
+		}
 		$username=$weixin->getUsername($wxId);
 	}
 	if(isset($_GET["username"])){
@@ -98,7 +101,6 @@
 				echo '<div><span class="v-search-group"><span class="v-search-title">用户名</span><input id="username" autocomplete="off" type="text"><input id="wxid" type="hidden" value="'.$wxId.'"></span></div>';
 				echo '<div><a id="putUsername" href="" class="but3 bg1 clw br3">绑定</a></div>';
 			}else{
-				$global->gotopage($global->getoption("weburl"));
 				echo '<div class="mes">您在WTC系统里的用户名：</div>';
 				echo '<div class="name">'.$username.'</div>';
 				echo '<div><a href="?cancel='.$username.'&wxid='.$wxId.'" class="but3 bg1 clw br3">取消绑定</a></div>';
