@@ -28,6 +28,7 @@
 	<meta name="Keywords" content="<?php echo $global->getoption("keywords");?>">
 	<meta http-equiv="X-UA-Compatible" content="IE=10">
 	<meta http-equiv="Cache-Control" content="no-transform"> 
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 	<script type="text/javascript" src="js/jquery.js?<?php random();?>"></script>
 	<script type="text/javascript" src="js/screen.js?<?php random();?>"></script>
 	<script type="text/javascript" src="js/index.js?<?php random();?>"></script>

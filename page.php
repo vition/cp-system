@@ -21,6 +21,7 @@
 	<meta name="Keywords" content="<?php echo $global->getoption("keywords");?>">
 	<meta http-equiv="X-UA-Compatible" content="IE=10">
 	<meta http-equiv="Cache-Control" content="no-transform"> 
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 	<link href="css/page.css?<?php random();?>" rel="stylesheet" type="text/css">
 	<link href="css/base.css?<?php random();?>" rel="stylesheet" type="text/css">
 	<link href="css/index.css?<?php random();?>" rel="stylesheet" type="text/css">
