@@ -77,10 +77,10 @@
 		function checkUserId($wxid){
 			$result=$this->Mydb->query("SELECT `username` FROM `user` WHERE `wxid`='{$wxid}'");
 			if($result->num_rows>0){
-				return true;
 				$array=$result->fetch_array(1);
 				$_SESSION["cplogin"]=1;
 				$_SESSION["username"]=$array["username"];
+				return true;
 			}else{
 				return false;
 			}
