@@ -4,10 +4,8 @@
 	load_class("user");
 	$user=new _user($serverinfo);
 	$weixin=new weixin($serverinfo);
-	print_r($_GET);
 	if(isset($_GET["code"])){
 		$wxId=$weixin->getUserId();
-		echo $wxId;
 		if($weixin->checkUserId($wxId)){
 			$global->gotopage($global->getoption("weburl"));
 		}
