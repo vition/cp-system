@@ -4,6 +4,7 @@
 	.condition-search-div span{width:20%}
 	#screen-box{height:80px;background:#FF8000;	margin-bottom:10px;	border-radius:4px;}
 	.screen-item{margin:10px 30px auto 30px;border:1px solid #ffffff;color:#345ABF;display: inline-block;}
+	.page-div{background:#FF8000;position:fixed;bottom:0;width:100%;left:0;text-align:center;}
 }
 @media screen and (min-width: 401px) {
 	.condition-box{	width:918px;padding:10px 20px;background:#FFFFFF;border:1px solid #FF8000;position:absolute;top:0;left:50%;	margin-left:-480px;	display:none;}
@@ -11,6 +12,7 @@
 	.condition-search-div span{width:5%}
 	#screen-box{height:60px;line-height:60px;background:#FF8000;margin-bottom:10px;	border-radius:4px;}
 	.screen-item{margin:19px 30px;border:1px solid #ffffff;color:#345ABF;display: inline-block;}
+	.page-div{background:#FF8000;position:fixed;bottom:0;width:960px;text-align:center;}
 }
 @charset "utf-8";
 
@@ -83,13 +85,7 @@
 .item-active{
 	color:#FF8000;
 }
-.page-div{
-	background:#FF8000;
-	position:fixed;
-	bottom:0;
-	width:960px;
-	text-align:center;
-}
+
 /*查询了 分类*/
 .class-title{
 	background:#FF8000;

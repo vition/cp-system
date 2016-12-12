@@ -111,7 +111,7 @@ a.iBd:hover{ border-color:#f09;}
 .post label{ color:#0F1922;font-size:1.1em;}
 .post span{ color:#999;font-size:1.1em;cursor:default;}
 
-.big-post{ width:236px; margin:0 5px 10px 0px;} 
+
 .big-post .cover img{ width: 234px; height: 250px;}
 .big-post .cover .overlay{ height:60px; padding:20px 10px 0 15px; width:211px; line-height: 25px;}
 
