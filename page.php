@@ -42,13 +42,13 @@
 			<span class="base-info-list">
 				<ul>
 					<input id="pid" type="hidden" value="<?php echo $array["id"];?>" />
-					<li><span class="base-title">IP名称：</span><span><?php echo $array["title"];?></span><?php if($userInfo["grouplevel"]>=3){?><a target="_blank" href="admin/menu.php?id=<?php echo $array["id"];?>" class="edit-ico"></a><?php }?></li>
-					<li><span class="base-title">平台/地点：</span><span><?php echo $array["platform"];?></span></li>
-					<li><span class="base-title">类别：</span><span><?php echo "{$array["firstclass"]}>>{$array["secondclass"]}>>{$array["threeclass"]}";?></span></li>
-					<li><span class="base-title">核心：</span><span><?php echo $array["core"];?></span></li>
-					<li><span class="base-title">时间：</span><span><?php echo $array["datetime"];?></span></li>
-					<li><span class="base-title">更新时间：</span><span><?php echo $array["date"];?></span></li>
-					<li><span class="base-title">标签：</span><span><?php $tags=explode(",",$array["tags"]);foreach($tags as $val){echo "<a class='tags' href='screen.php?tags={$val}'>{$val}</a>,";} ?></span></li>
+					<li><span class="base-title">IP名称：</span><span class="base-val"><?php echo $array["title"];?></span><?php if($userInfo["grouplevel"]>=3){?><a target="_blank" href="admin/menu.php?id=<?php echo $array["id"];?>" class="edit-ico"></a><?php }?></li>
+					<li><span class="base-title">平台/地点：</span><span class="base-val"><?php echo $array["platform"];?></span></li>
+					<li><span class="base-title">类别：</span><span class="base-val"><?php echo "{$array["firstclass"]}>>{$array["secondclass"]}>>{$array["threeclass"]}";?></span></li>
+					<li><span class="base-title">核心：</span><span class="base-val"><?php echo $array["core"];?></span></li>
+					<li><span class="base-title">时间：</span><span class="base-val"><?php echo $array["datetime"];?></span></li>
+					<li><span class="base-title">更新时间：</span><span class="base-val"><?php echo $array["date"];?></span></li>
+					<li><span class="base-title">标签：</span><span class="base-val"><?php $tags=explode(",",$array["tags"]);foreach($tags as $val){echo "<a class='tags' href='screen.php?tags={$val}'>{$val}</a>,";} ?></span></li>
 				</ul>
 			</span>
 		</div>
@@ -93,6 +93,7 @@
 		</div>
 		<?php if($array["pdfname"]!=""){?>
 			<div style="margin:10px;"><span class="show-pdf-button" data-boxstate=0 data-pdfname="<?php echo $array["pdfname"];?>">点击查看PDF</span> <span class="down-pdf bg9 clw fs5 br3" data-pdfname="<?php echo $array["pdfname"];?>">下载本PDF</span></div>
+			<p class="wap-pdf-msg">注意：部分手机可能无法在线观看PDF！点击会提示下载此PDF</p>
 		<div class="show-pdf"><iframe src=""></iframe></div>
 		<?php }?>
 	</div>

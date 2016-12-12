@@ -1,15 +1,46 @@
-﻿a{
+﻿@media screen and (max-width: 400px) {
+	#content{width:320px;padding-bottom:10px;text-align:center;margin:0 auto;}
+	.base-info{	border:1px solid #CCCCCC;margin:5px;text-align:left;}
+	.base-info img{width:100%;}
+	.base-info-list ul {margin-left:10px;}
+	.base-info-list ul li{	margin-bottom:10px;}
+	.base-title{text-align:left;display:inline-block;}
+	.base-info span{display:inline-block;}
+	.base-val{display:inline;color:#000000;}
+	.details-info{text-align:left;border-bottom:1px dashed #CCCCCC;font-size:0.9em;}
+	.details-info ul{margin-left:10px;}
+	.details-info li{margin:10px 0;display:inline-block;}
+	.content-info{text-align:left;padding:10px 10px 5px 10px;font-size:0.9em;}
+	.details-info p{	float:left;	width:298px;}
+	#create-feedback{height:30px;cursor: pointer;line-height: 30px;display:inline-block;padding: 0px 5px;position: relative;right: 35px;top: 13px;}
+	.feedbcak-box {	height:auto!important;	border:1px solid #999999;	margin: 0 -5px !important;width:100%;border-radius:5px;}
+	.wap-pdf-msg{display:block;font-size:0.9em;color:#FF0000;}
+}
+@media screen and (min-width: 401px) {
+	#content{width:960px;padding-bottom:10px;text-align:center;margin:0 auto;}
+	.base-info img{width:220px;height:220px;	margin:10px;}
+	.base-info{	border:1px solid #CCCCCC;margin:5px;text-align:left;height:240px;}
+	.base-info-list ul li{	height:30px;}
+	.base-title{width:120px;text-align:right;display:inline-block;}
+	.base-info span{display:inline-block;overflow:hidden;}
+	.details-info{text-align:left;border-bottom:1px dashed #CCCCCC;padding:20px 80px;font-size:0.9em;}
+	.details-info li{height:50px;line-height: 50px;}
+	.content-info{text-align:left;padding:30px 80px;font-size:0.9em;}
+	.details-info p{	float:left;	width:550px;}
+	#create-feedback{height: 30px;line-height: 30px;float: left;padding: 2px 4px;margin: 22px 45px;cursor: pointer;}
+	.feedbcak-box {	height:auto!important;	border:1px solid #999999;	margin:auto 20px;	border-radius:5px;}
+	.feedback-content-span{float: left;}
+	.feed-list-user{height:30px!important;line-height:30px!important;}
+	.wap-pdf-msg{display:none;}
+}
+
+a{
 	color:#666666;
 }
 span{
 	color:#666666;
 }
-#content{
-	width:960px;
-	padding-bottom:10px;
-	text-align:center;
-	margin:0 auto;
-}
+
 #project-info{
 	border:1px solid #CCCCCC;
 	padding:5px;
@@ -18,21 +49,8 @@ span{
 .cover-span{
 	float:left;
 }
-.base-info{
-	border:1px solid #CCCCCC;
-	margin:5px;
-	text-align:left;
-	height:240px;
-}
-.base-info span{
-	display:inline-block;
-	overflow:hidden; 
-}
-.base-info img{
-	width:220px;
-	height:220px;
-	margin:10px;
-}
+
+
 .base-info-list{
 	margin-bottom:30px;
 	font-size:0.9em;
@@ -41,37 +59,11 @@ span{
 	margin-top:20px;
 	float:right;
 }
-.base-info-list ul li{
-	height:30px;
-}
-.base-title{
-	width:120px;
-	text-align:right;
-	display:inline-block;
-}
-.details-info{
-	text-align:left;
-	border-bottom:1px dashed #CCCCCC;
-	padding:20px 80px;
-	font-size:0.9em;
-}
-.details-info li{
-	height:50px;
-	line-height: 50px;
-}
+
 .details-info .base-title{
 	float:left;
 }
-.details-info p{
-	float:left;
-	width:550px;
-}
-.content-info{
-	text-align:left;
-	padding:30px 80px;
-	font-size:0.9em;
-	
-}
+
 .show-pdf{
 	display:none;
 }
@@ -185,30 +177,13 @@ span{
 	color:#ffffff;
 	border-radius:5px;
 }
-.feedbcak-box {
-	height:auto!important;
-	border:1px solid #999999;
-	margin:auto 20px;
-	border-radius:5px;
-}
+
 .feedbcak-box ul{
 	border:1px solid #999999;
 	border-radius:5px;
 	box-shadow:0 0 5px 2px #999999;
 	margin:20px 30px 20px 30px;
 	padding:20px 0;
-}
-#create-feedback{
-	height: 30px;
-	line-height: 30px;
-	float: left;
-	padding: 2px 4px;
-margin: 22px 45px;
-cursor: pointer;
-}
-.feed-list-user{
-	height:30px!important;
-	line-height:30px!important;
 }
 .feed-list-user span{
 	display:inline-block;
@@ -257,7 +232,7 @@ cursor: pointer;
 	display: inline-block;
 	height: 80px;
 	width: 79%;
-	float: left;
+	
 }
 .feedback-content-span textarea{
 	height: 80px;
