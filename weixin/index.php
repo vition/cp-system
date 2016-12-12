@@ -6,6 +6,7 @@
 	$weixin=new weixin($serverinfo);
 	if(isset($_GET["code"])){
 		$wxId=$weixin->getUserId();
+		echo $wxId;
 		if($weixin->checkUserId($wxId)){
 			$global->gotopage($global->getoption("weburl"));
 		}
