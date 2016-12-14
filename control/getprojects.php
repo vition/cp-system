@@ -48,9 +48,14 @@
 			}
 			
 			while($classArr=$result->fetch_array(1)){
+				$platform=array();
 				$arr = preg_split( "/(\、|\,|\，|\/|\||\;|\；)/", $classArr["platform"] );
 				foreach($arr as $pla){
-					echo "<span class='condition-item'>{$pla}</span>";
+					if(!in_array($pla,$platform)){
+						array_push($platform,$pla);
+						echo "<span class='condition-item'>{$pla}</span>";
+					}
+					
 				}
 				
 			}
