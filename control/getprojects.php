@@ -57,7 +57,13 @@
 					if(!in_array($pla,$platform)){
 						array_push($platform,$pla);
 						//print_r($platform);
-						echo "<span class='condition-item'>{$pla}</span>";
+						//echo ROOT."\images\\".$pla.".png";
+						if(file_exists(ROOT."/images/".md5($pla).".png")){
+							echo "<span class='condition-item'><img src='images/".md5($pla).".png' />{$pla}</span>";
+						}else{
+							echo "<span class='condition-item'>{$pla}</span>";
+						}
+						
 					}
 				}
 			}

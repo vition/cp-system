@@ -53,6 +53,13 @@
 	margin:8px 5px;
 	font-size:0.9em;
 	cursor:pointer;
+	height:30px;
+	line-height:30px;
+}
+.condition-item img{
+	display:inline-block;
+	height:30px!important;
+	width:auto!important;
 }
 .condition-item:hover{
 	color:#FF8000;
