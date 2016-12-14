@@ -53,12 +53,12 @@
 	margin:8px 5px;
 	font-size:0.9em;
 	cursor:pointer;
-	height:30px;
-	line-height:30px;
+	height:25px;
+	line-height:25px;
 }
 .condition-item img{
 	display:inline-block;
-	height:30px!important;
+	height:25px!important;
 	width:auto!important;
 }
 .condition-item:hover{
