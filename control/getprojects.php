@@ -41,6 +41,7 @@
 			}
 			break;
 			case "platform":
+			$platform=array();
 			if(isset($_POST["val"])){
 				$result=$global->query("SELECT distinct `platform` FROM `projects` WHERE `platform` LIKE '%{$_POST["val"]}%'");
 			}else{
@@ -48,18 +49,17 @@
 			}
 			
 			while($classArr=$result->fetch_array(1)){
-				$platform=array();
-				$arr = preg_split( "/(\、|\,|\，|\/|\||\;|\；)/", $classArr["platform"] );
+				
+				$arr = preg_split( "/(\、|\,|\，|\/|\||\;|\；)/", $classArr["platform"]);
+				//print_r($arr);
 				foreach($arr as $pla){
-					if(in_array($pla,$platform)){
-						//echo "<span class='condition-item'>{$pla}存在</span>";
-					}else{
+					//echo "<span class='condition-item'>{$pla}</span>";
+					if(!in_array($pla,$platform)){
 						array_push($platform,$pla);
+						//print_r($platform);
 						echo "<span class='condition-item'>{$pla}</span>";
 					}
-					
 				}
-				
 			}
 			break;
 			case "pushed":
