@@ -51,7 +51,6 @@
 				$platform=array();
 				$arr = preg_split( "/(\、|\,|\，|\/|\||\;|\；)/", $classArr["platform"] );
 				foreach($arr as $pla){
-					print_r($arr);
 					if(in_array($pla,$platform)){
 						array_push($platform,$pla);
 						echo "<span class='condition-item'>{$pla}存在</span>";
@@ -60,7 +59,7 @@
 					}
 					
 				}
-				
+				print_r($platform);
 			}
 			break;
 			case "pushed":
