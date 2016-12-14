@@ -52,14 +52,14 @@
 				$arr = preg_split( "/(\、|\,|\，|\/|\||\;|\；)/", $classArr["platform"] );
 				foreach($arr as $pla){
 					if(in_array($pla,$platform)){
-						array_push($platform,$pla);
-						echo "<span class='condition-item'>{$pla}存在</span>";
+						//echo "<span class='condition-item'>{$pla}存在</span>";
 					}else{
-						echo "<span class='condition-item'>{$pla}不存在</span>";
+						array_push($platform,$pla);
+						echo "<span class='condition-item'>{$pla}</span>";
 					}
 					
 				}
-				print_r($platform);
+				
 			}
 			break;
 			case "pushed":
