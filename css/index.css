@@ -112,7 +112,7 @@ ul{
 }
 .footer p{
 	height:80px;
-	line-height:80px;
+	padding-top: 20px;
 }
 .news-box{
 	background:#FFFFFF;
