@@ -42,6 +42,7 @@
 				array_push($userNameArr,$val);
 			}
 			$wxids=$user->getUserId($userNameArr);
+			$id=$_POST["pid"];
 			$data=array("touser"=>"{$wxids}","msgtype"=> "text","agentid"=> 0,"text"=>array("content"=>"您好！您参与的IP【".$projects->getProjectKey($_POST["pid"])."】刚刚收到了一条评论，内容如下：".$_POST["content"]."。详情请使用电脑登录系统查看！"),"safe"=>"0");
 			$weixin->send($data);
 			

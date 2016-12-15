@@ -123,8 +123,6 @@
 				$id=$insertId;
 			}
 		}
-		
-		$wxids="1000000107";
 		//$data=array("touser"=>"{$wxids}","msgtype"=> "news","agentid"=> 0,"news"=>array("articles"=>array(array("title"=>"WTC娱乐营销{$control}：{$_POST["title"]}","description"=>"{$_POST["core"]}【请使用电脑登录".$global->getoption("weburl")."进行查看】","picurl"=>$global->getoption("weburl").$picurl))),"safe"=>"0");
 		$data=array("touser"=>"{$wxids}","msgtype"=> "news","agentid"=> 0,"news"=>array("articles"=>array(array("title"=>"WTC娱乐营销{$control}：{$_POST["title"]}","description"=>"{$_POST["core"]}【点击查看】","url"=>"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx650b23fa694c8ff7&redirect_uri=".$global->getoption("weburl")."page.php?id={$id}&response_type=code&scope=SCOPE&state=STATE#wechat_redirect","picurl"=>$global->getoption("weburl").$picurl))),"safe"=>"0");
 		$weixin->send($data);//https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx650b23fa694c8ff7&redirect_uri=http://twoway.cc/qyweixin/attend/punchInOut.php&response_type=code&scope=SCOPE&state=STATE#wechat_redirect
