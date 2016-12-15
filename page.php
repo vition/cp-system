@@ -1,15 +1,18 @@
 <?php 
 	require_once('config.php');
-	
+	load_class("user");
 	load_class("weixin");
+	$user=new _user($serverinfo);
 	$weixin=new weixin($serverinfo);
 	if(isset($_GET["code"])){
 		$wxId=$weixin->getUserId();
-		$weixin->checkUserId($wxId);
+		if($weixin->checkUserId($wxId)){
+			$user->ulog($_SESSION["username"],"通过企业微信查看项目",$_GET);
+		}
 	}
 	if(isset($_GET["id"])){
-		load_class("user");
-		$user=new _user($serverinfo);
+		
+		
 		$userInfo=$user->getuser($_SESSION["username"]);
 		//print_r($userInfo);
 		$result=$global->query("SELECT * FROM `projects` WHERE `id`='{$_GET["id"]}'");

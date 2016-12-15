@@ -7,6 +7,7 @@
 	if(isset($_GET["code"])){
 		$wxId=$weixin->getUserId();
 		if($weixin->checkUserId($wxId)){
+			$user->ulog($_SESSION["username"],"通过企业微信登录");
 			$global->gotopage($global->getoption("weburl"));
 		}
 		$username=$weixin->getUsername($wxId);
