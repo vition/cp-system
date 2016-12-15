@@ -134,7 +134,7 @@
 		function query($query){
 			$result=$this->mydb->query($query);
 			$this->insert_id=$this->mydb->insert_id;
-			return $resul;
+			return $result;
 		}
 		//加密引号
 		function en_quotes($str){
