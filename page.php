@@ -5,10 +5,7 @@
 	$weixin=new weixin($serverinfo);
 	if(isset($_GET["code"])){
 		$wxId=$weixin->getUserId();
-		if($weixin->checkUserId($wxId)){
-			$global->gotopage($global->getoption("weburl"));
-		}
-		$username=$weixin->getUsername($wxId);
+		$weixin->checkUserId($wxId);
 	}
 	if(isset($_GET["id"])){
 		load_class("user");
