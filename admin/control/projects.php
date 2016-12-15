@@ -117,7 +117,7 @@
 		$global->query($query);
 		$user->ulog($_SESSION["username"],$control,$_POST);
 		$wxids=$user->getUserId();
-		$insertId=mysql_insert_id();
+		$insertId=mysqli_insert_id();
 		if($insertId>0){
 			$id=$insertId;
 		}
