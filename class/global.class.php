@@ -1,6 +1,7 @@
 <?php
 	class _global{
 		protected $mydb;
+		public $insert_id;
 		function __construct($dbinfo){
 			$this->mydb=new mysqli($dbinfo["dbhost"],$dbinfo["rootname"],$dbinfo["rootpsw"],$dbinfo["dbname"]);     //创建mysqli对象
 			$this->mydb->query("set names utf8");
@@ -131,7 +132,9 @@
 		}
 		//mysql 操作
 		function query($query){
-			return $this->mydb->query($query);
+			$result=$this->mydb->query($query);
+			$this->insert_id=$this->mydb->insert_id;
+			return $resul;
 		}
 		//加密引号
 		function en_quotes($str){
