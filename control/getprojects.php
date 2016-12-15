@@ -41,15 +41,19 @@
 			}
 			break;
 			case "platform":
+			$classResult=$global->query("SELECT `subordinate` FROM `classif` WHERE `superiors`='root'");
+			$fClass=array();
+			while($cArr=$classResult->fetch_array(1)){
+				$fClass[$cArr["subordinate"]]='<div class="platform-title">'.$cArr["subordinate"].'</div><div class="platform-name">';
+			}
 			$platform=array();
 			if(isset($_POST["val"])){
-				$result=$global->query("SELECT distinct `platform` FROM `projects` WHERE `platform` LIKE '%{$_POST["val"]}%'");
+				$result=$global->query("SELECT distinct `firstclass`,`platform` FROM `projects` WHERE `platform`<>'' AND `platform` LIKE '%{$_POST["val"]}%'");
 			}else{
-				$result=$global->query("SELECT distinct `platform` FROM `projects`");
+				$result=$global->query("SELECT distinct `firstclass`,`platform` FROM `projects` WHERE `platform`<>''");
 			}
 			
 			while($classArr=$result->fetch_array(1)){
-				
 				$arr = preg_split( "/(\、|\,|\，|\/|\||\;|\；)/", $classArr["platform"]);
 				//print_r($arr);
 				foreach($arr as $pla){
@@ -59,13 +63,16 @@
 						//print_r($platform);
 						//echo ROOT."\images\\".$pla.".png";
 						if(file_exists(ROOT."/images/".md5($pla).".png")){
-							echo "<span class='condition-item'><img src='images/".md5($pla).".png' />{$pla}</span>";
+							$fClass[$classArr["firstclass"]].= "<span class='condition-item'><img src='images/".md5($pla).".png' />{$pla}</span>";
 						}else{
-							echo "<span class='condition-item'>{$pla}</span>";
+							$fClass[$classArr["firstclass"]].="<span class='condition-item'>{$pla}</span>";
 						}
 						
 					}
 				}
+			}
+			foreach($fClass as $plas){
+				echo "<div>".$plas."</div></div>";
 			}
 			break;
 			case "pushed":

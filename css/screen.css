@@ -48,6 +48,15 @@
 	position:relative;
 	z-index:2;
 }
+.platform-title {
+    background: #31A2D9;
+    color: #ffffff;
+    float: left;
+    padding: 3px 10px;
+    font-size: 0.9em;
+    cursor: pointer;
+    margin: 8px;
+}
 .condition-item{
 	display:inline-block;
 	margin:8px 5px;
@@ -107,7 +116,10 @@
 	width:88%;
 	float:right;
 	margin-right:20px;
-	
+}
+.platform-name{
+	max-width:80%;
+	float:left;
 }
 .class-name span {
 	margin:3px 5px;
