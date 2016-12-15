@@ -33,7 +33,7 @@
 	.feedback-content-span{float: left;}
 	.feed-list-user{height:30px!important;line-height:30px!important;}
 	.wap-pdf-msg{display:none;}
-	.base-val{width: 550px;overflow: hidden;height: 20px;}
+	.base-val{max-width: 550px;height: 20px;}
 }
 
 a{
