@@ -14,6 +14,7 @@ $(function (){
 	$("#tags").change(changeTags)
 	$("#p-templet").click(downTemplet)
 	$("#push-home").click(pushHome)
+	$("#push-wx").click(pushWx)
 	indata={};
 	formData = new FormData();
 	$(".user-ico").click(function(){$("#user-box").css("display","block");$("#search-user").val("");showUser("")})
@@ -67,6 +68,7 @@ function insert(){
 	if($("#projecid").val()!=0){
 		indata["id"]=$("#projecid").val();
 	}
+	indata["wx"]=$("#push-wx").data("pushwx");
 	$("#wait-box").html('<span class="wait-image">项目建档中，请等待……</span>');
 	$("#wait-box").css("display","block");
 	　$.ajax({
@@ -187,6 +189,21 @@ function pushHome(){
 		$(this).addClass("but-no-select");
 		$(this).text("不推送");
 		$("#pushed").val(0);
+	}
+}
+//推送到微信
+function pushWx(){
+	if($(this).attr("class")=="but-no-select"){
+		$(this).removeClass("but-no-select");
+		$(this).addClass("but-select");
+		$(this).text("求推送");
+		$(this).data("pushwx",true)
+		$("#pushed").val(1);
+	}else{
+		$(this).removeClass("but-select");
+		$(this).addClass("but-no-select");
+		$(this).text("不推送");
+		$(this).data("pushwx",false)
 	}
 }
 //加载pdf

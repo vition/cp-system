@@ -64,7 +64,7 @@
 			<li><span class="data-input-tit">标签</span><span><input type="text" id="tags"  class="data-input" value="<?php echo $array["tags"]; ?>" /></span><span class="tags-ico"></span></li>
 			<li><span class="data-input-tit">封面</span><span><input type="text" id="cover"  class="data-input" value="<?php echo $array["cover"]; ?>" /></span></li>
 			<li><span class="data-input-tit">PDF文件</span><span><input type="text" id="pdfname"  class="data-input" value="<?php echo $array["pdfname"]; ?>" /></span></li>
-			<li><span class="data-input-tit">是否推送</span><?php if($array["pushed"]==1){echo '<span id="push-home" class="but-select">求推送</span>';}else{ echo '<span id="push-home" class="but-no-select">不推送</span>';} ?><input id="pushed" type="hidden" class="data-input" value="<?php echo $array["pushed"]; ?>"/></li>
+			<li><span class="data-input-tit">首页推送</span><?php if($array["pushed"]==1){echo '<span id="push-home" class="but-select">求推送</span>';}else{ echo '<span id="push-home" class="but-no-select">不推送</span>';} ?><input id="pushed" type="hidden" class="data-input" value="<?php echo $array["pushed"]; ?>"/><span class="data-input-tit">微信推送</span><span id="push-wx" class="but-no-select" data-pushwx=false>不推送</span></li>
 		</ul>
 		<div id="progressNumber"></div>
 		<div><textarea id="content" name="content" class="data-input" style="width:700px;height:300px;resize:none;">

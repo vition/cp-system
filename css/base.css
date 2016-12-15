@@ -73,15 +73,15 @@ li{
 	background:#00CC00;
 	color:#FFFFFF;
 }
-.but-select:hover{
-	border:1px solid #7A7A7A;
-	padding:5px;
-	border-radius:3px;
-	color:#7A7A7A;
-	font-size:0.8em;
-	cursor:pointer;
-	background:#ffffff;
-}
+/* .but-select:hover{ */
+	/* border:1px solid #7A7A7A; */
+	/* padding:5px; */
+	/* border-radius:3px; */
+	/* color:#7A7A7A; */
+	/* font-size:0.8em; */
+	/* cursor:pointer; */
+	/* background:#ffffff; */
+/* } */
 .nav-ative{
 	background:#31A2D9;
 	color:#ffffff!important;
