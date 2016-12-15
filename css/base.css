@@ -324,3 +324,11 @@ li{
 .prev-page ,.next-page{
 	font-size:0.9em;
 }
+.page-info{
+	padding:3px 8px;
+	border:1px solid #5FAFE4;
+	border-radius:5px;
+	font-size:0.9em;
+	background:#5FAFE4;
+	color:#FFFFFF;
+}
