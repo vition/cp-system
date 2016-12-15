@@ -1,5 +1,15 @@
 <?php 
 	require_once('config.php');
+	
+	load_class("weixin");
+	$weixin=new weixin($serverinfo);
+	if(isset($_GET["code"])){
+		$wxId=$weixin->getUserId();
+		if($weixin->checkUserId($wxId)){
+			$global->gotopage($global->getoption("weburl"));
+		}
+		$username=$weixin->getUsername($wxId);
+	}
 	if(isset($_GET["id"])){
 		load_class("user");
 		$user=new _user($serverinfo);
