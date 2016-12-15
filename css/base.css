@@ -83,7 +83,7 @@ li{
 	background:#ffffff;
 }
 .nav-ative{
-	background:#FF8000;
+	background:#31A2D9;
 	color:#ffffff!important;
 }
 /*项目名称搜索框*/
@@ -92,7 +92,7 @@ li{
 	display:inline-block;
 	height:30px;
 	width:300px;
-	border:0.2em solid #FF8000;
+	border:0.2em solid #31A2D9;
 	float: right;
 }
 .navs{
@@ -110,7 +110,7 @@ li{
 #title-screen-box span{
 	display: inline-block;
 	height: 30px;
-	background: #FF8000;
+	background: #31A2D9;
 	color: #ffffff;
 	float: right;
 	line-height: 30px;
@@ -199,11 +199,11 @@ li{
 	color:#FF0000;
 }
 /*边框颜色开始*/
-.bbw{border:1px solid #FFFFFF;}.bbb{border:1px solid #000000;}.bb0{border:1px solid #FF0000;}.bb1{border:1px solid #F6941D;}.bb2{border:1px solid #FFFF00;}.bb3{border:1px solid #99CC33;}.bb4{border:1px solid #219167;}.bb5{border:1px solid #24998D;}.bb6{border:1px solid #0080FF;}.bb7{border:1px solid #333399;}.bb8{border:1px solid #800080;}.bb9{border:1px solid #C71585;}/*边框颜色结束*/
+.bbw{border:1px solid #FFFFFF;}.bbb{border:1px solid #000000;}.bb0{border:1px solid #FF0000;}.bb1{border:1px solid #207CEA;}.bb2{border:1px solid #FFFF00;}.bb3{border:1px solid #99CC33;}.bb4{border:1px solid #219167;}.bb5{border:1px solid #24998D;}.bb6{border:1px solid #0080FF;}.bb7{border:1px solid #333399;}.bb8{border:1px solid #800080;}.bb9{border:1px solid #31A2D9;}/*边框颜色结束*/
 /*背景颜色开始*/
-.bgw{background:#FFFFFF;}.bgb{background:#000000;}.bg0{background:#FF0000;}.bg1{background:#F6941D;}.bg2{background:#FFFF00;}.bg3{background:#99CC33;}.bg4{background:#219167;}.bg5{background:#24998D;}.bg6{background:#0080FF;}.bg7{background:#333399;}.bg8{background:#800080;}.bg9{background:#C71585;}/*背景颜色结束*/
+.bgw{background:#FFFFFF;}.bgb{background:#000000;}.bg0{background:#FF0000;}.bg1{background:#207CEA;}.bg2{background:#FFFF00;}.bg3{background:#99CC33;}.bg4{background:#219167;}.bg5{background:#24998D;}.bg6{background:#0080FF;}.bg7{background:#333399;}.bg8{background:#800080;}.bg9{background:#31A2D9;}/*背景颜色结束*/
 /*字体颜色开始*/
-.clw{color:#FFFFFF;}.clb{color:#000000;}.cl0{color:#FF0000;}.cl1{color:#F6941D;}.cl2{color:#FFFF00;}.cl3{color:#99CC33;}.cl4{color:#219167;}.cl5{color:#24998D;}.cl6{color:#0080FF;}.cl7{color:#333399;}.cl8{color:#800080;}.cl9{color:#C71585;}/*字体颜色结束*/
+.clw{color:#FFFFFF;}.clb{color:#000000;}.cl0{color:#FF0000;}.cl1{color:#207CEA;}.cl2{color:#FFFF00;}.cl3{color:#99CC33;}.cl4{color:#219167;}.cl5{color:#24998D;}.cl6{color:#0080FF;}.cl7{color:#333399;}.cl8{color:#800080;}.cl9{color:#31A2D9;}/*字体颜色结束*/
 /*字体大小开始*/
 .fs0{font-size:0.5em;}.fs1{font-size:0.6em;}.fs2{font-size:0.7em;}.fs3{font-size:0.8em;}.fs4{font-size:0.9em;}.fs5{font-size:1em;}.fs6{font-size:1.5em;}.fs7{font-size:2em;}.fs8{font-size:3em;}.fs9{font-size:5em;}/*字体大小结束*/
 /*按钮格式开始*/
