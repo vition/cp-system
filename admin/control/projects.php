@@ -10,6 +10,7 @@
 		$global->gotopage($global->getoption("weburl"));
 	}
 	//$global
+	//print_r($_POST);
 	$isresult=$global->query("SELECT `id` FROM `projects` WHERE `title`='{$_POST["title"]}'");
 	if($isresult->num_rows>0 && $_POST["ptype"]=="insert"){
 		//这里是判断项目名称是否存在
@@ -21,7 +22,10 @@
 			$dataKey="`date`,";
 			$dataVal="'".date("Y-m-d H:i:s",time())."',";
 			foreach($_POST as $key=>$val){
-				if($key=="ptype" || $key=="id" || $key=="pdf"){
+				if($key=="wx"){
+					echo $key;
+				}
+				if($key=="ptype" OR $key=="id" OR $key=="pdf" OR $key=="wx"){
 					
 				}elseif($key=="content"){
 					$dataKey.="`{$key}`,";
@@ -72,7 +76,7 @@
 			
 			$datakv="`date`='".date("Y-m-d H:i:s",time())."',";
 			foreach($_POST as $key=>$val){
-				if($key=="ptype" || $key=="id" || $key=="pdf"){
+				if($key=="ptype" OR $key=="id" OR $key=="pdf" OR $key=="wx"){
 					
 				}elseif($key=="content"){
 					$datakv.="`{$key}`='".$global->en_quotes($val)."',";
@@ -129,10 +133,13 @@
 		if($control!=""){
 			$user->ulog($_SESSION["username"],$control,$_POST);
 			if($_POST["wx"]=="true"){
+				$wxMsf="并且推送到微信企业号";
 				$data=array("touser"=>"{$wxids}","msgtype"=> "news","agentid"=> 0,"news"=>array("articles"=>array(array("title"=>"WTC娱乐营销{$control}：{$_POST["title"]}","description"=>"{$_POST["core"]}【点击查看】","url"=>"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx650b23fa694c8ff7&redirect_uri=".$global->getoption("weburl")."page.php?id={$id}&response_type=code&scope=SCOPE&state=STATE#wechat_redirect","picurl"=>$global->getoption("weburl").$picurl))),"safe"=>"0");
 				$weixin->send($data);
+			}else{
+				$wxMsf="但是没有推送到微信企业号";
 			}
-			echo "操作成功了，真棒！";
+			echo "操作成功了，".$wxMsf;
 		}else{
 			echo "抱歉出错了！";
 		}
