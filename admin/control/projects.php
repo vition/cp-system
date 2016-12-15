@@ -115,7 +115,7 @@
 			break;
 		}
 		$global->query($query);
-		$user->ulog($_SESSION["username"],$control,$_POST);
+		
 		$wxids=$user->getUserId();
 		if($control=="新增项目"){
 			$insertId=$global->insert_id;
@@ -125,8 +125,15 @@
 		}
 		//$data=array("touser"=>"{$wxids}","msgtype"=> "news","agentid"=> 0,"news"=>array("articles"=>array(array("title"=>"WTC娱乐营销{$control}：{$_POST["title"]}","description"=>"{$_POST["core"]}【请使用电脑登录".$global->getoption("weburl")."进行查看】","picurl"=>$global->getoption("weburl").$picurl))),"safe"=>"0");
 		$data=array("touser"=>"{$wxids}","msgtype"=> "news","agentid"=> 0,"news"=>array("articles"=>array(array("title"=>"WTC娱乐营销{$control}：{$_POST["title"]}","description"=>"{$_POST["core"]}【点击查看】","url"=>"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx650b23fa694c8ff7&redirect_uri=".$global->getoption("weburl")."page.php?id={$id}&response_type=code&scope=SCOPE&state=STATE#wechat_redirect","picurl"=>$global->getoption("weburl").$picurl))),"safe"=>"0");
-		$weixin->send($data);//https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx650b23fa694c8ff7&redirect_uri=http://twoway.cc/qyweixin/attend/punchInOut.php&response_type=code&scope=SCOPE&state=STATE#wechat_redirect
-		echo "操作成功了，真棒！";
+		//$weixin->send($data);//https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx650b23fa694c8ff7&redirect_uri=http://twoway.cc/qyweixin/attend/punchInOut.php&response_type=code&scope=SCOPE&state=STATE#wechat_redirect
+		if($control!=""){
+			$user->ulog($_SESSION["username"],$control,$_POST);
+			$weixin->send($data);
+			echo "操作成功了，真棒！";
+		}else{
+			echo "抱歉出错了！";
+		}
+		
 	}
 	
 ?>

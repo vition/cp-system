@@ -11,6 +11,10 @@ $(function(){
 	$("#eprice").bind("input propertychange",setPrice)
 	$("#allprice").click(function(){$(this).data("value",1);showList(0);$("#sprice").val(0);$("#eprice").val(0)})
 	$(".class-title").click(showclass)
+	b=function(){alert("1")}
+	//function(){alert("11")}
+	alert(b())
+	//if(b()){alert("2")}
 })
 
 function showNews(){
