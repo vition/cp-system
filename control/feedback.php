@@ -33,7 +33,6 @@
 			}
 			$wxids=$user->getUserId($userNameArr);
 			$data=array("touser"=>"{$wxids}","msgtype"=> "text","agentid"=> 0,"text"=>array("content"=>"您好！您参与的IP【".$projects->getProjectKey($_POST["pid"])."】刚刚收到了一条反馈，内容如下：".$_POST["contents"]."。详情请使用电脑登录系统查看！"),"safe"=>"0");
-			print_r($data);
 			$weixin->send($data);
 			?>
 			<ul data-fid="<?php echo $array["id"];?>">
