@@ -1,4 +1,4 @@
-﻿@media screen and (max-width: 400px) {
+﻿@media screen and (max-width: 440px) {
 	#content{width:320px;padding-bottom:10px;text-align:center;margin:0 auto;}
 	.base-info{	border:1px solid #CCCCCC;margin:5px;text-align:left;}
 	.base-info img{width:100%;}
@@ -17,7 +17,7 @@
 	.wap-pdf-msg{display:block;font-size:0.9em;color:#FF0000;}
 	.model-value{width:190px;}
 }
-@media screen and (min-width: 401px) {
+@media screen and (min-width: 441px) {
 	#content{width:960px;padding-bottom:10px;text-align:center;margin:0 auto;}
 	.base-info img{width:220px;height:220px;	margin:10px;}
 	.base-info{	border:1px solid #CCCCCC;margin:5px;text-align:left;height:240px;}

@@ -1,4 +1,4 @@
-﻿@media screen and (max-width: 400px) {
+﻿@media screen and (max-width: 440px) {
 	.wrap{width:300px;margin:0 auto; padding:30px 10px 80px 10px;}
 	.moko-slider{width:300px!important;}
 	.user-info-box,.navs ul,#title-screen-box,.news-box,.controller,.frame{display:none;}
@@ -13,7 +13,7 @@
 	.big-post{ width:236px; margin:0 5px 10px 28px;} 
 	.footer p{font-size: 0.8em;}
 }  
-@media screen and (min-width: 401px) {
+@media screen and (min-width: 441px) {
 	.wrap{ width:960px; margin:0 auto; padding:30px 10px 80px 10px; }
 	.wap-nav{display:none;}
 	#header{margin-top:30px;}
