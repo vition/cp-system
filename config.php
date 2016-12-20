@@ -18,6 +18,7 @@
 	$serverinfo=array("dbhost"=>"localhost","rootname"=>"root","rootpsw"=>"root","dbname"=>"cpsystem");
 	load_class("global");
 	$global=new _global($serverinfo);
+	$global->url();
 	//定义成员组别
 	$groupArr=array("宙斯"=>4,"大神"=>3,"朕"=>2,"平民"=>1);
 	$mesType=array("comment"=>"评论","feedback"=>"反馈","system"=>"系统");

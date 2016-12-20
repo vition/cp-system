@@ -240,5 +240,24 @@
 		function getImgLen($url){
 			
 		}
+		//做链接跳转
+		function url(){
+			if(isset($_GET["id"])){
+				$pageURL = 'http';
+				if(isset($_SERVER["HTTPS"])){
+					if ($_SERVER["HTTPS"] == "on"){
+						$pageURL .= "s";
+					}
+				}
+				$pageURL .= "://";
+				if ($_SERVER["SERVER_PORT"] != "80"){
+					$pageURL .= $_SERVER["SERVER_NAME"] . ":" . $_SERVER["SERVER_PORT"] . $_SERVER["REQUEST_URI"];
+				}else{
+					$pageURL .= $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
+				}
+				$_SESSION["url"]=$pageURL;
+			}
+			
+		}
 	}
 ?>

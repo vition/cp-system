@@ -17,7 +17,17 @@
 				$_SESSION["username"]=$username;
 				$this->username=$username;
 				$this->ulog($username,"登录");
-				echo "success";
+				if(isset($_SESSION["url"])){
+					if($_SESSION["url"]!=""){
+						//header("Location: {$_SESSION["url"]}");
+						echo $_SESSION["url"];
+					}else{
+						"success";
+					}
+				}else{
+					echo "success";
+				}
+				
 			}else{
 				$this->ulog($username,"尝试登录失败");
 				unset($_SESSION["cplogin"]);

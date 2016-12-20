@@ -20,10 +20,13 @@ function login(){
 			data:{username:$("#username").val(),psw:$("#password").val()},
 			dataType:"html",
 			success:function(data){
+				//alert(data);
 				if(data=="success"){
 					window.location.href="../index.php";
-				}else{
+				}else if(data=="error"){
 					alert("回去把账号和密码抄10遍再来！");
+				}else{
+					window.location.href=data;
 				}
 				
 			}
