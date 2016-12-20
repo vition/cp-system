@@ -122,7 +122,7 @@
 			$headSB=explode(";",$head_data[0]);
 			$base64=base64_decode($head_data[1]);
 			$temp=explode(".",$fileName);
-			$imgname=md5($temp[0]).".".$temp[1];
+			$imgname=md5($temp[0]).".".$temp[count($temp)-1];
 			
 			$resource = fopen($dir.$imgname , 'w+');  
 			fwrite($resource, $base64);  
