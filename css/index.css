@@ -8,7 +8,7 @@
 	.w970{ overflow:hidden; zoom:1;}
 	.wap-navlist{float:left;background:url("../images/listview.png");background-size:30px 30px;width:30px;height:30px;display:inline-block;margin-top:5px;margin-left:5px;cursor:pointer;}
 	.wap-user{float:left;color:#ffffff;height:40px;line-height:40px;margin-left:10px;}
-	.navs ul{width:100px;background:#31A2D9;text-align:center;color:#ffffff;position:absolute;padding:10px 0;}
+	.navs ul{width:100px;background:#31A2D9;text-align:center;color:#ffffff;position:absolute;padding:10px 0; z-index: 1;}
 	.navs ul li a{color:#ffffff;display: inline-block;width: 100%;height:40px;line-height:40px;}
 	.big-post{ width:236px; margin:0 5px 10px 28px;} 
 	.footer p{font-size: 0.8em;}
