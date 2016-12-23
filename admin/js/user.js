@@ -14,7 +14,7 @@ $(function (){
 })
 //显示组别
 function showGroup(){
-	if($(this).text()=="宙斯"){
+	if($(this).text()==$("#superadmin").val()){
 		return;
 	}
 	$("#user-group-box").data("name",$(this).prev().text())
@@ -169,8 +169,8 @@ function delUser(){
 	for(i=0;i<selCon.length;i++){
 		if(selCon.eq(i).is(":checked")){
 			var group=selCon.eq(i).parent().next().next().text()
-			if(group=="宙斯"){
-				alert("您选择的用户中包含宙斯，无法执行"+msg);
+			if(group==$("#superadmin").val()){
+				alert("您选择的用户中包含"+$("#superadmin").val()+"，无法执行"+msg);
 				return;
 			}else{
 				data[i]=selCon.eq(i).parent().next().text();
@@ -196,16 +196,16 @@ function delUser(){
 }
 //弹出修改密码窗
 function editBox(){
-	if($(this).parent().prev().text()!="宙斯"){
+	if($(this).parent().prev().text()!=$("#superadmin").val()){
 		$("#reset-user").val($(this).parent().prev().prev().text())
 		$("#psw-box").css("display","block")
 	}else{
-		alert("您不能修改宙斯的密码。")
+		alert("您不能修改"+$("#superadmin").val()+"的密码。")
 	}
 }
 //弹出组别
 function changeGroup(){
-	if($(this).text()!="宙斯"){
+	if($(this).text()!=$("#superadmin").val()){
 		showGroup
 	}
 }

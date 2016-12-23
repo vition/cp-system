@@ -58,9 +58,10 @@
 		//获取用户信息
 		function getuser($username){
 			if(isset($_SESSION["cplogin"])){
-				$result=$this->mydb->query("SELECT `group`,`grouplevel`,`wxid` FROM `user` WHERE `username`='{$username}'");
+				$result=$this->mydb->query("SELECT `value2` as `group`,`grouplevel`,`wxid` FROM `user`,`option` WHERE `user`.`username`='{$username}' AND `option`.`item` REGEXP 'level-[0-9]+' AND `option`.`value`=`user`.`grouplevel`");
 				$this->username=$username;
 				$array=$result->fetch_array(1);
+				
 				return $array;
 			}else{
 				return "error";

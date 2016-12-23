@@ -60,7 +60,9 @@ a{
 	position:absolute;
 	text-align: center;
 }
-
+.group-item{
+	font-size:0.9em;
+}
 .group-item:hover{
 	background:#5FAFE4;
 	color:#ffffff;

@@ -6,7 +6,17 @@
 	}else{
 		$global->gotopage($global->getoption("weburl")."admin");
 	}
-	$global->setOption($_POST);
-	$user->ulog($_SESSION["username"],"对后台基本信息作出了修改",$_POST);
-	echo "修改完成！";
+	switch($_POST["type"]){
+		case "base":
+		$global->setOption($_POST["data"]);
+		$user->ulog($_SESSION["username"],"对后台基本信息作出了修改",$_POST["data"]);
+		echo "修改完成！";
+		break;
+		case "level":
+		$global->setLevel($_POST["data"]);
+		$user->ulog($_SESSION["username"],"对后台等级作出了修改",$_POST["data"]);
+		echo "修改完成！";
+		break;
+	}
+	
 ?>

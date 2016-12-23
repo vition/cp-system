@@ -8,6 +8,7 @@ $(function (){
 	$("#psw-box").mouseleave(function(){$(this).css("display","none")});
 	$("#change-psw").click(changePsw);
 	$("#edit-base").click(chagneBase)
+	$("#edit-level").click(chagneLevel)
 	message()
 	$(".inbox-ico a").click(function(){$("#inbox-box").css("display","block");showLIst(0,0)})
 	$("#message-box").bind({mouseenter:function(){$(this).css("display","block")},mouseleave:function(){$(this).css("display","none");}})
@@ -58,8 +59,29 @@ function changePsw(){
 function chagneBase(){
 	var baseInfo=$(".base-info");
 	data={};
+	data["type"]="base";
+	data["data"]={};
 	for(i=0;i<baseInfo.length;i++){
-		data[baseInfo.eq(i).data("option")]=baseInfo.eq(i).val()
+		data["data"][baseInfo.eq(i).data("option")]=baseInfo.eq(i).val()
+	}
+	$.ajax({
+		url:"control/changebase.php",
+		type:"POST",
+		data:data,
+		dataType:"html",
+		success:function(data){
+			alert(data)
+		}
+	})
+}
+//修改等级
+function chagneLevel(){
+	var levelInfo=$(".level-info");
+	data={};
+	data["type"]="level";
+	data["data"]={};
+	for(i=0;i<levelInfo.length;i++){
+		data["data"][levelInfo.eq(i).data("level")]=levelInfo.eq(i).val()
 	}
 	$.ajax({
 		url:"control/changebase.php",

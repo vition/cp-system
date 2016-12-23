@@ -43,6 +43,13 @@
 			}
 			
 		}
+		//设置等级
+		function setLevel($array){
+			foreach($array as $key=>$val){
+				$this->mydb->query("UPDATE `option` SET `value2`='{$val}' WHERE `item`='level-{$key}'");
+			}
+			
+		}
 		//跳转页面
 		function gotopage($url,$msg=""){
 			if($msg!=""){
@@ -256,6 +263,24 @@
 					$pageURL .= $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
 				}
 				$_SESSION["url"]=$pageURL;
+			}
+			
+		}
+		//取等级列表
+		function getLevel($grouplevel="array"){
+			if($grouplevel=="array"){
+				$query="SELECT `value`,`value2` FROM `option` WHERE `item` REGEXP 'level-[0-9]+' ";
+				$result=$this->mydb->query($query);
+				$level=array();
+				while($levelArr=$result->fetch_array(1)){
+					$level[$levelArr['value2']]=$levelArr['value'];
+				}
+				return $level;
+			}else{
+				$query="SELECT `value2` FROM `option` WHERE `item` REGEXP 'level-[0-9]+' AND `value`='{$grouplevel}' ";
+				$result=$this->mydb->query($query);
+				$levelArr=$result->fetch_array(1);
+				return $levelArr["value2"];
 			}
 			
 		}

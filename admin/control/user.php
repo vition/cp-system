@@ -9,30 +9,33 @@
 	}
 	//print_r($_POST);
 	switch($_POST["type"]){
-		case "showgroup":
-		$result=$global->query("SELECT distinct `group` FROM `user` ");
+		case "showgroup": 
+		$result=$global->query("SELECT distinct `group` FROM `user` ");//SELECT `value2` as `group`,`grouplevel`,`wxid` FROM `user`,`option` WHERE `user`.`username`='vition' AND `option`.`item` REGEXP 'level-[0-9]+' AND `option`.`value`=`user`.`grouplevel`
 		if(isset($_POST["mode"])){
 			echo "<li class='group-item'>所有</li>";
-			echo "<li class='group-item'>宙斯</li>";
+			echo "<li class='group-item'>";
+			echo $global->getLevel("4");
+			echo "</li>";
 			
 		}
 		foreach($groupArr as $key=>$val){
-			if($key!="宙斯"){echo "<li class='group-item'>{$key}</li>";}
+			if($key!=$global->getLevel("4")){echo "<li class='group-item'>{$key}</li>";}
 		}
 		break;
 		case "search":
-		$everyPage=20;
-		$cquery="SELECT * FROM `user` ORDER BY `id` DESC";
+		$everyPage=15;
+		$cquery="SELECT `user`.`id`,`username`,`value2` as `group`,`grouplevel`,`state`,`remark`,`wxid` FROM `user`,`option` WHERE `option`.`item` REGEXP 'level-[0-9]+' AND `option`.`value`=`user`.`grouplevel` ";
 		$countResult=$global->query($cquery);
 		$count=$countResult->num_rows;
 		if(isset($_POST["data"])){
 			$condition="";
 			foreach($_POST["data"] as $key => $val){
 				if($key=="group"){
-					if($val!="所有"){
-						$condition.=" `{$key}` = '{$val}' AND";
+					$key="grouplevel";
+					if($val=="所有"){
+						$condition.="`option`.`item` REGEXP 'level-[0-9]+' AND";
 					}else{
-						$condition.=" `{$key}` LIKE '%%' AND";
+						$condition.="`option`.`item` REGEXP 'level-[0-9]+' AND `option`.`value2`='{$val}' AND";
 					}
 					
 				}else{
@@ -41,11 +44,10 @@
 				
 			}
 			$condition=rtrim($condition,"AND");
-			$query="SELECT * FROM `user` WHERE".$condition." ORDER BY `id` DESC LIMIT {$_POST["row"]},{$everyPage}";
+			$query="SELECT `user`.`id`,`username`,`value2` as `group`,`grouplevel`,`state`,`remark`,`wxid` FROM `user`,`option` WHERE".$condition." AND `option`.`value`=`user`.`grouplevel` ORDER BY `user`.`id` DESC LIMIT {$_POST["row"]},{$everyPage}";
 		}else{
-			$query="SELECT * FROM `user` ORDER BY `id` DESC LIMIT {$_POST["row"]},{$everyPage}";
+			$query="SELECT `user`.`id`,`username`,`value2` as `group`,`grouplevel`,`state`,`remark`,`wxid` FROM `user`,`option` WHERE `option`.`value`=`user`.`grouplevel` ORDER BY `user`.`id` DESC LIMIT {$_POST["row"]},{$everyPage}";
 		}
-		//echo $query;
 		$result=$global->query($query);
 		//echo '<li><span class="check-span">选择</span><span class="username-span">用户名</span><span class="group-span">组别</span><span class="psw-span-head">密码</span></li>';
 		//while($userArr=$result->fetch_array(1)){
