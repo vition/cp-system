@@ -27,6 +27,7 @@
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 	<title><?php echo $global->getoption("webname");?> 管理后台</title>
+	<link rel="shortcut icon" href="favicon.ico">
 	<script type="text/javascript" src="../js/jquery.js?<?php random();?>"></script>
 	<script type="text/javascript" src="js/admin.js?<?php random();?>"></script>
 	<link href="../css/base.css?<?php random();?>" rel="stylesheet" type="text/css">
