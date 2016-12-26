@@ -8,7 +8,7 @@
 	}
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
-	<title>娱乐营销CP推进系统管理后台</title>
+	<title><?php echo $global->getoption("webname");?> 管理后台-登录界面</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 	<script type="text/javascript" src="../js/jquery.js?<?php random();?>"></script>
 	<script type="text/javascript" src="js/admin.js?<?php random();?>"></script>

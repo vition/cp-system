@@ -9,7 +9,7 @@
 	}
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
-	<title>娱乐营销CP推进系统管理后台</title>
+	<title><?php echo $global->getoption("webname");?> 管理后台-公告管理界面</title>
 	<script type="text/javascript" src="../js/jquery.js?<?php random();?>"></script>
 	<script type="text/javascript" src="js/notice.js?<?php random();?>"></script>
 	<link href="css/notice.css?<?php random();?>" rel="stylesheet" type="text/css">
