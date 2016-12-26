@@ -2,6 +2,7 @@ $(function(){
 	$(".news-href").click(showNews)
 	$(".close-ico").click(closeBox)
 	$(".wap-navlist").click(wapList)
+	$("#search-but").click(function(){window.location.href="screen.php?search="+$("#title-screen-box input").val()})
 })
 
 function showNews(){
