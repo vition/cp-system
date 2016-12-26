@@ -3,6 +3,7 @@ $(function(){
 	$(".close-ico").click(closeBox)
 	$(".wap-navlist").click(wapList)
 	$("#search-but").click(function(){window.location.href="screen.php?search="+$("#title-screen-box input").val()})
+	$('#title-screen-box input').keydown(function(e){if(e.keyCode==13){window.location.href="screen.php?search="+$("#title-screen-box input").val()}})
 })
 
 function showNews(){
