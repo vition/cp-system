@@ -126,7 +126,7 @@
 		//}
 		
 		//echo $query;
-		$everyPage=4;
+		$everyPage=20;
 		$countResult=$global->query($query);
 		$count=$countResult->num_rows;
 		$srecord=($_POST["row"]-1)*$everyPage;
