@@ -1,6 +1,6 @@
 $(function(){
 	
-	showList(0);
+	showList(1);
 	$("#search-but").click(function(){showList(0)})
 	//autoSearch()
 	$(".search-ico").mouseenter(showCondition)
