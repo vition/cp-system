@@ -15,8 +15,10 @@
 	$newResult=$global->query("SELECT * FROM `projects` ORDER BY `date` DESC LIMIT 0,8");
 	$newsResult=$global->query("SELECT * FROM `news` ORDER BY `time` DESC LIMIT 0,5  ");
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
 	<title><?php echo $global->getoption("webname");?></title>
+	<link rel="shortcut icon" href="favicon.ico">
 	<meta name="Description" content="<?php echo $global->getoption("description");?>">
 	<meta name="Keywords" content="<?php echo $global->getoption("keywords");?>">
 	<meta http-equiv="X-UA-Compatible" content="IE=10">
