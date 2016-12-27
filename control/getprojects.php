@@ -145,21 +145,27 @@
 		<?php
 		}
 		
-		$ep=8;
+		$ep=5;
 		//$pp=ceil((ceil($count/$everyPage))/5);
 		$pd=ceil($_POST["row"]/$ep);
 		$allPage=ceil($count/$everyPage);
 		$sp=$pd*$ep-$ep+1;
-		if($_POST["row"]==$pd*$ep){
-			if(($sp+floor($ep/2))<$allPage){
-				$sp+=floor($ep/2);
+		if($_POST["row"]==$allPage){
+			if(($sp-$ep)>0){
+				$sp=$allPage-$ep+1;
 			}
-		}else if($_POST["row"]==$sp && $sp!=1){
+		}else{
+			if($_POST["row"]==$pd*$ep){
+				if(($sp+floor($ep/2))<$allPage){
+					$sp+=floor($ep/2);
+				}
+			}else if($_POST["row"]==$sp && $sp!=1){
 			if(($sp-floor($ep/2))>0){
 				$sp-=floor($ep/2);
 			}
-			
 		}
+		}
+		 
 		?>
 		<div class="page-div"><span> 共 <?php echo $allPage; ?> 页 <?php echo $count; ?> 条数据 </span>
 		<span>
