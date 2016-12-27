@@ -7,8 +7,8 @@
 	.page-div{height:25px;line-height:25px;background:#31A2D9;position:fixed;bottom:0;width:100%;left:0;text-align:center;color:#ffffff;font-size: 0.8em;}
 	.page-div span,.page-div a{color: #FFFFFF;}
 	.page-div a{cursor:pointer;padding:0 5px;}
-	.page-div a:hover{text-shadow:#0066B2 1px 0 0,#0066B2 0 1px 0,#0066B2 -1px 0 0,#0066B2 0 -1px 0;}
-	.pactiv{text-shadow:#FFFFFF 1px 0 0,#FFFFFF 0 1px 0,#FFFFFF -1px 0 0,#FFFFFF 0 -1px 0;color:#000000!important;}
+	.page-div a:hover{border:1px solid #31A2D9;color:#31A2D9!important;background:#ffffff;}
+	.pactiv{border:1px solid #31A2D9;color:#31A2D9!important;background:#ffffff;}
 }
 @media screen and (min-width: 441px) {
 	.condition-box{	width:918px;padding:10px 20px;background:#FFFFFF;border:1px solid #31A2D9;position:absolute;top:0;left:50%;	margin-left:-480px;	display:none;}
@@ -18,9 +18,9 @@
 	.screen-item{margin:19px 30px;border:1px solid #ffffff;color:#31A2D9;display: inline-block;}
 	.page-div{color: #31A2D9;width: 960px;text-align: center;height: 30px;clear: left;font-weight: bold;font-size: 1.2em;padding-top: 30px;}
 	.page-div span,.page-div a{color: #31A2D9;}
-	.page-div a{cursor:pointer;padding:0 5px;}
-	.page-div a:hover{text-shadow:#31A2D9 1px 0 0,#31A2D9 0 1px 0,#31A2D9 -1px 0 0,#31A2D9 0 -1px 0;color:#ffffff;}
-	.pactiv{text-shadow: #31A2D9 1px 0 0,#31A2D9 0 1px 0,#31A2D9 -1px 0 0,#31A2D9 0 -1px 0;color:#ffffff!important;}
+	.page-div a{cursor:pointer;padding:0 5px;display:inline-block;}
+	.page-div a:hover{border:1px solid #31A2D9;color:#ffffff!important;background:#31A2D9;}
+	.pactiv{border:1px solid #31A2D9;color:#ffffff!important;background:#31A2D9;}
 }
 @charset "utf-8";
 
