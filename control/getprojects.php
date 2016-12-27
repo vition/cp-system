@@ -173,7 +173,7 @@
 			<?php for($p=$sp;$p<$sp+$ep;$p++){
 			if($p<=ceil($count/$everyPage)){
 				if($_POST["row"]==$p){
-					echo "<a class='go-page activ' data-page='{$p}'>{$p}</a>";
+					echo "<a class='go-page pactiv' data-page='{$p}'>{$p}</a>";
 				}else{
 					echo "<a class='go-page' data-page='{$p}'>{$p}</a>";
 				}
