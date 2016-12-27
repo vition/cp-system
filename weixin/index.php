@@ -25,6 +25,7 @@
 	}
 	if(isset($_GET["cancel"])){
 		if($weixin->unbing($_GET["cancel"])=="success"){
+			$global->gotopage($global->getoption("weburl"));
 			$user->ulog($_GET["cancel"],"解绑了微信ID",$_GET);
 			$username= false;
 			$wxId=$_GET["wxid"];
