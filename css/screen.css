@@ -8,6 +8,7 @@
 	.page-div span,.page-div a{color: #FFFFFF;}
 	.page-div a{cursor:pointer;padding:0 5px;}
 	.page-div a:hover{text-shadow:#0066B2 1px 0 0,#0066B2 0 1px 0,#0066B2 -1px 0 0,#0066B2 0 -1px 0;}
+	.activ{text-shadow:#FFFFFF 1px 0 0,#FFFFFF 0 1px 0,#FFFFFF -1px 0 0,#FFFFFF 0 -1px 0;color:#000000!important;}
 }
 @media screen and (min-width: 441px) {
 	.condition-box{	width:918px;padding:10px 20px;background:#FFFFFF;border:1px solid #31A2D9;position:absolute;top:0;left:50%;	margin-left:-480px;	display:none;}
@@ -19,6 +20,7 @@
 	.page-div span,.page-div a{color: #31A2D9;}
 	.page-div a{cursor:pointer;padding:0 5px;}
 	.page-div a:hover{text-shadow:#31A2D9 1px 0 0,#31A2D9 0 1px 0,#31A2D9 -1px 0 0,#31A2D9 0 -1px 0;color:#ffffff;}
+	.activ{text-shadow: #31A2D9 1px 0 0,#31A2D9 0 1px 0,#31A2D9 -1px 0 0,#31A2D9 0 -1px 0;color:#ffffff!important;}
 }
 @charset "utf-8";
 

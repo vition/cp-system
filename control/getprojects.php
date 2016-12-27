@@ -172,7 +172,12 @@
 			<a class='go-page' data-page='1'>首页</a>
 			<?php for($p=$sp;$p<$sp+$ep;$p++){
 			if($p<=ceil($count/$everyPage)){
-				echo "<a class='go-page' data-page='{$p}'>{$p}</a>";
+				if($_POST["row"]==$p){
+					echo "<a class='go-page activ' data-page='{$p}'>{$p}</a>";
+				}else{
+					echo "<a class='go-page' data-page='{$p}'>{$p}</a>";
+				}
+				
 			}
 		}?>
 			<a class='go-page' data-page='<?php echo $allPage;?>'>尾页</a>

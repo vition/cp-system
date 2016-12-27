@@ -1,7 +1,7 @@
 $(function(){
 	
 	showList(1);
-	$("#search-but").click(function(){showList(0)})
+	$("#search-but").click(function(){showList(1)})
 	//autoSearch()
 	$(".search-ico").mouseenter(showCondition)
 	$(".condition-box").mouseenter(function(){$(this).css("display","block")});
@@ -9,7 +9,7 @@ $(function(){
 	$(".condition-search-div input").bind("input propertychange",function(){searchCondition()})
 	$("#sprice").bind("input propertychange",setPrice)
 	$("#eprice").bind("input propertychange",setPrice)
-	$("#allprice").click(function(){$(this).data("value",1);showList(0);$("#sprice").val(0);$("#eprice").val(0)})
+	$("#allprice").click(function(){$(this).data("value",1);showList(1);$("#sprice").val(0);$("#eprice").val(0)})
 	$(".class-title").click(showclass)
 })
 
@@ -139,7 +139,7 @@ function selectItem(){
 	if(oval==nval){
 		$("#cond-"+condition).val("");
 		searchCondition();
-		showList(0);
+		showList(1);
 	}else{
 		$("#cond-"+condition).val($(this).text());
 		$('.condition-list').html("<span class='condition-item item-active'>"+nval+"</span>");
@@ -147,7 +147,7 @@ function selectItem(){
 		var condClass=$("#cond-class").val();
 		var condPlatform=$("#cond-platform").val();
 		var condPrice=$("#cond-price").val();
-		showList(0);
+		showList(1);
 
 	}
 }
@@ -204,7 +204,7 @@ function setPrice(){
 			$("#sprice").val(ep-1)
 		}
 	}
-	showList(0)
+	showList(1)
 }
 //查找分类
 function showclass(){
@@ -227,7 +227,7 @@ function showclass(){
 		success:function(data){
 			$(".sel-"+thisclass+" .class-name").html(data)
 			$(".class-item").click(setClass)
-			showList(0);
+			showList(1);
 			//$(".go-page").click(function(){showList($(this).data("page"))})
 		}
 	})
@@ -237,6 +237,6 @@ function setClass(){
 	var thisClass=$(this).parent().prev().data("name")
 	$(this).parent().html("<span class='class-item activ'>"+$(this).text()+"</span>");
 	$("#cond-"+thisClass).val($(this).text());
-	showList(0)
+	showList(1)
 	
 }
