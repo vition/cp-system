@@ -9,10 +9,19 @@
 		//验证
 		function verify($url=""){
 			
-			if(isset($_SESSION["cplogin"])){
+			if(isset($_SESSION["cplogin"]) && $this->check_user($_SESSION["username"])){
 				return "success";
 			}else{
 				return "error";
+			}
+		}
+		function check_user($userName){
+			$userQuery="SELECT `id` FROM `user` WHERE `username`='{$userName}'";
+			$userResult=$this->mydb->query($userQuery);
+			if($userResult->num_rows>0){
+				return true;
+			}else{
+				return false;
 			}
 		}
 		//获取potion
