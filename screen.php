@@ -49,6 +49,7 @@
 		<div id="screen-box">
 			<span class="screen-item"><input type="text" value="分类" readonly="readonly" ><span class="search-ico" data-value="class" ></span></span>
 			<span class="screen-item"><input type="text" value="平台" readonly="readonly" ><span class="search-ico" data-value="platform" ></span></span>
+			<span class="screen-item"><input type="text" value="播出时间" readonly="readonly" ><span class="search-ico" data-value="broadcast" ></span></span>
 			<span class="screen-item"><input type="text" value="刊例价" readonly="readonly" ><span class="search-ico" data-value="price" ></span></span>
 			<span class="screen-item"><input type="text" value="推荐" readonly="readonly" ><span class="search-ico" data-value="pushed" ></span></span>
 		</div>
@@ -72,8 +73,12 @@
 		
 		<input class="multiple" id="cond-platform" type="hidden" />
 		<input class="multiple" id="cond-price" type="hidden" />
+		<input class="multiple" id="cond-broadcast" type="hidden" />
 		<input class="multiple" id="cond-pushed" value="<?php echo $pushed;?>" type="hidden" />
 		<input class="multiple" id="cond-tags" value="<?php echo $tags;?>" type="hidden" />
+		<div class="broadcast-box">
+			<div><span class="broadcast-quick broadcast-quick-active">所有</span><span class="broadcast-quick">Q1</span><span class="broadcast-quick">Q2</span><span class="broadcast-quick">Q3</span><span class="broadcast-quick">Q4</span><span class="broadcast-quick">季播</span><span class="broadcast-quick">全年</span><span><input class="broadcast-custom" type="text" /></span></div>
+		</div>
 	</div>
 </div>
 <?php require_once('footer.php');?>
