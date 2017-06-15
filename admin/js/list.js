@@ -43,6 +43,7 @@ function search(){
 function getPlatform(){
 
 }
+//删除IP
 function delP(){
 	pdata["type"]="del";
 	var selCon=$(".p-select");
@@ -68,6 +69,8 @@ function delP(){
 		alert("没有选择项目")
 	}
 }
+//
+
 //获取对象属性数量
 function objLength(o){
 	var l=0;

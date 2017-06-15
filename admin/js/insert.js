@@ -68,6 +68,11 @@ function insert(){
 	if($("#projecid").val()!=0){
 		indata["id"]=$("#projecid").val();
 	}
+	if($("#state").is(":checked")){
+		indata["state"]=0
+	}else{
+		indata["state"]=1
+	}
 	indata["wx"]=$("#push-wx").data("pushwx");
 	$("#wait-box").html('<span class="wait-image">项目建档中，请等待……</span>');
 	$("#wait-box").css("display","block");
@@ -78,7 +83,7 @@ function insert(){
 		dataType:"html",
 		success:function (data){
 			$("#wait-box").css("display","none");
-			alert(data)
+			// alert(data)
 		}
 　　});
 	

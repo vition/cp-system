@@ -23,8 +23,10 @@
 		}
 		$buttonName="新增项目";
 		$protype="insert";
+		$array["state"]=1;
 		$projectid=0;
 	}
+	// print_r($array);
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 	<title><?php echo $global->getoption("webname");?> 管理后台-IP编辑界面</title>
@@ -65,6 +67,7 @@
 			<li><span class="data-input-tit">封面</span><span><input type="text" id="cover"  class="data-input" value="<?php echo $array["cover"]; ?>" /></span></li>
 			<li><span class="data-input-tit">PDF文件</span><span><input type="text" id="pdfname"  class="data-input" value="<?php echo $array["pdfname"]; ?>" /></span></li>
 			<li><span class="data-input-tit">首页推送</span><?php if($array["pushed"]==1){echo '<span id="push-home" class="but-select">求推送</span>';}else{ echo '<span id="push-home" class="but-no-select">不推送</span>';} ?><input id="pushed" type="hidden" class="data-input" value="<?php echo $array["pushed"]; ?>"/><span class="data-input-tit">微信推送</span><span id="push-wx" class="but-no-select" data-pushwx=false>不推送</span></li>
+			<li><span class="data-input-tit">状态</span><span><input id="state" type="checkbox" <?php if($array["state"]<=0){echo "checked";}?> />&nbsp;已过期</span></li>
 		</ul>
 		<div id="progressNumber"></div>
 		<div><textarea id="content" name="content" class="data-input" style="width:700px;height:300px;resize:none;">
@@ -80,7 +83,6 @@
 		<span class="v-search-group"><span class="v-search-title" id="clear-user">搜索</span><input id="search-user" class="p-info" autocomplete="off" type="text"></span>
 		<div id="user-list"><ul></ul></div>
 	</div>
-	
 		<div id="batch-box">
 			<div class="loadframe">
 				<input type="file" id="batch-file"  accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" /><span class="close-ico" name="batch-box" ></span>

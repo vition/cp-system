@@ -21,7 +21,7 @@
 			<span class="v-search-group"><span class="v-search-title">IP名称</span><input id="title" class="p-info" autocomplete="off" type="text"></span><span class="v-search-group"><span class="v-search-title">发布平台</span><input id="platform" class="p-info" autocomplete="off" type="text"></span><span class="v-search-group"><span class="v-search-title">核心</span><input id="core" class="p-info" autocomplete="off" type="text"></span>
 		</div>
 		<div id="datalist"></div>
-		<div class="user-con"><span class="but3 bg0 clw fs4 br3" id="p-del">删除</span></div>
+		<div class="user-con"><span class="but3 bg0 clw fs4 br3" id="p-del">删除</span><span class="but3 bg1 clw fs4 br3" id="p-expired">过期</span></div>
 	</div>
 </body>
 </html>

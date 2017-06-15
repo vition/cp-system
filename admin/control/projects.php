@@ -147,3 +147,25 @@
 	}
 	
 ?>
+<input value="请选择字段" id="key">
+<ul class='key-level'>
+	<li>simple</li>
+	<li>complex</li>
+</ul>
+点击 key 后弹出 key-level
+点击 complex 后弹出一下
+<ul class='key-level'>
+	<li>cc</li>
+	<li>test</li>
+</ul>
+同时$(".key-level").eq(0).css("display","none");其实eq(0)应该是根据当前的节点来判断是第几个
+点击test的时候
+$(this).parent().css("display","none");隐藏当前父节点，或者直接remove
+$(".key-level").eq(0).css("display","block");显示 class key-level的第一个
+
+
+
+
+
+
+
