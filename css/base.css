@@ -332,3 +332,20 @@ li{
 	background:#5FAFE4;
 	color:#FFFFFF;
 }
+/*过期项目显示*/
+.state-box{
+	position: absolute;
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	background-color: rgba(0,0,0,0.3);
+	z-index: 1;
+}
+.state-box span{
+	display: inline-block;
+	position: relative;
+	top: 45%;
+	font-size: 2em!important;
+	color: #ffffff!important;
+}
