@@ -25,7 +25,7 @@
 	.base-title{width:120px;text-align:right;display:inline-block;}
 	.base-info span{display:inline-block;overflow:hidden;}
 	.details-info{text-align:left;border-bottom:1px dashed #CCCCCC;padding:20px 80px;font-size:0.9em;}
-	.details-info li{height:50px;line-height: 50px;}
+	.details-info li{height:40px;line-height: 40px;}
 	.content-info{text-align:left;padding:30px 80px;font-size:0.9em;}
 	.details-info p{	float:left;	width:550px;}
 	#create-feedback{height: 30px;line-height: 30px;float: left;padding: 2px 4px;margin: 22px 45px;cursor: pointer;}
@@ -50,6 +50,7 @@ span{
 }
 .cover-span{
 	float:left;
+	position: relative;
 }
 
 

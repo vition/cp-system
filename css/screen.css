@@ -1,5 +1,5 @@
 ﻿@media screen and (max-width: 440px) {
-	.condition-box{width:88%;padding:10px 20px;background:#FFFFFF;border:1px solid #31A2D9;position:absolute;display:none;}
+	.condition-box{width:88%;padding:10px 20px;background:#FFFFFF;border:1px solid #31A2D9;position:absolute;display:none;z-index:2;}
 	.condition-search-div input{width:80%;}
 	.condition-search-div span{width:20%}
 	#screen-box{height:80px;background:#31A2D9;	margin-bottom:10px;	border-radius:4px;}
@@ -11,7 +11,7 @@
 	.pactiv{border:1px solid #31A2D9;color:#31A2D9!important;background:#ffffff;}
 }
 @media screen and (min-width: 441px) {
-	.condition-box{	width:918px;padding:10px 20px;background:#FFFFFF;border:1px solid #31A2D9;position:absolute;top:0;left:50%;	margin-left:-480px;	display:none;}
+	.condition-box{	width:918px;padding:10px 20px;background:#FFFFFF;border:1px solid #31A2D9;position:absolute;top:0;left:50%;	margin-left:-480px;	display:none;z-index:2;}
 	.condition-search-div input{width:95%;}
 	.condition-search-div span{width:5%}
 	#screen-box{height:60px;line-height:60px;background:#31A2D9;margin-bottom:10px;	border-radius:4px;}

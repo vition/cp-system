@@ -16,6 +16,13 @@
 				
 ?>				<ul class="post big-post">
 					<div class="cover" cover-text="<?php echo $projects["title"];?>" >
+						<?php
+							if($projects["state"]<=0){
+								?>
+									<div class="state-box"><span>已过期</span></div>
+								<?php
+							}
+						?>
 						<a href="page.php?id=<?php echo $projects["id"];?>" hidefocus="true" target="_blank"><img alt="<?php echo $projects["title"];?>" style="display: block;" src="<?php echo $global->getoption("weburl").$projects["cover"];?>"><div class="overlay" style="display: none;"><?php echo $projects["title"];?><span style="color: rgb(255, 0, 153);"></span></div></a>
 					</div>
 					<li><label>项目名称 / </label><a href="page.php?id=<?php echo $projects["id"];?>" title="<?php echo $projects["title"];?>" hidefocus="true" class="nickname" target="_blank"><?php echo $global->seizeStr($projects["title"],36);?></a></li>
@@ -135,6 +142,13 @@
 		?>
 		<ul class="post big-post">
 			<div class="cover" cover-text="" cover-girl-text="">
+				<?php
+					if($projects["state"]<=0){
+						?>
+							<div class="state-box"><span>已过期</span></div>
+						<?php
+					}
+				?>
 				<a href="page.php?id=<?php echo $projects["id"];?>" hidefocus="true" target="_blank"><img alt="" style="display: block;" src="<?php if($projects["cover"]==""){ echo $global->getoption("weburl")."images/default.png";}else{ echo $global->getoption("weburl").$projects["cover"];}?>"><div class="overlay" style="display: none;"><span style="color: rgb(255, 0, 153);"></span></div></a>
 				
 			</div>

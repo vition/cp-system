@@ -50,7 +50,15 @@
 	<div></div>
 	<div id="project-info">
 		<div class="base-info">
-			<span class="cover-span"><img src="<?php if($array["cover"]==""){ echo $global->getoption("weburl")."images/default.png";}else{ echo $global->getoption("weburl").$array["cover"];}?>"></span>
+			<span class="cover-span">
+			<?php
+				if($array["state"]<=0){
+					?>
+						<div class="state-box"><span>已过期</span></div>
+					<?php
+				}
+			?>
+			<img src="<?php if($array["cover"]==""){ echo $global->getoption("weburl")."images/default.png";}else{ echo $global->getoption("weburl").$array["cover"];}?>"></span>
 			<span class="base-info-list">
 				<ul>
 					<input id="pid" type="hidden" value="<?php echo $array["id"];?>" />
@@ -104,8 +112,8 @@
 			<?php echo $global->de_quotes($array["content"]);?>
 		</div>
 		<?php if($array["pdfname"]!=""){?>
-			<div style="margin:10px;"><span class="show-pdf-button" data-boxstate=0 data-pdfname="<?php echo $array["pdfname"];?>">点击查看PDF</span> <span class="down-pdf bg9 clw fs5 br3" data-pdfname="<?php echo $array["pdfname"];?>">下载本PDF</span></div>
-			<p class="wap-pdf-msg">注意：部分手机可能无法在线观看PDF！点击会提示下载此PDF</p>
+			<div style="margin:10px;"><span class="show-pdf-button" data-boxstate=0 data-pdfname="<?php echo $array["pdfname"];?>">点击查看项目方案</span> <span class="down-pdf bg9 clw fs5 br3" data-pdfname="<?php echo $array["pdfname"];?>">下载本项目方案</span></div>
+			<p class="wap-pdf-msg">注意：部分手机可能无法在线观看PDF！点击会提示下载此项目方案</p>
 		<div class="show-pdf"><iframe src=""></iframe></div>
 		<?php }?>
 	</div>
