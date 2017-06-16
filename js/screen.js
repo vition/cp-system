@@ -10,9 +10,11 @@ $(function(){
 	$("#sprice").bind("input propertychange",setPrice)
 	$("#eprice").bind("input propertychange",setPrice)
 	$("#allprice").click(function(){$(this).data("value",1);showList(1);$("#sprice").val(0);$("#eprice").val(0)})
-	$(".class-title").click(showclass)
+	// $(".class-title").click(function(){showclass("")})
 	$(".broadcast-quick").click(broadcast_select)
 	$(".broadcast-custom").bind("input propertychange",broadcast_change)
+	// $(".class-item").on("click",".condition-box",setClass)
+	$(".condition-box").on("click",".class-item",setClass)
 })
 
 function showNews(){
@@ -71,6 +73,7 @@ function showCondition(){
 		$(".condition-search-price").css("display","none")
 		$(".condition-list").css("display","none")
 		$(".broadcast-box").css("display","none")
+		showclass("firstclass")
 	}else if(condition=="price"){
 		$(".condition-search-div").css("display","none")
 		$(".condition-search-price").css("display","block")
@@ -221,17 +224,21 @@ function setPrice(){
 	showList(1)
 }
 //查找分类
-function showclass(){
+function showclass(clsname){
 	var pdata={}
 	pdata["type"]="showclass";
-	var thisclass=$(this).data("name")
+	if(clsname==""){
+		var thisclass=$(this).data("name")
+	}else{
+		var thisclass=clsname
+	}
 	$("#cond-"+thisclass).val("");
 	if(thisclass=="firstclass"){
 		pdata["classname"]="root";
 	}else if(thisclass=="secondclass"){
-		pdata["classname"]=$(".sel-firstclass .class-name .class-item").text();
+		pdata["classname"]=$(".sel-firstclass .class-name .class-item-acive").text();
 	}else{
-		pdata["classname"]=$(".sel-secondclass .class-name .class-item").text();
+		pdata["classname"]=$(".sel-secondclass .class-name .class-item-acive").text();
 	}
 	$.ajax({
 		url:"control/getprojects.php",
@@ -239,9 +246,16 @@ function showclass(){
 		dataType:"html",
 		data:pdata,
 		success:function(data){
-			$(".sel-"+thisclass+" .class-name").html(data)
-			$(".class-item").click(setClass)
+			
+			if($(".class-item-acive").length>0 && thisclass=="firstclass"){
+				
+			}else{
+				$(".sel-"+thisclass+" .class-name").html(data)
+				// $(".class-item").on("click",setClass)
+			}
+			
 			showList(1);
+			//alert(data)
 			//$(".go-page").click(function(){showList($(this).data("page"))})
 		}
 	})
@@ -249,9 +263,27 @@ function showclass(){
 //设置class
 function setClass(){
 	var thisClass=$(this).parent().prev().data("name")
-	$(this).parent().html("<span class='class-item activ'>"+$(this).text()+"</span>");
+	// alert(thisClass)
+	//$(this).parent().html("<span class='class-item activ'>"+$(this).text()+"</span>");
 	$("#cond-"+thisClass).val($(this).text());
+	
+	if(thisClass=="firstclass"){
+		$(this).parent().find(".class-item").removeClass("class-item-acive")
+		$(this).addClass("class-item-acive")
+		showclass("secondclass")
+
+	}else if(thisClass=="secondclass"){
+		$(this).parent().find(".class-item").removeClass("class-item-acive")
+		$(this).addClass("class-item-acive")
+		//alert(thisClass)
+		showclass("threeclass")
+	}else{
+		$(this).parent().find(".class-item").removeClass("class-item-acive")
+		$(this).addClass("class-item-acive")
+	}
+	
 	showList(1)
+	
 	
 }
 //播出时间选中

@@ -118,7 +118,7 @@
 	float:left;
 	padding:3px 10px;
 	font-size:0.9em;
-	cursor:pointer;
+	/*cursor:pointer;*/
 }
 .class-name{
 	width:88%;
