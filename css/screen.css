@@ -148,3 +148,19 @@
 	display:inline-block;
 	width: 100%;
 }
+/*查询播放时间*/
+.broadcast-quick{
+	display:inline-block;
+	margin:5px;
+	background:#999999;
+	color:#ffffff;
+	padding:3px 10px;
+	font-size:0.9em;
+	cursor:pointer;
+}
+.broadcast-quick:hover{
+	background:#31A2D9;
+}
+.broadcast-quick-active{
+	background:#31A2D9;
+}

@@ -11,6 +11,8 @@ $(function(){
 	$("#eprice").bind("input propertychange",setPrice)
 	$("#allprice").click(function(){$(this).data("value",1);showList(1);$("#sprice").val(0);$("#eprice").val(0)})
 	$(".class-title").click(showclass)
+	$(".broadcast-quick").click(broadcast_select)
+	$(".broadcast-custom").bind("input propertychange",broadcast_change)
 })
 
 function showNews(){
@@ -68,21 +70,31 @@ function showCondition(){
 		$(".condition-search-div").css("display","none")
 		$(".condition-search-price").css("display","none")
 		$(".condition-list").css("display","none")
+		$(".broadcast-box").css("display","none")
 	}else if(condition=="price"){
 		$(".condition-search-div").css("display","none")
 		$(".condition-search-price").css("display","block")
 		$(".condition-list").css("display","block")
 		$(".class-sel-box").css("display","none")
+		$(".broadcast-box").css("display","none")
 	}else if(condition=="pushed"){
 		$(".condition-search-div").css("display","none")
 		$(".condition-search-price").css("display","none")
 		$(".condition-list").css("display","block")
 		$(".class-sel-box").css("display","none")
+		$(".broadcast-box").css("display","none")
+	}else if(condition=="broadcast"){
+		$(".condition-search-div").css("display","none")
+		$(".condition-search-price").css("display","none")
+		$(".class-sel-box").css("display","none")
+		$(".condition-list").css("display","none")
+		$(".broadcast-box").css("display","block")
 	}else{
 		$(".condition-search-div").css("display","block")
 		$(".condition-search-price").css("display","none")
 		$(".condition-list").css("display","block")
 		$(".class-sel-box").css("display","none")
+		$(".broadcast-box").css("display","none")
 	}
 	$(".con-sea-input").val("");
 	$(".condition-search-div").data("value",condition);
@@ -169,6 +181,7 @@ function showList(row){
 		searchVal["sprice"]=$("#sprice").val()
 		searchVal["eprice"]=$("#eprice").val()
 	}
+	
 	searchVal["type"]="multiple";
 	$.ajax({
 		url:"control/getprojects.php",
@@ -176,6 +189,7 @@ function showList(row){
 		dataType:"html",
 		data:searchVal,
 		success:function(data){
+			//alert(data)
 			$(".w970").html(data)
 			$(".go-page").click(function(){showList($(this).data("page"))})
 		}
@@ -239,4 +253,22 @@ function setClass(){
 	$("#cond-"+thisClass).val($(this).text());
 	showList(1)
 	
+}
+//播出时间选中
+function broadcast_select(){
+	$(".broadcast-quick").removeClass("broadcast-quick-active");
+	$(this).addClass("broadcast-quick-active");
+	if($(this).text()==="所有"){
+		$(".broadcast-custom").val("")
+		$("#cond-broadcast").val("")
+	}else{
+		$(".broadcast-custom").val($(this).text())
+		$("#cond-broadcast").val($(this).text())
+	}
+	showList(1);
+}
+//播出时间改变
+function broadcast_change(){
+	$("#cond-broadcast").val($(this).val())
+	showList(1);
 }
