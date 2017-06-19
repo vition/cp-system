@@ -28,6 +28,7 @@
 	<script type="text/javascript" src="js/jui.js?<?php random();?>"></script>
 	<script type="text/javascript" src="js/mokoutil.js?<?php random();?>"></script>
 	<script type="text/javascript" src="js/slider.js?<?php random();?>"></script>
+	<script type="text/javascript" src="js/jquery.js?<?php random();?>"></script>
 	<script type="text/javascript" src="js/index.js?<?php random();?>"></script>
 	<script>
 	</script>
@@ -73,7 +74,7 @@
 	
 		<div class="w970">
 				<span class="news-box">
-				<div class="news-head">系统公告</div>
+				<div class="news-head">系统公告<span  class="close-box">X</span></div>
 					<ul>
 					<?php while($newsArray=$newsResult->fetch_array(1)){?>
 						<li><div><span class="news-title"><a class="news-href" data-newsid="<?php echo $newsArray["id"];?>" href="javascript:void(0)"><?php echo $global->seizeStr($newsArray["title"],30);?></a></span></div></li>
